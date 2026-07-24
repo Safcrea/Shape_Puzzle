@@ -79,9 +79,9 @@ namespace ToyPuzzle
                 issues.Add(Error("level.number", "Level number must be positive."));
             }
 
-            if (level.boardWidth < 5 || level.boardWidth > 8 || level.boardHeight < 5 || level.boardHeight > 8)
+            if (level.boardWidth < 5 || level.boardWidth > 9 || level.boardHeight < 5 || level.boardHeight > 9)
             {
-                issues.Add(Error("board.size", "Board width and height must each be between 5 and 8."));
+                issues.Add(Error("board.size", "Board width and height must each be between 5 and 9."));
             }
 
             if (level.pieces == null || level.pieces.Length == 0)

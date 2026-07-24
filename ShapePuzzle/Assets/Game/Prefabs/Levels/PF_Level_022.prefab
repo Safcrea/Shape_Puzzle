@@ -48,19 +48,20 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_022
     levelNumber: 22
-    displayName: Windmill
-    targetObjectName: Windmill
+    displayName: Level 22 - Teapot
+    targetObjectName: Teapot
     boardWidth: 7
     boardHeight: 7
     difficultyTier: 3
-    scrambleSeed: 175218
+    scrambleSeed: 9434
     paletteId: toy_repeat
-    recommendedMoves: 10
+    recommendedMoves: 9
     pieces:
     - pieceId: red_part_01
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -96,10 +97,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_02
+      displayName: Red Molded Part 2
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -135,10 +137,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: red_part_03
+      displayName: Red Molded Part 3
       shapeType: 1
-      colorId: green
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -174,10 +177,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_01
-      displayName: Yellow Molded Part 1
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
-      colorId: yellow
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -213,10 +217,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: orange_part_01
-      displayName: Orange Molded Part 1
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: orange
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -252,10 +257,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: purple_part_01
-      displayName: Purple Molded Part 1
+    - pieceId: green_part_02
+      displayName: Green Molded Part 2
       shapeType: 1
-      colorId: purple
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -291,10 +297,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_01
-      displayName: Teal Molded Part 1
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
       shapeType: 1
-      colorId: teal
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -330,10 +337,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_02
-      displayName: Teal Molded Part 2
+    - pieceId: yellow_part_02
+      displayName: Yellow Molded Part 2
       shapeType: 1
-      colorId: teal
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -369,48 +377,10 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: cream_part_01
-      displayName: Cream Molded Part 1
-      shapeType: 1
-      colorId: cream
-      footprint:
-      - x: 0
-        y: 0
-      width: 1
-      height: 1
-      logicalPivot:
-        x: 0
-        y: 0
-      visualPivot:
-        x: 0.5
-        y: 0.5
-      customPolygonPoints: []
-      targetPosition:
-        x: 1
-        y: 1
-      targetRotation: 0
-      startingPosition:
-        x: 5
-        y: 5
-      startingRotation: 0
-      allowedRotations: 00000000
-      startsLocked: 0
-      locksWhenCorrect: 1
-      requireExactTargetRotation: 1
-      sortingPriority: 8
-      decorativeStuds: []
-      recessedHoles: []
-      visualOverhang:
-        x: 0
-        y: 0
-      artGeneration:
-        cornerRadius: 0.18
-        bevelSize: 0.08
-        insetPanel: 0
-        styleVariant: separate_color_part
     lockCorrectPiecesByDefault: 1
     hint:
-      message: Read the outer windmill silhouette, then place its repeated details.
+      message: Look at the large reference and place one connected toy part at a
+        time.
       showDirectionalIndicator: 1
     tutorial:
       tutorialId: 
@@ -418,8 +388,8 @@ MonoBehaviour:
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 20
-      rewardId: complete_022
+      softCurrency: 10
+      rewardId: 
     thumbnail:
       scale: 1
       offset:
@@ -427,101 +397,92 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_3
-    - windmill
-    - semantic_parts
-    - multi_cell
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-3
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Sway
   thumbnail: {fileID: 21300000, guid: fb4e8616a7357d24285a137c68f8738e, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 1d016a9de63a7064c85d048cb975de5b, type: 3}
-    sizeInCells: {x: 2.484375, y: 0.765625}
+    sizeInCells: {x: 0.859375, y: 1.2890625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.66741073, y: 0.4375}
-    startingCenterNormalized: {x: 0.47515643, y: 0.91598}
-    sizeNormalized: {x: 0.3549107, y: 0.109375}
+    targetCenterNormalized: {x: 0.2109375, y: 0.5452009}
+    startingCenterNormalized: {x: 0.90955144, y: 0.119912855}
+    sizeNormalized: {x: 0.12276786, y: 0.18415178}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_02
+    sprite: {fileID: 21300000, guid: 5fee0194011c7f24a83cc9d9d95d0776, type: 3}
+    sizeInCells: {x: 2.40625, y: 0.5703125}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.48995537, y: 0.29520088}
+    startingCenterNormalized: {x: 0.19652, y: 0.7504675}
+    sizeNormalized: {x: 0.34375, y: 0.08147322}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_03
+    sprite: {fileID: 21300000, guid: 2231d641f6deb0144b4506eed7cfaa2e, type: 3}
+    sizeInCells: {x: 0.6953125, y: 0.5390625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.49051338, y: 0.70703125}
+    startingCenterNormalized: {x: 0.32466608, y: 0.068484284}
+    sizeNormalized: {x: 0.09933036, y: 0.077008925}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: 0ea7e1104c18f8844890233b13c1e574, type: 3}
-    sizeInCells: {x: 1.6640625, y: 1.546875}
+    sizeInCells: {x: 3.109375, y: 2.0703125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.48828125, y: 0.49776787}
-    startingCenterNormalized: {x: 0.8543729, y: 0.8624086}
-    sizeNormalized: {x: 0.23772322, y: 0.22098215}
+    targetCenterNormalized: {x: 0.4799107, y: 0.47042412}
+    startingCenterNormalized: {x: 0.7552657, y: 0.82651573}
+    sizeNormalized: {x: 0.44419643, y: 0.29575893}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: 0648624beea545b41982f1cc22efb130, type: 3}
-    sizeInCells: {x: 2.9921875, y: 0.765625}
+    sizeInCells: {x: 0.71875, y: 1.375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.36886162, y: 0.7957589}
-    startingCenterNormalized: {x: 0.76330143, y: 0.08402}
-    sizeNormalized: {x: 0.42745537, y: 0.109375}
+    targetCenterNormalized: {x: 0.2689732, y: 0.515625}
+    startingCenterNormalized: {x: 0.9191943, y: 0.34408572}
+    sizeNormalized: {x: 0.102678575, y: 0.19642857}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_02
+    sprite: {fileID: 21300000, guid: a21d3dd83b680794f8941e5cfc136796, type: 3}
+    sizeInCells: {x: 1.5, y: 1.078125}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.7433036, y: 0.56026787}
+    startingCenterNormalized: {x: 0.13437715, y: 0.10544857}
+    sizeNormalized: {x: 0.21428572, y: 0.15401785}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 6e36133ca8ab6914fae87d56c4f8ec9b, type: 3}
-    sizeInCells: {x: 0.7890625, y: 0.7890625}
+    sizeInCells: {x: 1.9765625, y: 0.5}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.546317, y: 0.67689735}
-    startingCenterNormalized: {x: 0.085627146, y: 0.32734466}
-    sizeNormalized: {x: 0.11272322, y: 0.11272322}
+    targetCenterNormalized: {x: 0.49162945, y: 0.640625}
+    startingCenterNormalized: {x: 0.66647214, y: 0.06580571}
+    sizeNormalized: {x: 0.28236607, y: 0.071428575}
     snapDistanceNormalized: 0.055
-  - pieceId: orange_part_01
-    sprite: {fileID: 21300000, guid: 9c037a4dcdf973d4da1f3dc96c42a730, type: 3}
-    sizeInCells: {x: 1.1484375, y: 1.5234375}
+  - pieceId: yellow_part_02
+    sprite: {fileID: 21300000, guid: ebea12b9ecf62a14ca0e4e5f78133b78, type: 3}
+    sizeInCells: {x: 1.3203125, y: 1.0625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.34319195, y: 0.6166295}
-    startingCenterNormalized: {x: 0.88973, y: 0.2876575}
-    sizeNormalized: {x: 0.1640625, y: 0.21763393}
+    targetCenterNormalized: {x: 0.7561384, y: 0.41183037}
+    startingCenterNormalized: {x: 0.12205572, y: 0.8956229}
+    sizeNormalized: {x: 0.18861607, y: 0.15178572}
     snapDistanceNormalized: 0.055
-  - pieceId: purple_part_01
-    sprite: {fileID: 21300000, guid: 4d7d712c4ac5381478786f5f9597908b, type: 3}
-    sizeInCells: {x: 1.5234375, y: 1.5234375}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.7271205, y: 0.6166295}
-    startingCenterNormalized: {x: 0.13598429, y: 0.13598429}
-    sizeNormalized: {x: 0.21763393, y: 0.21763393}
-    snapDistanceNormalized: 0.055
-  - pieceId: teal_part_01
-    sprite: {fileID: 21300000, guid: 16f9fb90955f24f42b80271b0884a097, type: 3}
-    sizeInCells: {x: 1.6640625, y: 1.5234375}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.48828125, y: 0.25837055}
-    startingCenterNormalized: {x: 0.14562714, y: 0.86401576}
-    sizeNormalized: {x: 0.23772322, y: 0.21763393}
-    snapDistanceNormalized: 0.055
-  - pieceId: teal_part_02
-    sprite: {fileID: 21300000, guid: f174cf7a100f66b489448be68bd2624a, type: 3}
-    sizeInCells: {x: 1.4921875, y: 1.4921875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.7248884, y: 0.734933}
-    startingCenterNormalized: {x: 0.37794715, y: 0.13384144}
-    sizeNormalized: {x: 0.21316965, y: 0.21316965}
-    snapDistanceNormalized: 0.055
-  - pieceId: cream_part_01
-    sprite: {fileID: 21300000, guid: 9781705a62782654fb2a7736b700569c, type: 3}
-    sizeInCells: {x: 2.1171875, y: 0.7890625}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.6936384, y: 0.31863838}
-    startingCenterNormalized: {x: 0.17669857, y: 0.67265534}
-    sizeNormalized: {x: 0.30245537, y: 0.11272322}
-    snapDistanceNormalized: 0.055
-  sourceJsonPath: Assets/Game/Data/Levels/Source/level_022_windmill.json
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_022_teapot.json

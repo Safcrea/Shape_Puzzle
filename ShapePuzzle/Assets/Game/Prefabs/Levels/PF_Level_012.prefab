@@ -48,12 +48,12 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_012
     levelNumber: 12
-    displayName: Submarine
-    targetObjectName: Submarine
+    displayName: Level 12 - Umbrella
+    targetObjectName: Umbrella
     boardWidth: 6
     boardHeight: 6
     difficultyTier: 2
-    scrambleSeed: 96028
+    scrambleSeed: 8464
     paletteId: primary
     recommendedMoves: 9
     pieces:
@@ -61,6 +61,7 @@ MonoBehaviour:
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -96,10 +97,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_02
+      displayName: Red Molded Part 2
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -135,10 +137,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_01
-      displayName: Yellow Molded Part 1
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
-      colorId: yellow
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -174,10 +177,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: orange_part_01
-      displayName: Orange Molded Part 1
+    - pieceId: blue_part_02
+      displayName: Blue Molded Part 2
       shapeType: 1
-      colorId: orange
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -213,10 +217,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: purple_part_01
-      displayName: Purple Molded Part 1
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: purple
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -252,10 +257,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_01
-      displayName: Teal Molded Part 1
+    - pieceId: green_part_02
+      displayName: Green Molded Part 2
       shapeType: 1
-      colorId: teal
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -291,10 +297,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: cream_part_01
-      displayName: Cream Molded Part 1
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
       shapeType: 1
-      colorId: cream
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -332,7 +339,8 @@ MonoBehaviour:
         styleVariant: separate_color_part
     lockCorrectPiecesByDefault: 1
     hint:
-      message: Place the main submarine body before its smaller details.
+      message: Look at the large reference and place one connected toy part at a
+        time.
       showDirectionalIndicator: 1
     tutorial:
       tutorialId: 
@@ -340,8 +348,8 @@ MonoBehaviour:
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 15
-      rewardId: complete_012
+      softCurrency: 10
+      rewardId: 
     thumbnail:
       scale: 1
       offset:
@@ -349,81 +357,82 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_2
-    - submarine
-    - semantic_parts
-    - multi_cell
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-2
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Sway
   thumbnail: {fileID: 21300000, guid: 70cd07d1c51eb2f42855b0d340d2cac1, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 5a34d708c6c63df4ab77dbf91bdb5785, type: 3}
-    sizeInCells: {x: 0.515625, y: 1.5625}
+    sizeInCells: {x: 1.578125, y: 1.828125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.77734375, y: 0.69661456}
-    startingCenterNormalized: {x: 0.07277, y: 0.47137666}
-    sizeNormalized: {x: 0.0859375, y: 0.26041666}
+    targetCenterNormalized: {x: 0.3346354, y: 0.6380208}
+    startingCenterNormalized: {x: 0.84223, y: 0.82223}
+    sizeNormalized: {x: 0.26302084, y: 0.3046875}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_02
+    sprite: {fileID: 21300000, guid: 6318fb8601f95674188dc6e500a0eb1a, type: 3}
+    sizeInCells: {x: 0.6484375, y: 0.375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.50846356, y: 0.31770834}
+    startingCenterNormalized: {x: 0.60415125, y: 0.93848}
+    sizeNormalized: {x: 0.108072914, y: 0.0625}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: d1f2602725ab5064586b8cc03db6e121, type: 3}
-    sizeInCells: {x: 1.6796875, y: 1.7421875}
+    sizeInCells: {x: 0.9921875, y: 0.8515625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.42513022, y: 0.7050781}
-    startingCenterNormalized: {x: 0.834105, y: 0.170895}
-    sizeNormalized: {x: 0.2799479, y: 0.2903646}
+    targetCenterNormalized: {x: 0.54622394, y: 0.22070312}
+    startingCenterNormalized: {x: 0.40272376, y: 0.90035504}
+    sizeNormalized: {x: 0.16536458, y: 0.14192708}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_02
+    sprite: {fileID: 21300000, guid: 6d71385781afdce4cbecaf5ce3a38da5, type: 3}
+    sizeInCells: {x: 1.609375, y: 1.890625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.66276044, y: 0.6432292}
+    startingCenterNormalized: {x: 0.16026999, y: 0.18276998}
+    sizeNormalized: {x: 0.26822916, y: 0.31510416}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_01
+    sprite: {fileID: 21300000, guid: b1c7dbeb41688084fbafb4dd0312bfdd, type: 3}
+    sizeInCells: {x: 1.4375, y: 1.109375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.4986979, y: 0.43229166}
+    startingCenterNormalized: {x: 0.14652, y: 0.87973005}
+    sizeNormalized: {x: 0.23958333, y: 0.18489583}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_02
+    sprite: {fileID: 21300000, guid: 4b0823d01d2ce1442acb4a865e99a06b, type: 3}
+    sizeInCells: {x: 0.4140625, y: 0.2890625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.49934897, y: 0.26888022}
+    startingCenterNormalized: {x: 0.064645, y: 0.7226775}
+    sizeNormalized: {x: 0.069010414, y: 0.048177082}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: f2b4155826dafa04096c86bac73bf157, type: 3}
-    sizeInCells: {x: 0.8046875, y: 1.5859375}
+    sizeInCells: {x: 1.984375, y: 2.1875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.6360677, y: 0.7063802}
-    startingCenterNormalized: {x: 0.095895, y: 0.15839499}
-    sizeNormalized: {x: 0.13411458, y: 0.2643229}
+    targetCenterNormalized: {x: 0.45833334, y: 0.66796875}
+    startingCenterNormalized: {x: 0.80973, y: 0.20652}
+    sizeNormalized: {x: 0.33072916, y: 0.36458334}
     snapDistanceNormalized: 0.055
-  - pieceId: orange_part_01
-    sprite: {fileID: 21300000, guid: a3bf3177c666773408f30f0b576a0e81, type: 3}
-    sizeInCells: {x: 0.78125, y: 1.671875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.21614583, y: 0.42708334}
-    startingCenterNormalized: {x: 0.73682165, y: 0.5278942}
-    sizeNormalized: {x: 0.13020833, y: 0.27864584}
-    snapDistanceNormalized: 0.055
-  - pieceId: purple_part_01
-    sprite: {fileID: 21300000, guid: 9aaa4c02130af5d4796820e985234530, type: 3}
-    sizeInCells: {x: 0.8515625, y: 1.671875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.35611978, y: 0.42708334}
-    startingCenterNormalized: {x: 0.7335404, y: 0.83473}
-    sizeNormalized: {x: 0.14192708, y: 0.27864584}
-    snapDistanceNormalized: 0.055
-  - pieceId: teal_part_01
-    sprite: {fileID: 21300000, guid: 65e626ceb05d9e64a9e9ceb71259a8fb, type: 3}
-    sizeInCells: {x: 0.828125, y: 2.5}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.49609375, y: 0.3580729}
-    startingCenterNormalized: {x: 0.90223, y: 0.76848}
-    sizeNormalized: {x: 0.13802083, y: 0.41666666}
-    snapDistanceNormalized: 0.055
-  - pieceId: cream_part_01
-    sprite: {fileID: 21300000, guid: 672de6f356869e14ba412de5cb64933b, type: 3}
-    sizeInCells: {x: 1.703125, y: 1.671875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.70703125, y: 0.42708334}
-    startingCenterNormalized: {x: 0.16776998, y: 0.83473}
-    sizeNormalized: {x: 0.28385416, y: 0.27864584}
-    snapDistanceNormalized: 0.055
-  sourceJsonPath: Assets/Game/Data/Levels/Source/level_012_submarine.json
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_012_umbrella.json

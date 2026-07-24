@@ -9,13 +9,14 @@
     "difficultyTier": 1,
     "scrambleSeed": 48514,
     "paletteId": "primary",
-    "recommendedMoves": 8,
+    "recommendedMoves": 6,
     "pieces": [
         {
             "pieceId": "red_part_01",
             "displayName": "Red Molded Part 1",
             "shapeType": "Square",
             "colorId": "red",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -64,10 +65,11 @@
             }
         },
         {
-            "pieceId": "red_part_02",
-            "displayName": "Red Molded Part 2",
+            "pieceId": "blue_part_01",
+            "displayName": "Blue Molded Part 1",
             "shapeType": "Square",
-            "colorId": "red",
+            "colorId": "blue",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -116,10 +118,11 @@
             }
         },
         {
-            "pieceId": "blue_part_01",
-            "displayName": "Blue Molded Part 1",
+            "pieceId": "blue_part_02",
+            "displayName": "Blue Molded Part 2",
             "shapeType": "Square",
             "colorId": "blue",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -168,10 +171,11 @@
             }
         },
         {
-            "pieceId": "blue_part_02",
-            "displayName": "Blue Molded Part 2",
+            "pieceId": "yellow_part_01",
+            "displayName": "Yellow Molded Part 1",
             "shapeType": "Square",
-            "colorId": "blue",
+            "colorId": "yellow",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -218,110 +222,6 @@
                 "insetPanel": false,
                 "styleVariant": "separate_color_part"
             }
-        },
-        {
-            "pieceId": "yellow_part_01",
-            "displayName": "Yellow Molded Part 1",
-            "shapeType": "Square",
-            "colorId": "yellow",
-            "footprint": [
-                {
-                    "x": 0,
-                    "y": 0
-                }
-            ],
-            "width": 1,
-            "height": 1,
-            "logicalPivot": {
-                "x": 0,
-                "y": 0
-            },
-            "visualPivot": {
-                "x": 0.5,
-                "y": 0.5
-            },
-            "customPolygonPoints": [],
-            "targetPosition": {
-                "x": 4,
-                "y": 0
-            },
-            "targetRotation": 0,
-            "startingPosition": {
-                "x": 1,
-                "y": 5
-            },
-            "startingRotation": 0,
-            "allowedRotations": [
-                0
-            ],
-            "startsLocked": false,
-            "locksWhenCorrect": true,
-            "strictTargetRotation": true,
-            "sortingPriority": 4,
-            "decorativeStuds": [],
-            "recessedHoles": [],
-            "visualOverhang": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "artGenerationParameters": {
-                "cornerRadius": 0.18000000715255738,
-                "bevelSize": 0.07999999821186066,
-                "insetPanel": false,
-                "styleVariant": "separate_color_part"
-            }
-        },
-        {
-            "pieceId": "yellow_part_02",
-            "displayName": "Yellow Molded Part 2",
-            "shapeType": "Square",
-            "colorId": "yellow",
-            "footprint": [
-                {
-                    "x": 0,
-                    "y": 0
-                }
-            ],
-            "width": 1,
-            "height": 1,
-            "logicalPivot": {
-                "x": 0,
-                "y": 0
-            },
-            "visualPivot": {
-                "x": 0.5,
-                "y": 0.5
-            },
-            "customPolygonPoints": [],
-            "targetPosition": {
-                "x": 5,
-                "y": 0
-            },
-            "targetRotation": 0,
-            "startingPosition": {
-                "x": 0,
-                "y": 5
-            },
-            "startingRotation": 0,
-            "allowedRotations": [
-                0
-            ],
-            "startsLocked": false,
-            "locksWhenCorrect": true,
-            "strictTargetRotation": true,
-            "sortingPriority": 5,
-            "decorativeStuds": [],
-            "recessedHoles": [],
-            "visualOverhang": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "artGenerationParameters": {
-                "cornerRadius": 0.18000000715255738,
-                "bevelSize": 0.07999999821186066,
-                "insetPanel": false,
-                "styleVariant": "separate_color_part"
-            }
         }
     ],
     "lockCorrectPiecesByDefault": true,
@@ -354,6 +254,7 @@
         "multi_cell"
     ],
     "designerNotes": "Explicit connected multi-cell Bicycle silhouette at 44% occupancy. Certificate reverses a deterministic valid scramble.",
+    "completionAction": "Bounce",
     "solutionCertificate": [
         {
             "pieceId": "red_part_01",
@@ -364,7 +265,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "red_part_02",
+            "pieceId": "blue_part_01",
             "position": {
                 "x": 1,
                 "y": 0
@@ -372,7 +273,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "blue_part_01",
+            "pieceId": "blue_part_02",
             "position": {
                 "x": 2,
                 "y": 0
@@ -380,25 +281,9 @@
             "rotation": 0
         },
         {
-            "pieceId": "blue_part_02",
-            "position": {
-                "x": 3,
-                "y": 0
-            },
-            "rotation": 0
-        },
-        {
             "pieceId": "yellow_part_01",
             "position": {
-                "x": 4,
-                "y": 0
-            },
-            "rotation": 0
-        },
-        {
-            "pieceId": "yellow_part_02",
-            "position": {
-                "x": 5,
+                "x": 3,
                 "y": 0
             },
             "rotation": 0

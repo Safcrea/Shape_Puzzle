@@ -16,19 +16,20 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_027
     levelNumber: 27
-    displayName: Cactus
-    targetObjectName: Cactus
-    boardWidth: 6
-    boardHeight: 6
+    displayName: Level 27 - Fire Truck
+    targetObjectName: Fire Truck
+    boardWidth: 8
+    boardHeight: 7
     difficultyTier: 3
-    scrambleSeed: 214813
+    scrambleSeed: 9919
     paletteId: toy_repeat
-    recommendedMoves: 9
+    recommendedMoves: 11
     pieces:
     - pieceId: red_part_01
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -46,8 +47,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 5
-        y: 5
+        x: 7
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -64,10 +65,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_02
+      displayName: Red Molded Part 2
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -85,8 +87,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 4
-        y: 5
+        x: 6
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -103,10 +105,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: red_part_03
+      displayName: Red Molded Part 3
       shapeType: 1
-      colorId: green
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -124,8 +127,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 3
-        y: 5
+        x: 5
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -142,10 +145,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_01
-      displayName: Yellow Molded Part 1
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
-      colorId: yellow
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -163,8 +167,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 2
-        y: 5
+        x: 4
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -181,10 +185,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: orange_part_01
-      displayName: Orange Molded Part 1
+    - pieceId: blue_part_02
+      displayName: Blue Molded Part 2
       shapeType: 1
-      colorId: orange
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -202,8 +207,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 1
-        y: 5
+        x: 3
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -220,10 +225,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: purple_part_01
-      displayName: Purple Molded Part 1
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: purple
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -241,8 +247,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 0
-        y: 5
+        x: 2
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -259,10 +265,91 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_01
-      displayName: Teal Molded Part 1
+    - pieceId: green_part_02
+      displayName: Green Molded Part 2
       shapeType: 1
-      colorId: teal
+      colorId: green
+      interchangeableGroupId: 
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 6
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 1
+        y: 6
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 6
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
+      shapeType: 1
+      colorId: yellow
+      interchangeableGroupId: 
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 7
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 6
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: yellow_part_02
+      displayName: Yellow Molded Part 2
+      shapeType: 1
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -280,14 +367,14 @@ MonoBehaviour:
         y: 1
       targetRotation: 0
       startingPosition:
-        x: 5
-        y: 4
+        x: 7
+        y: 5
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
       locksWhenCorrect: 1
       requireExactTargetRotation: 1
-      sortingPriority: 6
+      sortingPriority: 8
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
@@ -298,10 +385,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: cream_part_01
-      displayName: Cream Molded Part 1
+    - pieceId: yellow_part_03
+      displayName: Yellow Molded Part 3
       shapeType: 1
-      colorId: cream
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -319,14 +407,14 @@ MonoBehaviour:
         y: 1
       targetRotation: 0
       startingPosition:
-        x: 4
-        y: 4
+        x: 6
+        y: 5
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
       locksWhenCorrect: 1
       requireExactTargetRotation: 1
-      sortingPriority: 7
+      sortingPriority: 9
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
@@ -339,7 +427,8 @@ MonoBehaviour:
         styleVariant: separate_color_part
     lockCorrectPiecesByDefault: 1
     hint:
-      message: Read the outer cactus silhouette, then place its repeated details.
+      message: Look at the large reference and place one connected toy part at a
+        time.
       showDirectionalIndicator: 1
     tutorial:
       tutorialId: 
@@ -347,8 +436,8 @@ MonoBehaviour:
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 20
-      rewardId: complete_027
+      softCurrency: 10
+      rewardId: 
     thumbnail:
       scale: 1
       offset:
@@ -356,8 +445,9 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_3
-    - cactus
-    - semantic_parts
-    - multi_cell
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-3
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Spin

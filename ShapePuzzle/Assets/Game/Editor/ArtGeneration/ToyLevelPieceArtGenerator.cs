@@ -10,15 +10,25 @@ namespace ToyPuzzle.Editor
     public static class ToyLevelPieceArtGenerator
     {
         public const string OutputRoot = "Assets/Game/Art/Generated/LevelPieces";
+        public const string MaskRoot = "Assets/Game/Art/Generated/PieceMasks";
         private const string PrefabCatalogPath = "Assets/Game/Data/Levels/Generated/LevelPrefabCatalog.asset";
         private const int PixelsPerCell = 128;
         private const int FirstGeneratedLevel = 1;
-        private const int LastGeneratedLevel = PuzzleLayoutConstants.TotalPlayableLevels;
         private const float ArtworkFill = 0.70f;
         private const float StartMargin = 0.012f;
         private const int CandidateGridSize = 25;
 
         private static readonly string[] ColorNames = { "red", "blue", "green", "yellow", "orange", "purple", "teal", "cream" };
+        private static readonly Color[] VibrantPalette =
+        {
+            new Color(0.95f, 0.12f, 0.03f),
+            new Color(0.02f, 0.48f, 0.78f),
+            new Color(0.35f, 0.68f, 0.04f),
+            new Color(1f, 0.62f, 0.02f),
+            new Color(1f, 0.43f, 0.05f),
+            new Color(0.60f, 0.36f, 0.80f),
+            new Color(0.12f, 0.69f, 0.62f)
+        };
 
         private sealed class PartRegion
         {
@@ -33,22 +43,40 @@ namespace ToyPuzzle.Editor
             public Sprite Sprite;
         }
 
-        [MenuItem("Tools/Toy Puzzle/Generate 35 Separate Color Parts")]
+        [MenuItem("Tools/Toy Puzzle/Generate Campaign Separate Color Parts")]
         private static void GenerateFirstTenMenu()
         {
             GenerateFirstTen();
         }
 
+        [MenuItem("Tools/Toy Puzzle/Regenerate Campaign Masks And Art")]
+        private static void RegenerateCampaignMenu()
+        {
+            RegenerateCampaignMasksAndArt();
+        }
+
         public static int GenerateFirstTen()
         {
+            return GenerateCampaign(false);
+        }
+
+        public static int RegenerateCampaignMasksAndArt()
+        {
+            return GenerateCampaign(true);
+        }
+
+        private static int GenerateCampaign(bool forceRegenerateMasks)
+        {
             EnsureFolder(OutputRoot);
+            EnsureFolder(MaskRoot);
             LevelPrefabCatalog catalog = AssetDatabase.LoadAssetAtPath<LevelPrefabCatalog>(PrefabCatalogPath);
             if (catalog == null) throw new InvalidOperationException("Level prefab catalog is missing at " + PrefabCatalogPath + ".");
+            int lastGeneratedLevel = catalog.Count;
 
             var artworkByLevel = new Dictionary<int, PuzzlePieceArtwork[]>();
             var pieceIdsByLevel = new Dictionary<int, string[]>();
             int pieceCount = 0;
-            for (int levelNumber = FirstGeneratedLevel; levelNumber <= LastGeneratedLevel; levelNumber++)
+            for (int levelNumber = FirstGeneratedLevel; levelNumber <= lastGeneratedLevel; levelNumber++)
             {
                 PuzzleLevelPrefab prefabData = catalog.FindByNumber(levelNumber);
                 if (prefabData == null || prefabData.Level == null)
@@ -57,7 +85,17 @@ namespace ToyPuzzle.Editor
                     throw new InvalidOperationException("Level " + levelNumber + " does not have a thumbnail sprite.");
 
                 string thumbnailPath = AssetDatabase.GetAssetPath(prefabData.Thumbnail);
-                PuzzlePieceArtwork[] artwork = GenerateLevel(prefabData.Level, thumbnailPath);
+                PuzzlePieceArtwork[] artwork;
+                try
+                {
+                    artwork = GenerateLevel(prefabData.Level, thumbnailPath, forceRegenerateMasks);
+                }
+                catch (Exception exception)
+                {
+                    throw new InvalidOperationException(
+                        "Level " + levelNumber + " (" + prefabData.Level.targetObjectName + ") art generation failed: " + exception.Message,
+                        exception);
+                }
                 artworkByLevel.Add(levelNumber, artwork);
                 var ids = new string[artwork.Length];
                 for (int i = 0; i < artwork.Length; i++) ids[i] = artwork[i].pieceId;
@@ -69,7 +107,7 @@ namespace ToyPuzzle.Editor
             catalog = AssetDatabase.LoadAssetAtPath<LevelPrefabCatalog>(PrefabCatalogPath);
             if (catalog == null) throw new InvalidOperationException("Level prefab catalog disappeared after rebuilding separated-part definitions.");
 
-            for (int levelNumber = FirstGeneratedLevel; levelNumber <= LastGeneratedLevel; levelNumber++)
+            for (int levelNumber = FirstGeneratedLevel; levelNumber <= lastGeneratedLevel; levelNumber++)
             {
                 PuzzleLevelPrefab prefabData = catalog.FindByNumber(levelNumber);
                 if (prefabData == null) throw new InvalidOperationException("Rebuilt level " + levelNumber + " is missing from the prefab catalog.");
@@ -90,11 +128,11 @@ namespace ToyPuzzle.Editor
             }
 
             AssetDatabase.SaveAssets();
-            Debug.Log("Generated and assigned " + pieceCount + " separate molded-color gameplay parts across " + LastGeneratedLevel + " levels.");
+            Debug.Log("Generated and assigned " + pieceCount + " separate molded-color gameplay parts across " + lastGeneratedLevel + " levels.");
             return pieceCount;
         }
 
-        private static PuzzlePieceArtwork[] GenerateLevel(LevelDefinition level, string thumbnailPath)
+        private static PuzzlePieceArtwork[] GenerateLevel(LevelDefinition level, string thumbnailPath, bool forceRegenerateMask)
         {
             string fullThumbnailPath = Path.GetFullPath(thumbnailPath);
             if (!File.Exists(fullThumbnailPath)) throw new FileNotFoundException("Thumbnail source file is missing.", fullThumbnailPath);
@@ -106,6 +144,7 @@ namespace ToyPuzzle.Editor
                     throw new InvalidOperationException("Could not decode thumbnail " + thumbnailPath + ".");
                 Color32[] sourcePixels = source.GetPixels32();
                 bool[] externalBackground = FloodExternalBackground(sourcePixels, source.width, source.height);
+                RecoverForegroundEdges(sourcePixels, externalBackground, source.width, source.height);
                 RectInt sourceBounds = FindForegroundBounds(externalBackground, source.width, source.height);
                 if (sourceBounds.width <= 0 || sourceBounds.height <= 0)
                     throw new InvalidOperationException("No foreground artwork was detected in " + thumbnailPath + ".");
@@ -149,17 +188,54 @@ namespace ToyPuzzle.Editor
                     }
                 }
 
-                int[] separatedSeeds = ErodePaletteSeeds(seedOwners, canvasWidth, canvasHeight, 4);
-                List<PartRegion> regions = FindSeedRegions(separatedSeeds, canvasWidth, canvasHeight, foregroundPixels);
-                if (regions.Count == 0) throw new InvalidOperationException("No colored part regions were detected in " + thumbnailPath + ".");
-                int[] labels = GrowRegionsAcrossArtwork(composite, seedOwners, regions, canvasWidth, canvasHeight);
-                labels = SimplifyRegions(composite, labels, ref regions, canvasWidth, canvasHeight, foregroundPixels, level.levelNumber);
+                int desiredPieces = level.pieces == null ? GetPieceCap(level.levelNumber) : level.pieces.Length;
+                string maskPath = MaskRoot + "/level_" + level.levelNumber.ToString("D3") + "_mask.png";
+                int[] labels;
+                List<PartRegion> regions;
+                if (!forceRegenerateMask && TryLoadPieceMask(maskPath, composite, canvasWidth, canvasHeight, out labels))
+                {
+                    regions = RebuildRegions(composite, seedOwners, labels, canvasWidth, canvasHeight);
+                    SortRegionsAndRelabel(regions, labels);
+                }
+                else
+                {
+                    int[] separatedSeeds = ErodePaletteSeeds(seedOwners, canvasWidth, canvasHeight, 4);
+                    regions = FindSeedRegions(separatedSeeds, canvasWidth, canvasHeight, foregroundPixels);
+                    if (regions.Count == 0) throw new InvalidOperationException("No colored part regions were detected in " + thumbnailPath + ".");
+                    labels = GrowRegionsAcrossArtwork(composite, seedOwners, regions, canvasWidth, canvasHeight);
+                    labels = NormalizeRegionCount(composite, seedOwners, labels, ref regions, canvasWidth, canvasHeight, desiredPieces);
+                    SavePieceMask(maskPath, labels, canvasWidth, canvasHeight);
+                }
+
+                ValidateLabels(composite, labels, regions, canvasWidth, canvasHeight, desiredPieces, level.levelNumber);
+                if (regions.Count != desiredPieces)
+                {
+                    throw new InvalidOperationException("Level " + level.levelNumber + " needs " + desiredPieces +
+                                                        " visible parts, but the mask produced " + regions.Count + ".");
+                }
+
+                float[] regionHues = ApplyVibrantNeutralColors(composite, labels, regions, level.levelNumber);
+                WriteRecoloredThumbnail(
+                    thumbnailPath,
+                    source.width,
+                    source.height,
+                    sourcePixels,
+                    externalBackground,
+                    sourceBounds,
+                    contentX,
+                    contentY,
+                    contentWidth,
+                    contentHeight,
+                    labels,
+                    canvasWidth,
+                    canvasHeight,
+                    regionHues);
                 AssignStableIds(regions);
-                if (regions.Count > 10 || regions.Count * 2 > level.boardWidth * level.boardHeight)
+                if (regions.Count > 16 || regions.Count * 2 > level.boardWidth * level.boardHeight)
                     throw new InvalidOperationException("Level " + level.levelNumber + " produced " + regions.Count + " playable regions, exceeding its gameplay capacity.");
                 string levelFolder = OutputRoot + "/Level_" + level.levelNumber.ToString("D3");
                 EnsureFolder(levelFolder);
-                DeleteOldLevelSprites(levelFolder);
+                var expectedSpritePaths = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
                 for (int regionIndex = 0; regionIndex < regions.Count; regionIndex++)
                 {
@@ -169,6 +245,7 @@ namespace ToyPuzzle.Editor
                         throw new InvalidOperationException("Generated region " + region.PieceId + " has no pixels.");
                     Color32[] pixels = BuildFragmentPixels(composite, labels, canvasWidth, region.Bounds, regionIndex);
                     string spritePath = levelFolder + "/level_" + level.levelNumber.ToString("D3") + "_" + region.PieceId + ".png";
+                    expectedSpritePaths.Add(spritePath);
                     WriteTexture(spritePath, region.Bounds.width, region.Bounds.height, pixels);
                     ConfigureSpriteImporter(spritePath);
                     region.Sprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath);
@@ -197,6 +274,7 @@ namespace ToyPuzzle.Editor
                         bakedTargetRotation = 0
                     };
                 }
+                DeleteObsoleteLevelSprites(levelFolder, expectedSpritePaths);
                 return result;
             }
             finally
@@ -347,80 +425,656 @@ namespace ToyPuzzle.Editor
             queue.Enqueue(index);
         }
 
-        private static int[] SimplifyRegions(
+        private static int[] NormalizeRegionCount(
             Color32[] composite,
+            int[] seedOwners,
             int[] labels,
             ref List<PartRegion> regions,
             int width,
             int height,
-            int foregroundPixels,
-            int levelNumber)
+            int desiredPieces)
         {
-            int[] areas = new int[regions.Count];
+            FillUnlabeledForeground(composite, labels, width, height);
+            regions = RebuildRegions(composite, seedOwners, labels, width, height);
+            if (regions.Count > desiredPieces)
+            {
+                MergeAdjacentRegions(labels, regions, width, height, desiredPieces);
+                regions = RebuildRegions(composite, seedOwners, labels, width, height);
+            }
+
+            while (regions.Count < desiredPieces)
+            {
+                if (!TrySplitLargestRegion(labels, regions, width, height))
+                    throw new InvalidOperationException("Could not create " + desiredPieces + " connected puzzle pieces from the reference artwork.");
+                regions = RebuildRegions(composite, seedOwners, labels, width, height);
+            }
+
+            SortRegionsAndRelabel(regions, labels);
+            return labels;
+        }
+
+        private static void FillUnlabeledForeground(Color32[] composite, int[] labels, int width, int height)
+        {
+            int nextLabel = 0;
             for (int i = 0; i < labels.Length; i++)
-                if (labels[i] >= 0) areas[labels[i]]++;
+                if (labels[i] >= nextLabel) nextLabel = labels[i] + 1;
 
-            var byArea = new List<int>(regions.Count);
-            for (int i = 0; i < regions.Count; i++) byArea.Add(i);
-            byArea.Sort((left, right) => areas[right].CompareTo(areas[left]));
-
-            int cap = GetPieceCap(levelNumber);
-            int minimumArea = Mathf.Max(180, foregroundPixels / 100);
-            int minimumPieces = Mathf.Min(4, regions.Count);
-            var kept = new List<int>(cap);
-            for (int i = 0; i < byArea.Count && kept.Count < cap; i++)
+            var visited = new bool[labels.Length];
+            var queue = new Queue<int>();
+            var component = new List<int>();
+            var contacts = new Dictionary<int, int>();
+            for (int start = 0; start < labels.Length; start++)
             {
-                int candidate = byArea[i];
-                if (areas[candidate] >= minimumArea || kept.Count < minimumPieces) kept.Add(candidate);
-            }
-            if (kept.Count == 0 && byArea.Count > 0) kept.Add(byArea[0]);
-            kept.Sort();
-
-            var oldToNew = new int[regions.Count];
-            var isKept = new bool[regions.Count];
-            for (int i = 0; i < kept.Count; i++)
-            {
-                isKept[kept[i]] = true;
-                oldToNew[kept[i]] = i;
-            }
-
-            for (int oldIndex = 0; oldIndex < regions.Count; oldIndex++)
-            {
-                if (isKept[oldIndex]) continue;
-                Vector2 center = regions[oldIndex].SeedBounds.center;
-                float bestDistance = float.MaxValue;
-                int bestNewIndex = 0;
-                for (int newIndex = 0; newIndex < kept.Count; newIndex++)
+                if (composite[start].a == 0 || labels[start] >= 0 || visited[start]) continue;
+                component.Clear();
+                contacts.Clear();
+                visited[start] = true;
+                queue.Enqueue(start);
+                while (queue.Count > 0)
                 {
-                    PartRegion destination = regions[kept[newIndex]];
-                    float distance = (destination.SeedBounds.center - center).sqrMagnitude;
-                    if (destination.ColorIndex == regions[oldIndex].ColorIndex) distance *= 0.55f;
-                    if (distance < bestDistance)
+                    int index = queue.Dequeue();
+                    component.Add(index);
+                    int x = index % width;
+                    int y = index / width;
+                    InspectUnlabeledNeighbor(x - 1, y, composite, labels, visited, width, height, queue, contacts);
+                    InspectUnlabeledNeighbor(x + 1, y, composite, labels, visited, width, height, queue, contacts);
+                    InspectUnlabeledNeighbor(x, y - 1, composite, labels, visited, width, height, queue, contacts);
+                    InspectUnlabeledNeighbor(x, y + 1, composite, labels, visited, width, height, queue, contacts);
+                }
+
+                int destination = -1;
+                int strongestContact = -1;
+                foreach (KeyValuePair<int, int> pair in contacts)
+                {
+                    if (pair.Value <= strongestContact) continue;
+                    destination = pair.Key;
+                    strongestContact = pair.Value;
+                }
+                if (destination < 0) destination = nextLabel++;
+                for (int i = 0; i < component.Count; i++) labels[component[i]] = destination;
+            }
+        }
+
+        private static void InspectUnlabeledNeighbor(
+            int x,
+            int y,
+            Color32[] composite,
+            int[] labels,
+            bool[] visited,
+            int width,
+            int height,
+            Queue<int> queue,
+            Dictionary<int, int> contacts)
+        {
+            if (x < 0 || y < 0 || x >= width || y >= height) return;
+            int index = y * width + x;
+            if (composite[index].a == 0) return;
+            if (labels[index] >= 0)
+            {
+                contacts.TryGetValue(labels[index], out int count);
+                contacts[labels[index]] = count + 1;
+                return;
+            }
+            if (visited[index]) return;
+            visited[index] = true;
+            queue.Enqueue(index);
+        }
+
+        private static void MergeAdjacentRegions(int[] labels, List<PartRegion> regions, int width, int height, int desiredPieces)
+        {
+            int count = regions.Count;
+            var areas = new int[count];
+            var sumX = new long[count];
+            var sumY = new long[count];
+            var shared = new int[count, count];
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int index = y * width + x;
+                    int label = labels[index];
+                    if (label < 0) continue;
+                    areas[label]++;
+                    sumX[label] += x;
+                    sumY[label] += y;
+                    if (x + 1 < width) AddSharedBoundary(label, labels[index + 1], shared);
+                    if (y + 1 < height) AddSharedBoundary(label, labels[index + width], shared);
+                }
+            }
+
+            var active = new bool[count];
+            var parent = new int[count];
+            for (int i = 0; i < count; i++)
+            {
+                active[i] = true;
+                parent[i] = i;
+            }
+
+            int activeCount = count;
+            while (activeCount > desiredPieces)
+            {
+                int bestA = -1;
+                int bestB = -1;
+                float bestScore = float.MaxValue;
+                for (int a = 0; a < count; a++)
+                {
+                    if (!active[a]) continue;
+                    for (int b = a + 1; b < count; b++)
                     {
-                        bestDistance = distance;
-                        bestNewIndex = newIndex;
+                        if (!active[b] || shared[a, b] <= 0) continue;
+                        float ax = areas[a] == 0 ? 0f : (float)sumX[a] / areas[a];
+                        float ay = areas[a] == 0 ? 0f : (float)sumY[a] / areas[a];
+                        float bx = areas[b] == 0 ? 0f : (float)sumX[b] / areas[b];
+                        float by = areas[b] == 0 ? 0f : (float)sumY[b] / areas[b];
+                        float distance = (ax - bx) * (ax - bx) + (ay - by) * (ay - by);
+                        float colorFactor = regions[a].ColorIndex == regions[b].ColorIndex ? 0.58f : 1f;
+                        float score = Mathf.Min(areas[a], areas[b]) * colorFactor / (shared[a, b] + 1f) + distance * 0.0005f;
+                        if (score >= bestScore) continue;
+                        bestScore = score;
+                        bestA = a;
+                        bestB = b;
                     }
                 }
-                oldToNew[oldIndex] = bestNewIndex;
+
+                if (bestA < 0)
+                    throw new InvalidOperationException("The reference contains more disconnected artwork islands than the configured puzzle piece count.");
+
+                int keep = areas[bestA] >= areas[bestB] ? bestA : bestB;
+                int remove = keep == bestA ? bestB : bestA;
+                parent[remove] = keep;
+                active[remove] = false;
+                areas[keep] += areas[remove];
+                sumX[keep] += sumX[remove];
+                sumY[keep] += sumY[remove];
+                for (int other = 0; other < count; other++)
+                {
+                    if (!active[other] || other == keep) continue;
+                    shared[keep, other] += shared[remove, other];
+                    shared[other, keep] = shared[keep, other];
+                }
+                activeCount--;
             }
 
+            var compact = new Dictionary<int, int>();
             for (int i = 0; i < labels.Length; i++)
             {
-                int oldLabel = labels[i];
-                if (oldLabel < 0) continue;
-                labels[i] = oldToNew[oldLabel];
-                if (!isKept[oldLabel])
+                int label = labels[i];
+                if (label < 0) continue;
+                while (parent[label] != label) label = parent[label];
+                if (!compact.TryGetValue(label, out int compactLabel))
                 {
-                    Color32 source = composite[i];
-                    byte shade = (byte)Mathf.Clamp(118 + (source.r + source.g + source.b) / 12, 128, 184);
-                    composite[i] = new Color32(shade, shade, (byte)Mathf.Max(118, shade - 4), source.a);
+                    compactLabel = compact.Count;
+                    compact.Add(label, compactLabel);
+                }
+                labels[i] = compactLabel;
+            }
+        }
+
+        private static void AddSharedBoundary(int left, int right, int[,] shared)
+        {
+            if (left < 0 || right < 0 || left == right) return;
+            shared[left, right]++;
+            shared[right, left]++;
+        }
+
+        private static bool TrySplitLargestRegion(int[] labels, List<PartRegion> regions, int width, int height)
+        {
+            var candidates = new List<int>(regions.Count);
+            var areas = new int[regions.Count];
+            for (int i = 0; i < labels.Length; i++)
+                if (labels[i] >= 0) areas[labels[i]]++;
+            for (int i = 0; i < regions.Count; i++) candidates.Add(i);
+            candidates.Sort((left, right) => areas[right].CompareTo(areas[left]));
+            for (int i = 0; i < candidates.Count; i++)
+            {
+                int label = candidates[i];
+                if (areas[label] < 256) continue;
+                if (SplitRegionGeodesically(labels, label, regions.Count, width, height, areas[label])) return true;
+            }
+            return false;
+        }
+
+        private static bool SplitRegionGeodesically(int[] labels, int label, int newLabel, int width, int height, int area)
+        {
+            int start = -1;
+            for (int i = 0; i < labels.Length; i++)
+            {
+                if (labels[i] != label) continue;
+                start = i;
+                break;
+            }
+            if (start < 0) return false;
+
+            int first = FindFarthestPixel(labels, label, start, width, height);
+            int second = FindFarthestPixel(labels, label, first, width, height);
+            if (first == second) return false;
+
+            var owner = new sbyte[labels.Length];
+            for (int i = 0; i < owner.Length; i++) owner[i] = -1;
+            var queue = new Queue<int>();
+            owner[first] = 0;
+            owner[second] = 1;
+            queue.Enqueue(first);
+            queue.Enqueue(second);
+            int firstCount = 1;
+            int secondCount = 1;
+            while (queue.Count > 0)
+            {
+                int index = queue.Dequeue();
+                int x = index % width;
+                int y = index / width;
+                GrowSplitOwner(x - 1, y, label, owner[index], labels, owner, width, height, queue, ref firstCount, ref secondCount);
+                GrowSplitOwner(x + 1, y, label, owner[index], labels, owner, width, height, queue, ref firstCount, ref secondCount);
+                GrowSplitOwner(x, y - 1, label, owner[index], labels, owner, width, height, queue, ref firstCount, ref secondCount);
+                GrowSplitOwner(x, y + 1, label, owner[index], labels, owner, width, height, queue, ref firstCount, ref secondCount);
+            }
+
+            int minimumArea = Mathf.Max(64, area / 20);
+            if (firstCount < minimumArea || secondCount < minimumArea) return false;
+            for (int i = 0; i < labels.Length; i++)
+                if (labels[i] == label && owner[i] == 1) labels[i] = newLabel;
+            return true;
+        }
+
+        private static int FindFarthestPixel(int[] labels, int label, int start, int width, int height)
+        {
+            var distances = new int[labels.Length];
+            for (int i = 0; i < distances.Length; i++) distances[i] = -1;
+            var queue = new Queue<int>();
+            distances[start] = 0;
+            queue.Enqueue(start);
+            int farthest = start;
+            while (queue.Count > 0)
+            {
+                int index = queue.Dequeue();
+                if (distances[index] > distances[farthest]) farthest = index;
+                int x = index % width;
+                int y = index / width;
+                EnqueueDistanceNeighbor(x - 1, y, label, labels, distances, width, height, queue, distances[index] + 1);
+                EnqueueDistanceNeighbor(x + 1, y, label, labels, distances, width, height, queue, distances[index] + 1);
+                EnqueueDistanceNeighbor(x, y - 1, label, labels, distances, width, height, queue, distances[index] + 1);
+                EnqueueDistanceNeighbor(x, y + 1, label, labels, distances, width, height, queue, distances[index] + 1);
+            }
+            return farthest;
+        }
+
+        private static void EnqueueDistanceNeighbor(
+            int x,
+            int y,
+            int label,
+            int[] labels,
+            int[] distances,
+            int width,
+            int height,
+            Queue<int> queue,
+            int distance)
+        {
+            if (x < 0 || y < 0 || x >= width || y >= height) return;
+            int index = y * width + x;
+            if (labels[index] != label || distances[index] >= 0) return;
+            distances[index] = distance;
+            queue.Enqueue(index);
+        }
+
+        private static void GrowSplitOwner(
+            int x,
+            int y,
+            int label,
+            int source,
+            int[] labels,
+            sbyte[] owner,
+            int width,
+            int height,
+            Queue<int> queue,
+            ref int firstCount,
+            ref int secondCount)
+        {
+            if (x < 0 || y < 0 || x >= width || y >= height) return;
+            int index = y * width + x;
+            if (labels[index] != label || owner[index] >= 0) return;
+            owner[index] = (sbyte)source;
+            if (source == 0) firstCount++;
+            else secondCount++;
+            queue.Enqueue(index);
+        }
+
+        private static List<PartRegion> RebuildRegions(Color32[] composite, int[] seedOwners, int[] labels, int width, int height)
+        {
+            int count = 0;
+            for (int i = 0; i < labels.Length; i++)
+                if (labels[i] >= count) count = labels[i] + 1;
+            var bounds = new RectInt[count];
+            var minX = new int[count];
+            var minY = new int[count];
+            var maxX = new int[count];
+            var maxY = new int[count];
+            var paletteCounts = new int[count, ColorNames.Length];
+            for (int i = 0; i < count; i++)
+            {
+                minX[i] = width;
+                minY[i] = height;
+                maxX[i] = -1;
+                maxY[i] = -1;
+            }
+
+            for (int index = 0; index < labels.Length; index++)
+            {
+                int label = labels[index];
+                if (label < 0) continue;
+                int x = index % width;
+                int y = index / width;
+                minX[label] = Mathf.Min(minX[label], x);
+                minY[label] = Mathf.Min(minY[label], y);
+                maxX[label] = Mathf.Max(maxX[label], x);
+                maxY[label] = Mathf.Max(maxY[label], y);
+                int palette = seedOwners[index];
+                if (palette >= 0 && palette < ColorNames.Length) paletteCounts[label, palette]++;
+            }
+
+            var result = new List<PartRegion>(count);
+            for (int label = 0; label < count; label++)
+            {
+                if (maxX[label] < minX[label]) throw new InvalidOperationException("Piece mask contains an empty label " + label + ".");
+                bounds[label] = new RectInt(minX[label], minY[label], maxX[label] - minX[label] + 1, maxY[label] - minY[label] + 1);
+                int dominant = 0;
+                int strongest = -1;
+                for (int palette = 0; palette < ColorNames.Length; palette++)
+                {
+                    if (paletteCounts[label, palette] <= strongest) continue;
+                    strongest = paletteCounts[label, palette];
+                    dominant = palette;
+                }
+                if (strongest <= 0 || dominant == ColorNames.Length - 1) dominant = label % VibrantPalette.Length;
+                result.Add(new PartRegion
+                {
+                    ColorIndex = dominant,
+                    SeedBounds = bounds[label],
+                    Bounds = bounds[label]
+                });
+            }
+            return result;
+        }
+
+        private static void SortRegionsAndRelabel(List<PartRegion> regions, int[] labels)
+        {
+            var order = new List<int>(regions.Count);
+            for (int i = 0; i < regions.Count; i++) order.Add(i);
+            order.Sort((left, right) =>
+            {
+                int color = regions[left].ColorIndex.CompareTo(regions[right].ColorIndex);
+                if (color != 0) return color;
+                int horizontal = regions[left].Bounds.center.x.CompareTo(regions[right].Bounds.center.x);
+                return horizontal != 0 ? horizontal : regions[left].Bounds.center.y.CompareTo(regions[right].Bounds.center.y);
+            });
+            var remap = new int[regions.Count];
+            var sorted = new List<PartRegion>(regions.Count);
+            for (int newIndex = 0; newIndex < order.Count; newIndex++)
+            {
+                remap[order[newIndex]] = newIndex;
+                sorted.Add(regions[order[newIndex]]);
+            }
+            for (int i = 0; i < labels.Length; i++)
+                if (labels[i] >= 0) labels[i] = remap[labels[i]];
+            regions.Clear();
+            regions.AddRange(sorted);
+        }
+
+        private static bool TryLoadPieceMask(string maskPath, Color32[] composite, int width, int height, out int[] labels)
+        {
+            labels = null;
+            string fullPath = Path.GetFullPath(maskPath);
+            if (!File.Exists(fullPath)) return false;
+
+            var mask = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+            try
+            {
+                if (!mask.LoadImage(File.ReadAllBytes(fullPath), false))
+                    throw new InvalidOperationException("Could not decode piece mask " + maskPath + ".");
+                if (mask.width != width || mask.height != height)
+                    throw new InvalidOperationException("Piece mask dimensions do not match the level canvas: " + maskPath + ".");
+
+                Color32[] pixels = mask.GetPixels32();
+                var colorKeys = new List<int>();
+                var unique = new HashSet<int>();
+                for (int i = 0; i < pixels.Length; i++)
+                {
+                    bool artwork = composite[i].a > 0;
+                    bool masked = pixels[i].a > 0;
+                    if (artwork != masked)
+                        throw new InvalidOperationException("Piece mask coverage does not match the reference artwork at pixel " + i + ": " + maskPath + ".");
+                    if (!masked) continue;
+                    int key = pixels[i].r | (pixels[i].g << 8) | (pixels[i].b << 16);
+                    if (unique.Add(key)) colorKeys.Add(key);
+                }
+
+                colorKeys.Sort();
+                var keyToLabel = new Dictionary<int, int>(colorKeys.Count);
+                for (int i = 0; i < colorKeys.Count; i++) keyToLabel.Add(colorKeys[i], i);
+                labels = new int[pixels.Length];
+                for (int i = 0; i < labels.Length; i++)
+                {
+                    if (pixels[i].a == 0)
+                    {
+                        labels[i] = -1;
+                        continue;
+                    }
+                    int key = pixels[i].r | (pixels[i].g << 8) | (pixels[i].b << 16);
+                    labels[i] = keyToLabel[key];
+                }
+                return true;
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(mask);
+            }
+        }
+
+        private static void SavePieceMask(string maskPath, int[] labels, int width, int height)
+        {
+            var pixels = new Color32[labels.Length];
+            for (int i = 0; i < labels.Length; i++)
+            {
+                int label = labels[i];
+                if (label < 0) continue;
+                int encoded = label + 1;
+                pixels[i] = new Color32(
+                    (byte)(encoded & 255),
+                    (byte)((encoded >> 8) & 255),
+                    (byte)((encoded >> 16) & 255),
+                    255);
+            }
+            bool changed = WriteTextureBytesIfChanged(maskPath, width, height, pixels);
+            if (changed || AssetImporter.GetAtPath(maskPath) == null) ConfigureMaskImporter(maskPath);
+        }
+
+        private static void ValidateLabels(
+            Color32[] composite,
+            int[] labels,
+            List<PartRegion> regions,
+            int width,
+            int height,
+            int expectedPieces,
+            int levelNumber)
+        {
+            if (regions.Count != expectedPieces)
+                throw new InvalidOperationException("Level " + levelNumber + " mask has " + regions.Count + " pieces; expected " + expectedPieces + ".");
+
+            var counts = new int[regions.Count];
+            var first = new int[regions.Count];
+            for (int i = 0; i < first.Length; i++) first[i] = -1;
+            int foreground = 0;
+            for (int i = 0; i < labels.Length; i++)
+            {
+                bool artwork = composite[i].a > 0;
+                int label = labels[i];
+                if (!artwork && label >= 0)
+                    throw new InvalidOperationException("Level " + levelNumber + " mask assigns a background pixel.");
+                if (artwork && (label < 0 || label >= regions.Count))
+                    throw new InvalidOperationException("Level " + levelNumber + " mask leaves foreground artwork unassigned.");
+                if (!artwork) continue;
+                foreground++;
+                counts[label]++;
+                if (first[label] < 0) first[label] = i;
+            }
+
+            int minimumArea = Mathf.Max(64, foreground / 12000);
+            var visited = new bool[labels.Length];
+            var queue = new Queue<int>();
+            for (int label = 0; label < regions.Count; label++)
+            {
+                if (counts[label] < minimumArea)
+                    throw new InvalidOperationException("Level " + levelNumber + " piece " + label + " is too small (" + counts[label] + " pixels).");
+                int connected = 0;
+                queue.Enqueue(first[label]);
+                visited[first[label]] = true;
+                while (queue.Count > 0)
+                {
+                    int index = queue.Dequeue();
+                    connected++;
+                    int x = index % width;
+                    int y = index / width;
+                    EnqueueLabelNeighbor(x - 1, y, label, labels, visited, width, height, queue);
+                    EnqueueLabelNeighbor(x + 1, y, label, labels, visited, width, height, queue);
+                    EnqueueLabelNeighbor(x, y - 1, label, labels, visited, width, height, queue);
+                    EnqueueLabelNeighbor(x, y + 1, label, labels, visited, width, height, queue);
+                }
+                if (connected != counts[label])
+                    throw new InvalidOperationException("Level " + levelNumber + " piece " + label + " contains detached artwork islands.");
+            }
+        }
+
+        private static void EnqueueLabelNeighbor(
+            int x,
+            int y,
+            int label,
+            int[] labels,
+            bool[] visited,
+            int width,
+            int height,
+            Queue<int> queue)
+        {
+            if (x < 0 || y < 0 || x >= width || y >= height) return;
+            int index = y * width + x;
+            if (visited[index] || labels[index] != label) return;
+            visited[index] = true;
+            queue.Enqueue(index);
+        }
+
+        private static float[] ApplyVibrantNeutralColors(Color32[] composite, int[] labels, List<PartRegion> regions, int levelNumber)
+        {
+            var cosine = new double[regions.Count];
+            var sine = new double[regions.Count];
+            var weights = new double[regions.Count];
+            for (int i = 0; i < composite.Length; i++)
+            {
+                int label = labels[i];
+                if (label < 0) continue;
+                Color.RGBToHSV((Color)composite[i], out float hue, out float saturation, out float value);
+                if (saturation < 0.28f || value < 0.22f) continue;
+                double weight = saturation * value;
+                double angle = hue * Math.PI * 2.0;
+                cosine[label] += Math.Cos(angle) * weight;
+                sine[label] += Math.Sin(angle) * weight;
+                weights[label] += weight;
+            }
+
+            var regionHues = new float[regions.Count];
+            for (int label = 0; label < regions.Count; label++)
+            {
+                if (weights[label] > 0.001)
+                {
+                    double angle = Math.Atan2(sine[label], cosine[label]);
+                    if (angle < 0.0) angle += Math.PI * 2.0;
+                    regionHues[label] = (float)(angle / (Math.PI * 2.0));
+                }
+                else
+                {
+                    Color.RGBToHSV(VibrantPalette[(levelNumber + label) % VibrantPalette.Length], out regionHues[label], out _, out _);
                 }
             }
 
-            var simplified = new List<PartRegion>(kept.Count);
-            for (int i = 0; i < kept.Count; i++) simplified.Add(regions[kept[i]]);
-            regions = simplified;
-            return labels;
+            for (int i = 0; i < composite.Length; i++)
+            {
+                int label = labels[i];
+                if (label >= 0) composite[i] = RecolorNeutralPixel(composite[i], regionHues[label]);
+            }
+            return regionHues;
+        }
+
+        private static Color32 RecolorNeutralPixel(Color32 source, float replacementHue)
+        {
+            Color.RGBToHSV((Color)source, out float hue, out float saturation, out float value);
+            if (saturation >= 0.28f && value >= 0.22f) return source;
+            float recoloredSaturation = Mathf.Max(saturation, value > 0.82f ? 0.46f : 0.62f);
+            float recoloredValue = Mathf.Clamp(value, 0.30f, 1f);
+            Color result = Color.HSVToRGB(replacementHue, recoloredSaturation, recoloredValue);
+            result.a = source.a / 255f;
+            return (Color32)result;
+        }
+
+        private static void WriteRecoloredThumbnail(
+            string thumbnailPath,
+            int sourceWidth,
+            int sourceHeight,
+            Color32[] sourcePixels,
+            bool[] externalBackground,
+            RectInt sourceBounds,
+            float contentX,
+            float contentY,
+            float contentWidth,
+            float contentHeight,
+            int[] labels,
+            int canvasWidth,
+            int canvasHeight,
+            float[] regionHues)
+        {
+            var recolored = new Color32[sourcePixels.Length];
+            Array.Copy(sourcePixels, recolored, sourcePixels.Length);
+            for (int y = sourceBounds.yMin; y < sourceBounds.yMax; y++)
+            {
+                for (int x = sourceBounds.xMin; x < sourceBounds.xMax; x++)
+                {
+                    int sourceIndex = y * sourceWidth + x;
+                    if (externalBackground[sourceIndex]) continue;
+                    float normalizedX = (x + 0.5f - sourceBounds.xMin) / sourceBounds.width;
+                    float normalizedY = (y + 0.5f - sourceBounds.yMin) / sourceBounds.height;
+                    int canvasX = Mathf.Clamp(Mathf.FloorToInt(contentX + normalizedX * contentWidth), 0, canvasWidth - 1);
+                    int canvasY = Mathf.Clamp(Mathf.FloorToInt(contentY + normalizedY * contentHeight), 0, canvasHeight - 1);
+                    int label = FindNearestLabel(labels, canvasX, canvasY, canvasWidth, canvasHeight);
+                    if (label < 0 || label >= regionHues.Length) continue;
+                    recolored[sourceIndex] = RecolorNeutralPixel(recolored[sourceIndex], regionHues[label]);
+                }
+            }
+            if (WriteTextureBytesIfChanged(thumbnailPath, sourceWidth, sourceHeight, recolored))
+                AssetDatabase.ImportAsset(thumbnailPath, ImportAssetOptions.ForceSynchronousImport);
+        }
+
+        private static int FindNearestLabel(int[] labels, int x, int y, int width, int height)
+        {
+            int direct = labels[y * width + x];
+            if (direct >= 0) return direct;
+            for (int radius = 1; radius <= 5; radius++)
+            {
+                int minX = Mathf.Max(0, x - radius);
+                int maxX = Mathf.Min(width - 1, x + radius);
+                int minY = Mathf.Max(0, y - radius);
+                int maxY = Mathf.Min(height - 1, y + radius);
+                for (int sampleX = minX; sampleX <= maxX; sampleX++)
+                {
+                    int bottom = labels[minY * width + sampleX];
+                    if (bottom >= 0) return bottom;
+                    int top = labels[maxY * width + sampleX];
+                    if (top >= 0) return top;
+                }
+                for (int sampleY = minY + 1; sampleY < maxY; sampleY++)
+                {
+                    int left = labels[sampleY * width + minX];
+                    if (left >= 0) return left;
+                    int right = labels[sampleY * width + maxX];
+                    if (right >= 0) return right;
+                }
+            }
+            return -1;
         }
 
         private static int GetPieceCap(int levelNumber)
@@ -573,6 +1227,38 @@ namespace ToyPuzzle.Editor
             return background;
         }
 
+        private static void RecoverForegroundEdges(Color32[] pixels, bool[] externalBackground, int width, int height)
+        {
+            int radius = Mathf.Clamp(Mathf.Min(width, height) / 80, 6, 16);
+            var recovered = new bool[externalBackground.Length];
+            for (int y = radius; y < height - radius; y++)
+            {
+                for (int x = radius; x < width - radius; x++)
+                {
+                    int index = y * width + x;
+                    if (!externalBackground[index] || pixels[index].a == 0) continue;
+                    bool nearArtwork = false;
+                    for (int dy = -radius; dy <= radius && !nearArtwork; dy++)
+                    {
+                        for (int dx = -radius; dx <= radius; dx++)
+                        {
+                            if (dx * dx + dy * dy > radius * radius) continue;
+                            int sample = (y + dy) * width + x + dx;
+                            if (!externalBackground[sample])
+                            {
+                                nearArtwork = true;
+                                break;
+                            }
+                        }
+                    }
+                    recovered[index] = nearArtwork;
+                }
+            }
+
+            for (int i = 0; i < externalBackground.Length; i++)
+                if (recovered[i]) externalBackground[i] = false;
+        }
+
         private static void EnqueueBackground(int x, int y, Color32[] pixels, int width, int height, bool[] background, Queue<int> queue)
         {
             if (x < 0 || y < 0 || x >= width || y >= height) return;
@@ -641,36 +1327,76 @@ namespace ToyPuzzle.Editor
             return pixels;
         }
 
-        private static void DeleteOldLevelSprites(string levelFolder)
+        private static void DeleteObsoleteLevelSprites(string levelFolder, HashSet<string> expectedPaths)
         {
             string[] guids = AssetDatabase.FindAssets("t:Texture2D", new[] { levelFolder });
             for (int i = 0; i < guids.Length; i++)
             {
                 string path = AssetDatabase.GUIDToAssetPath(guids[i]);
-                if (path.EndsWith(".png", StringComparison.OrdinalIgnoreCase)) AssetDatabase.DeleteAsset(path);
+                if (path.EndsWith(".png", StringComparison.OrdinalIgnoreCase) && !expectedPaths.Contains(path))
+                    AssetDatabase.DeleteAsset(path);
             }
         }
 
         private static void WriteTexture(string assetPath, int width, int height, Color32[] pixels)
         {
+            bool changed = WriteTextureBytesIfChanged(assetPath, width, height, pixels);
+            if (changed || AssetImporter.GetAtPath(assetPath) == null)
+                AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceSynchronousImport);
+        }
+
+        private static bool WriteTextureBytesIfChanged(string assetPath, int width, int height, Color32[] pixels)
+        {
             var texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+            byte[] encoded;
             try
             {
                 texture.SetPixels32(pixels);
                 texture.Apply(false, false);
-                File.WriteAllBytes(Path.GetFullPath(assetPath), texture.EncodeToPNG());
+                encoded = texture.EncodeToPNG();
             }
             finally
             {
                 UnityEngine.Object.DestroyImmediate(texture);
             }
-            AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceSynchronousImport);
+            string fullPath = Path.GetFullPath(assetPath);
+            if (File.Exists(fullPath))
+            {
+                byte[] existing = File.ReadAllBytes(fullPath);
+                if (ByteArraysEqual(existing, encoded)) return false;
+            }
+            File.WriteAllBytes(fullPath, encoded);
+            return true;
+        }
+
+        private static bool ByteArraysEqual(byte[] left, byte[] right)
+        {
+            if (left == null || right == null || left.Length != right.Length) return false;
+            for (int i = 0; i < left.Length; i++)
+                if (left[i] != right[i]) return false;
+            return true;
         }
 
         private static void ConfigureSpriteImporter(string assetPath)
         {
             TextureImporter importer = AssetImporter.GetAtPath(assetPath) as TextureImporter;
             if (importer == null) throw new InvalidOperationException("Texture importer is missing for " + assetPath + ".");
+            var currentSettings = new TextureImporterSettings();
+            importer.ReadTextureSettings(currentSettings);
+            bool needsUpdate =
+                importer.textureType != TextureImporterType.Sprite ||
+                importer.spriteImportMode != SpriteImportMode.Single ||
+                !Mathf.Approximately(importer.spritePixelsPerUnit, PixelsPerCell) ||
+                currentSettings.spriteMeshType != SpriteMeshType.FullRect ||
+                importer.mipmapEnabled ||
+                !importer.isReadable ||
+                !importer.alphaIsTransparency ||
+                importer.wrapMode != TextureWrapMode.Clamp ||
+                importer.filterMode != FilterMode.Bilinear ||
+                importer.npotScale != TextureImporterNPOTScale.None ||
+                importer.maxTextureSize != 1024 ||
+                importer.textureCompression != TextureImporterCompression.Uncompressed;
+            if (!needsUpdate) return;
             importer.textureType = TextureImporterType.Sprite;
             importer.spriteImportMode = SpriteImportMode.Single;
             importer.spritePixelsPerUnit = PixelsPerCell;
@@ -685,6 +1411,23 @@ namespace ToyPuzzle.Editor
             importer.filterMode = FilterMode.Bilinear;
             importer.npotScale = TextureImporterNPOTScale.None;
             importer.maxTextureSize = 1024;
+            importer.textureCompression = TextureImporterCompression.Uncompressed;
+            importer.SaveAndReimport();
+        }
+
+        private static void ConfigureMaskImporter(string assetPath)
+        {
+            AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceSynchronousImport);
+            TextureImporter importer = AssetImporter.GetAtPath(assetPath) as TextureImporter;
+            if (importer == null) throw new InvalidOperationException("Texture importer is missing for " + assetPath + ".");
+            importer.textureType = TextureImporterType.Default;
+            importer.mipmapEnabled = false;
+            importer.isReadable = true;
+            importer.alphaIsTransparency = false;
+            importer.wrapMode = TextureWrapMode.Clamp;
+            importer.filterMode = FilterMode.Point;
+            importer.npotScale = TextureImporterNPOTScale.None;
+            importer.maxTextureSize = 2048;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
             importer.SaveAndReimport();
         }

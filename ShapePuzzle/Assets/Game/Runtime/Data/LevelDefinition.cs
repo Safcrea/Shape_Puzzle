@@ -56,6 +56,7 @@ namespace ToyPuzzle
         public string displayName;
         public PieceShapeType shapeType;
         public string colorId;
+        public string interchangeableGroupId;
         public GridCoordinate[] footprint = Array.Empty<GridCoordinate>();
         public int width;
         public int height;
@@ -152,6 +153,7 @@ namespace ToyPuzzle
         public ThumbnailConfiguration thumbnail = new ThumbnailConfiguration();
         public string[] tags = Array.Empty<string>();
         public string designerNotes;
+        public string completionAction = "Bounce";
 
         public PieceDefinition FindPiece(string pieceId)
         {

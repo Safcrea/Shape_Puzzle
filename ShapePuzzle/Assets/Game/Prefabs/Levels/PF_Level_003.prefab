@@ -61,6 +61,7 @@ MonoBehaviour:
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -100,6 +101,7 @@ MonoBehaviour:
       displayName: Red Molded Part 2
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -139,6 +141,7 @@ MonoBehaviour:
       displayName: Red Molded Part 3
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -178,6 +181,7 @@ MonoBehaviour:
       displayName: Blue Molded Part 1
       shapeType: 1
       colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -217,6 +221,7 @@ MonoBehaviour:
       displayName: Green Molded Part 1
       shapeType: 1
       colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -256,6 +261,7 @@ MonoBehaviour:
       displayName: Yellow Molded Part 1
       shapeType: 1
       colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -314,67 +320,69 @@ MonoBehaviour:
     - car
     - semantic_parts
     - multi_cell
-    designerNotes: 
+    designerNotes: Explicit connected multi-cell Car silhouette at 44% occupancy.
+      Certificate reverses a deterministic valid scramble.
+    completionAction: Bounce
   thumbnail: {fileID: 21300000, guid: ab4146b80083b4243a05247b3f55d119, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 37e1eb821baeb994e8af3fb3674fc5dd, type: 3}
-    sizeInCells: {x: 0.7734375, y: 0.78125}
+    sizeInCells: {x: 0.84375, y: 0.8203125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.30859375, y: 0.3453125}
-    startingCenterNormalized: {x: 0.10577, y: 0.69674}
-    sizeNormalized: {x: 0.1546875, y: 0.15625}
+    targetCenterNormalized: {x: 0.3140625, y: 0.34609374}
+    startingCenterNormalized: {x: 0.11252, y: 0.694865}
+    sizeNormalized: {x: 0.16875, y: 0.1640625}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_02
     sprite: {fileID: 21300000, guid: 2e12a3aa6a260704e830f121e39214b5, type: 3}
-    sizeInCells: {x: 0.7734375, y: 0.7890625}
+    sizeInCells: {x: 0.84375, y: 0.828125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.68828124, y: 0.34453124}
-    startingCenterNormalized: {x: 0.10577, y: 0.89273}
-    sizeNormalized: {x: 0.1546875, y: 0.1578125}
+    targetCenterNormalized: {x: 0.6828125, y: 0.3453125}
+    startingCenterNormalized: {x: 0.11252, y: 0.88898003}
+    sizeNormalized: {x: 0.16875, y: 0.165625}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_03
     sprite: {fileID: 21300000, guid: af43c7cbe7a01e04699dbd0c331da999, type: 3}
-    sizeInCells: {x: 1.09375, y: 0.828125}
+    sizeInCells: {x: 1.1484375, y: 0.8671875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.740625, y: 0.4875}
-    startingCenterNormalized: {x: 0.13652, y: 0.111020006}
-    sizeNormalized: {x: 0.21875, y: 0.165625}
+    targetCenterNormalized: {x: 0.73515624, y: 0.49140626}
+    startingCenterNormalized: {x: 0.14177, y: 0.11477}
+    sizeNormalized: {x: 0.2296875, y: 0.1734375}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: 2a3e5780db0a8694092a9d9e5d256f34, type: 3}
-    sizeInCells: {x: 3.5, y: 1.640625}
+    sizeInCells: {x: 3.5, y: 1.6484375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.5, y: 0.4921875}
-    startingCenterNormalized: {x: 0.63248, y: 0.81097996}
-    sizeNormalized: {x: 0.7, y: 0.328125}
+    targetCenterNormalized: {x: 0.5, y: 0.48828125}
+    startingCenterNormalized: {x: 0.63248, y: 0.81023}
+    sizeNormalized: {x: 0.7, y: 0.3296875}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: b3cd8cde1cac46f49abbb0b9e37fa95d, type: 3}
-    sizeInCells: {x: 0.984375, y: 0.7890625}
+    sizeInCells: {x: 1.015625, y: 0.828125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.25, y: 0.48359376}
-    startingCenterNormalized: {x: 0.87398, y: 0.53272754}
-    sizeNormalized: {x: 0.196875, y: 0.1578125}
+    targetCenterNormalized: {x: 0.253125, y: 0.4890625}
+    startingCenterNormalized: {x: 0.87097996, y: 0.53241503}
+    sizeNormalized: {x: 0.203125, y: 0.165625}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 87ff023c20a0b974ca73b8a11803065b, type: 3}
-    sizeInCells: {x: 1.640625, y: 1.0625}
+    sizeInCells: {x: 1.6796875, y: 1.0859375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.465625, y: 0.628125}
-    startingCenterNormalized: {x: 0.81097996, y: 0.13352}
-    sizeNormalized: {x: 0.328125, y: 0.2125}
+    targetCenterNormalized: {x: 0.46484375, y: 0.62890625}
+    startingCenterNormalized: {x: 0.80723, y: 0.13577}
+    sizeNormalized: {x: 0.3359375, y: 0.2171875}
     snapDistanceNormalized: 0.055
   sourceJsonPath: Assets/Game/Data/Levels/Source/level_003_car.json

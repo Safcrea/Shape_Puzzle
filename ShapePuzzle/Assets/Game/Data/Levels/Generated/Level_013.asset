@@ -16,19 +16,20 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_013
     levelNumber: 13
-    displayName: Taxi
-    targetObjectName: Taxi
+    displayName: Level 13 - Windmill
+    targetObjectName: Windmill
     boardWidth: 6
     boardHeight: 6
     difficultyTier: 2
-    scrambleSeed: 103947
+    scrambleSeed: 8561
     paletteId: primary
-    recommendedMoves: 9
+    recommendedMoves: 10
     pieces:
     - pieceId: red_part_01
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -64,10 +65,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_02
+      displayName: Red Molded Part 2
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -103,10 +105,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: red_part_03
+      displayName: Red Molded Part 3
       shapeType: 1
-      colorId: green
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -142,10 +145,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_01
-      displayName: Yellow Molded Part 1
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
-      colorId: yellow
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -181,10 +185,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: purple_part_01
-      displayName: Purple Molded Part 1
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: purple
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -220,10 +225,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_01
-      displayName: Teal Molded Part 1
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
       shapeType: 1
-      colorId: teal
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -259,10 +265,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: cream_part_01
-      displayName: Cream Molded Part 1
+    - pieceId: yellow_part_02
+      displayName: Yellow Molded Part 2
       shapeType: 1
-      colorId: cream
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -298,9 +305,50 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
+    - pieceId: yellow_part_03
+      displayName: Yellow Molded Part 3
+      shapeType: 1
+      colorId: yellow
+      interchangeableGroupId: 
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 4
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
     lockCorrectPiecesByDefault: 1
     hint:
-      message: Place the main taxi body before its smaller details.
+      message: Look at the large reference and place one connected toy part at a
+        time.
       showDirectionalIndicator: 1
     tutorial:
       tutorialId: 
@@ -308,8 +356,8 @@ MonoBehaviour:
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 15
-      rewardId: complete_013
+      softCurrency: 10
+      rewardId: 
     thumbnail:
       scale: 1
       offset:
@@ -317,8 +365,9 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_2
-    - taxi
-    - semantic_parts
-    - multi_cell
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-2
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Spin

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,7 +46,9 @@ namespace ToyPuzzle
         public void Build(PuzzleSession session, PuzzleGameController controller, PuzzleLevelPrefab levelPrefab)
         {
             if (session == null) throw new ArgumentNullException(nameof(session));
+            StopAllCoroutines();
             EnsureLayers();
+            ResetPieceLayerVisualState();
             ClearLayer(cellLayer);
             ClearLayer(pieceLayer);
             ClearLayer(referenceLayer);
@@ -142,6 +145,131 @@ namespace ToyPuzzle
             for (int i = 0; i < pieces.Count; i++) ApplyState(pieces[i]);
         }
 
+        public void PlayPlacementRipple(PuzzleSession session, string originPieceId, bool completion)
+        {
+            if (session == null || string.IsNullOrEmpty(originPieceId)) return;
+            StartCoroutine(PlacementRippleRoutine(session, originPieceId, completion));
+        }
+
+        public void PlayWholeObjectBounce()
+        {
+            if (pieceLayer != null) StartCoroutine(ScaleLayerRoutine(pieceLayer, 1.09f, 0.28f, false));
+        }
+
+        public void PlayObjectAction(string action)
+        {
+            if (pieceLayer != null) StartCoroutine(ObjectActionRoutine(pieceLayer, action));
+        }
+
+        public void PlayCompletionPop()
+        {
+            if (pieceLayer != null) StartCoroutine(ScaleLayerRoutine(pieceLayer, 1.14f, 0.15f, true));
+        }
+
+        private IEnumerator PlacementRippleRoutine(PuzzleSession session, string originPieceId, bool completion)
+        {
+            var depths = new Dictionary<string, int>(StringComparer.Ordinal) { [originPieceId] = 0 };
+            var queue = new Queue<string>();
+            queue.Enqueue(originPieceId);
+            while (queue.Count > 0)
+            {
+                string current = queue.Dequeue();
+                int nextDepth = depths[current] + 1;
+                foreach (KeyValuePair<string, PuzzlePieceView> pair in _pieceViews)
+                {
+                    if (depths.ContainsKey(pair.Key) || !IsCorrect(session, pair.Key)) continue;
+                    if (!AreArtworkNeighbors(current, pair.Key)) continue;
+                    depths.Add(pair.Key, nextDepth);
+                    queue.Enqueue(pair.Key);
+                }
+            }
+
+            if (completion)
+            {
+                // Disconnected decorative islands still participate in the final celebration.
+                foreach (KeyValuePair<string, PuzzlePieceView> pair in _pieceViews)
+                {
+                    if (depths.ContainsKey(pair.Key) || !IsCorrect(session, pair.Key)) continue;
+                    depths.Add(pair.Key, 2);
+                }
+            }
+
+            int maxDepth = 0;
+            foreach (int depth in depths.Values) maxDepth = Mathf.Max(maxDepth, depth);
+            for (int depth = 0; depth <= maxDepth; depth++)
+            {
+                foreach (KeyValuePair<string, int> entry in depths)
+                {
+                    if (entry.Value != depth || !_pieceViews.TryGetValue(entry.Key, out PuzzlePieceView view)) continue;
+                    view.FlashWhite(completion ? 0.26f : 0.20f, completion ? 1f : (depth == 0 ? 0.94f : 0.68f));
+                }
+                if (depth < maxDepth) yield return new WaitForSecondsRealtime(0.06f);
+            }
+        }
+
+        private bool AreArtworkNeighbors(string firstId, string secondId)
+        {
+            PuzzlePieceArtwork first = FindArtwork(firstId);
+            PuzzlePieceArtwork second = FindArtwork(secondId);
+            if (first == null || second == null) return false;
+            Rect a = new Rect(first.targetCenterNormalized - first.sizeNormalized * 0.5f, first.sizeNormalized);
+            Rect b = new Rect(second.targetCenterNormalized - second.sizeNormalized * 0.5f, second.sizeNormalized);
+            float dx = Mathf.Max(0f, Mathf.Max(a.xMin - b.xMax, b.xMin - a.xMax));
+            float dy = Mathf.Max(0f, Mathf.Max(a.yMin - b.yMax, b.yMin - a.yMax));
+            return dx <= 0.035f && dy <= 0.035f;
+        }
+
+        private static bool IsCorrect(PuzzleSession session, string pieceId)
+        {
+            return session.TryGetPiece(pieceId, out PieceState state) && state.IsCorrect;
+        }
+
+        private static IEnumerator ScaleLayerRoutine(RectTransform target, float peakScale, float duration, bool fadeOut)
+        {
+            Vector3 startScale = target.localScale;
+            CanvasGroup group = target.GetComponent<CanvasGroup>();
+            if (group == null) group = target.gameObject.AddComponent<CanvasGroup>();
+            float startAlpha = group.alpha;
+            float elapsed = 0f;
+            while (elapsed < duration)
+            {
+                if (target == null) yield break;
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.Clamp01(elapsed / duration);
+                float wave = fadeOut ? t : Mathf.Sin(t * Mathf.PI);
+                target.localScale = startScale * Mathf.Lerp(1f, peakScale, wave);
+                if (fadeOut) group.alpha = Mathf.Lerp(startAlpha, 0f, t * t);
+                yield return null;
+            }
+            if (target != null && !fadeOut) target.localScale = startScale;
+        }
+
+        private static IEnumerator ObjectActionRoutine(RectTransform target, string action)
+        {
+            string normalized = (action ?? string.Empty).ToLowerInvariant();
+            Vector2 startPosition = target.anchoredPosition;
+            Quaternion startRotation = target.localRotation;
+            float elapsed = 0f;
+            const float duration = 0.55f;
+            while (elapsed < duration)
+            {
+                if (target == null) yield break;
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.Clamp01(elapsed / duration);
+                float wave = Mathf.Sin(t * Mathf.PI);
+                if (normalized.Contains("lift") || normalized.Contains("rocket") || normalized.Contains("balloon"))
+                    target.anchoredPosition = startPosition + Vector2.up * (26f * wave);
+                else
+                    target.localRotation = startRotation * Quaternion.Euler(0f, 0f, Mathf.Sin(t * Mathf.PI * 2f) * 4.5f * wave);
+                yield return null;
+            }
+            if (target != null)
+            {
+                target.anchoredPosition = startPosition;
+                target.localRotation = startRotation;
+            }
+        }
+
         public GridCoordinate GetCandidatePosition(PuzzlePieceView view)
         {
             Vector2 position = view.RectTransform.anchoredPosition;
@@ -198,8 +326,8 @@ namespace ToyPuzzle
 
         private void BuildCells(LevelDefinition level)
         {
-            Color first = palette == null ? new Color32(41, 46, 38, 255) : palette.boardCell;
-            Color second = palette == null ? new Color32(48, 53, 45, 255) : palette.boardCellAlternate;
+            Color first = palette == null ? new Color32(32, 36, 31, 255) : palette.boardCell;
+            Color second = palette == null ? new Color32(37, 41, 36, 255) : palette.boardCellAlternate;
             float gap = Mathf.Max(2f, _cellSize * 0.035f);
             for (int y = 0; y < level.boardHeight; y++)
             {
@@ -330,6 +458,18 @@ namespace ToyPuzzle
             layer.pivot = Vector2.zero;
             layer.sizeDelta = size;
             layer.anchoredPosition = size * -0.5f;
+        }
+
+        private void ResetPieceLayerVisualState()
+        {
+            if (pieceLayer == null) return;
+            pieceLayer.localScale = Vector3.one;
+            pieceLayer.localRotation = Quaternion.identity;
+            CanvasGroup group = pieceLayer.GetComponent<CanvasGroup>();
+            if (group == null) return;
+            group.alpha = 1f;
+            group.interactable = true;
+            group.blocksRaycasts = true;
         }
 
         private static GameObject CreateImageObject(string name, RectTransform parent, Sprite sprite, Color color)

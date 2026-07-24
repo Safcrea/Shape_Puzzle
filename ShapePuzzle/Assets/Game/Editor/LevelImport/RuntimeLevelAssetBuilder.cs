@@ -77,7 +77,8 @@ namespace ToyPuzzle.Editor.Levels
                     showBoard = source.thumbnailConfiguration.showBoard
                 },
                 tags = source.levelTags == null ? Array.Empty<string>() : (string[])source.levelTags.Clone(),
-                designerNotes = null
+                designerNotes = source.designerNotes,
+                completionAction = string.IsNullOrEmpty(source.completionAction) ? "Bounce" : source.completionAction
             };
             return destination;
         }
@@ -97,6 +98,7 @@ namespace ToyPuzzle.Editor.Levels
                     displayName = piece.displayName,
                     shapeType = shapeType,
                     colorId = piece.colorId,
+                    interchangeableGroupId = piece.interchangeableGroupId,
                     footprint = Convert(piece.footprint),
                     width = piece.width,
                     height = piece.height,

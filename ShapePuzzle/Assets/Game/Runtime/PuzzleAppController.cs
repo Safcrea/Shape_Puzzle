@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace ToyPuzzle
@@ -20,6 +21,7 @@ namespace ToyPuzzle
         private GameObject _activeLevelInstance;
         private int _lastDisplayedSecond = -1;
         private int _lastDisplayedMoveCount = -1;
+        private Coroutine _completionSequence;
 
         public LevelPrefabCatalog Catalog => levelCatalog;
         public PlayerSaveData SaveData => _saveService == null ? null : _saveService.Data;
@@ -74,7 +76,6 @@ namespace ToyPuzzle
                     uiController.HomeRequested += ReturnHome;
                     uiController.UndoRequested += Undo;
                     uiController.HintRequested += Hint;
-                    uiController.RotateRequested += Rotate;
                     uiController.PauseRequested += Pause;
                     uiController.ResumeRequested += Resume;
                     uiController.RestartRequested += Restart;
@@ -93,7 +94,6 @@ namespace ToyPuzzle
                     uiController.HomeRequested -= ReturnHome;
                     uiController.UndoRequested -= Undo;
                     uiController.HintRequested -= Hint;
-                    uiController.RotateRequested -= Rotate;
                     uiController.PauseRequested -= Pause;
                     uiController.ResumeRequested -= Resume;
                     uiController.RestartRequested -= Restart;
@@ -150,6 +150,7 @@ namespace ToyPuzzle
 
         private void ReturnHome()
         {
+            CancelCompletionSequence();
             SaveCurrentPuzzleProgress();
             if (gameController != null) gameController.SetPaused(true);
             if (tutorialOverlay != null) tutorialOverlay.Hide();
@@ -164,6 +165,7 @@ namespace ToyPuzzle
         private void LoadLevel(int index, bool bypassLock)
         {
             if (levelCatalog == null || gameController == null || index < 0 || index >= GetLevelCount()) return;
+            CancelCompletionSequence();
             SaveCurrentPuzzleProgress();
             PuzzleLevelPrefab levelPrefab = levelCatalog.GetByIndex(index);
             if (levelPrefab == null || levelPrefab.Level == null) return;
@@ -206,11 +208,6 @@ namespace ToyPuzzle
         private void Hint()
         {
             if (gameController != null) gameController.Hint();
-        }
-
-        private void Rotate()
-        {
-            if (gameController != null) gameController.RotateSelected();
         }
 
         private void Pause()
@@ -266,17 +263,49 @@ namespace ToyPuzzle
             _saveService.CompleteLevel(session.Level.levelNumber, session.MoveCount, session.ElapsedSeconds, session.HintUsageCount);
             _saveService.Save();
             UpdateHomeProgress();
+            if (_completionSequence != null) StopCoroutine(_completionSequence);
+            _completionSequence = StartCoroutine(CompletionSequence(session.Level.levelNumber));
+        }
+
+        private IEnumerator CompletionSequence(int completedLevelNumber)
+        {
+            // 0.00 final snap is committed by PuzzleGameController.
             if (effectPool != null) effectPool.PlayCelebration(Vector2.zero);
-            LevelProgressData progress = _saveService.GetLevelProgress(session.Level.levelNumber);
-            if (uiController != null)
+
+            yield return new WaitForSecondsRealtime(0.10f);
+            if (gameController != null) gameController.PlayCompletionRipple();
+            if (hapticService != null) hapticService.Play(HapticCue.Correct);
+
+            yield return new WaitForSecondsRealtime(0.30f);
+            if (gameController != null) gameController.PlayWholeObjectBounce();
+            if (hapticService != null) hapticService.Play(HapticCue.Completion);
+
+            yield return new WaitForSecondsRealtime(0.30f);
+            if (gameController != null) gameController.PlayObjectAction();
+
+            yield return new WaitForSecondsRealtime(0.65f);
+            if (gameController != null) gameController.PlayCompletionPop();
+
+            yield return new WaitForSecondsRealtime(0.15f);
+            _completionSequence = null;
+            int count = GetLevelCount();
+            if (count > 0 && _currentLevelIndex + 1 < count)
             {
-                uiController.ShowCompletion(
-                    session.Level.targetObjectName,
-                    session.MoveCount,
-                    progress == null ? session.MoveCount : progress.bestMoveCount,
-                    session.ElapsedSeconds,
-                    progress == null ? session.ElapsedSeconds : progress.bestCompletionSeconds);
+                LoadLevel(_currentLevelIndex + 1, true);
             }
+            else
+            {
+                if (gameController != null) gameController.SetPaused(true);
+                UpdateHomeProgress();
+                if (uiController != null) uiController.ShowHome();
+            }
+        }
+
+        private void CancelCompletionSequence()
+        {
+            if (_completionSequence == null) return;
+            StopCoroutine(_completionSequence);
+            _completionSequence = null;
         }
 
         private void HandleFreeformProgressChanged()
@@ -365,7 +394,7 @@ namespace ToyPuzzle
         private void HandleValidAction(PuzzleActionType action)
         {
             string id = CurrentTutorialId();
-            if ((id == "drag" && action == PuzzleActionType.Move) || (id == "rotate" && action == PuzzleActionType.Rotate)) CompleteCurrentTutorial();
+            if (id == "drag" && action == PuzzleActionType.Move) CompleteCurrentTutorial();
         }
 
         private void HandleInvalidAction()
@@ -402,7 +431,7 @@ namespace ToyPuzzle
 
         private int GetLevelCount()
         {
-            return levelCatalog == null ? 0 : Mathf.Min(PuzzleLayoutConstants.TotalPlayableLevels, levelCatalog.Count);
+            return levelCatalog == null ? 0 : levelCatalog.Count;
         }
 
         private void RefreshGameplayStatus()

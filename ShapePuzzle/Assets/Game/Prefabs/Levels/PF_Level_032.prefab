@@ -48,19 +48,20 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_032
     levelNumber: 32
-    displayName: Turtle
-    targetObjectName: Turtle
-    boardWidth: 7
-    boardHeight: 7
+    displayName: Level 32 - Treehouse
+    targetObjectName: Treehouse
+    boardWidth: 8
+    boardHeight: 8
     difficultyTier: 4
-    scrambleSeed: 254408
+    scrambleSeed: 10404
     paletteId: similar_groups
-    recommendedMoves: 11
+    recommendedMoves: 12
     pieces:
     - pieceId: red_part_01
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -78,8 +79,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 6
-        y: 6
+        x: 7
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -100,6 +101,7 @@ MonoBehaviour:
       displayName: Red Molded Part 2
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -117,8 +119,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 5
-        y: 6
+        x: 6
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -135,10 +137,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_03
+      displayName: Red Molded Part 3
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -156,8 +159,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 4
-        y: 6
+        x: 5
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -174,10 +177,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
-      colorId: green
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -195,8 +199,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 3
-        y: 6
+        x: 4
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -213,10 +217,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_01
-      displayName: Yellow Molded Part 1
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: yellow
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -234,8 +239,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 2
-        y: 6
+        x: 3
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -252,10 +257,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_02
-      displayName: Yellow Molded Part 2
+    - pieceId: green_part_02
+      displayName: Green Molded Part 2
       shapeType: 1
-      colorId: yellow
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -273,8 +279,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 1
-        y: 6
+        x: 2
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -291,10 +297,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: orange_part_01
-      displayName: Orange Molded Part 1
+    - pieceId: green_part_03
+      displayName: Green Molded Part 3
       shapeType: 1
-      colorId: orange
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -312,8 +319,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 0
-        y: 6
+        x: 1
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -330,10 +337,51 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: purple_part_01
-      displayName: Purple Molded Part 1
+    - pieceId: green_part_04
+      displayName: Green Molded Part 4
       shapeType: 1
-      colorId: purple
+      colorId: green
+      interchangeableGroupId: 
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 7
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 7
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: green_part_05
+      displayName: Green Molded Part 5
+      shapeType: 1
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -351,14 +399,14 @@ MonoBehaviour:
         y: 1
       targetRotation: 0
       startingPosition:
-        x: 6
-        y: 5
+        x: 7
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
       locksWhenCorrect: 1
       requireExactTargetRotation: 1
-      sortingPriority: 7
+      sortingPriority: 8
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
@@ -369,10 +417,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_01
-      displayName: Teal Molded Part 1
+    - pieceId: green_part_06
+      displayName: Green Molded Part 6
       shapeType: 1
-      colorId: teal
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -390,14 +439,14 @@ MonoBehaviour:
         y: 1
       targetRotation: 0
       startingPosition:
-        x: 5
-        y: 5
+        x: 6
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
       locksWhenCorrect: 1
       requireExactTargetRotation: 1
-      sortingPriority: 8
+      sortingPriority: 9
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
@@ -408,10 +457,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: cream_part_01
-      displayName: Cream Molded Part 1
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
       shapeType: 1
-      colorId: cream
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -429,14 +479,14 @@ MonoBehaviour:
         y: 1
       targetRotation: 0
       startingPosition:
-        x: 4
-        y: 5
+        x: 5
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
       locksWhenCorrect: 1
       requireExactTargetRotation: 1
-      sortingPriority: 9
+      sortingPriority: 10
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
@@ -449,17 +499,17 @@ MonoBehaviour:
         styleVariant: separate_color_part
     lockCorrectPiecesByDefault: 1
     hint:
-      message: Use bilateral features and the outer turtle contour to separate similar
-        parts.
-      showDirectionalIndicator: 1
+      message: Look at the large reference and place one connected toy part at a
+        time.
+      showDirectionalIndicator: 0
     tutorial:
       tutorialId: 
       message: 
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 25
-      rewardId: complete_032
+      softCurrency: 10
+      rewardId: 
     thumbnail:
       scale: 1
       offset:
@@ -467,112 +517,122 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_4
-    - turtle
-    - semantic_parts
-    - multi_cell
-    - symmetry
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-4
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Sway
   thumbnail: {fileID: 21300000, guid: 5f8dd4ec149c56045967216dbc18a0a3, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: e4a2eb14e0d62ce4e8ac5b118863084d, type: 3}
-    sizeInCells: {x: 1.2578125, y: 1.28125}
+    sizeInCells: {x: 1.703125, y: 1.734375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.29073662, y: 0.55133927}
-    startingCenterNormalized: {x: 0.88223, y: 0.46828145}
-    sizeNormalized: {x: 0.1796875, y: 0.18303572}
+    targetCenterNormalized: {x: 0.41992188, y: 0.2578125}
+    startingCenterNormalized: {x: 0.6220975, y: 0.8644175}
+    sizeNormalized: {x: 0.21289062, y: 0.21679688}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_02
     sprite: {fileID: 21300000, guid: 76b0cc5300047f84192c5fea1b9620df, type: 3}
-    sizeInCells: {x: 0.671875, y: 2}
+    sizeInCells: {x: 2.8515625, y: 1.78125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.74665177, y: 0.40066963}
-    startingCenterNormalized: {x: 0.07759143, y: 0.5}
-    sizeNormalized: {x: 0.09598214, y: 0.2857143}
+    targetCenterNormalized: {x: 0.5229492, y: 0.60253906}
+    startingCenterNormalized: {x: 0.20261374, y: 0.138395}
+    sizeNormalized: {x: 0.3564453, y: 0.22265625}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_03
+    sprite: {fileID: 21300000, guid: 43597e4dce6421c4bb800dd368cdae05, type: 3}
+    sizeInCells: {x: 1.7265625, y: 1.28125}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.5883789, y: 0.49023438}
+    startingCenterNormalized: {x: 0.40877843, y: 0.369465}
+    sizeNormalized: {x: 0.21582031, y: 0.16015625}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: ac4fbddcb83894246b1a04b275c88fb1, type: 3}
-    sizeInCells: {x: 1.359375, y: 2.078125}
+    sizeInCells: {x: 1.4453125, y: 1.5390625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.3984375, y: 0.40625}
-    startingCenterNormalized: {x: 0.8752657, y: 0.17401999}
-    sizeNormalized: {x: 0.19419643, y: 0.296875}
+    targetCenterNormalized: {x: 0.4086914, y: 0.46728516}
+    startingCenterNormalized: {x: 0.5, y: 0.12386375}
+    sizeNormalized: {x: 0.18066406, y: 0.19238281}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: a0d222c0e8d244d439d08d8d6280a26d, type: 3}
-    sizeInCells: {x: 0.7265625, y: 0.7265625}
+    sizeInCells: {x: 1.7421875, y: 1.8046875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.64341515, y: 0.50390625}
-    startingCenterNormalized: {x: 0.22089429, y: 0.7791057}
-    sizeNormalized: {x: 0.10379464, y: 0.10379464}
+    targetCenterNormalized: {x: 0.2680664, y: 0.5551758}
+    startingCenterNormalized: {x: 0.86394876, y: 0.4099503}
+    sizeNormalized: {x: 0.21777344, y: 0.22558594}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_02
+    sprite: {fileID: 21300000, guid: fd342348d10c30d4db4db299e3ecaec2, type: 3}
+    sizeInCells: {x: 1.9453125, y: 1.3046875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.27197266, y: 0.4477539}
+    startingCenterNormalized: {x: 0.6172538, y: 0.6300663}
+    sizeNormalized: {x: 0.24316406, y: 0.16308594}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_03
+    sprite: {fileID: 21300000, guid: bafe9f808bf93ad469e2e665ed2f3c3e, type: 3}
+    sizeInCells: {x: 2.859375, y: 1.859375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.41210938, y: 0.734375}
+    startingCenterNormalized: {x: 0.7969175, y: 0.1430825}
+    sizeNormalized: {x: 0.35742188, y: 0.23242188}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_04
+    sprite: {fileID: 21300000, guid: 9876e2e16af453d4d8f5aa44a9628b00, type: 3}
+    sizeInCells: {x: 0.140625, y: 0.15625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.5371094, y: 0.16601562}
+    startingCenterNormalized: {x: 0.3466525, y: 0.959105}
+    sizeNormalized: {x: 0.017578125, y: 0.01953125}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_05
+    sprite: {fileID: 21300000, guid: 6d6e6ce0ad124024dbcbc061be9dcc3a, type: 3}
+    sizeInCells: {x: 1.7578125, y: 1.7421875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.6401367, y: 0.71435547}
+    startingCenterNormalized: {x: 0.13698874, y: 0.4090128}
+    sizeNormalized: {x: 0.21972656, y: 0.21777344}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_06
+    sprite: {fileID: 21300000, guid: 43b1d849dab7057428321ee2ca98de01, type: 3}
+    sizeInCells: {x: 2.0234375, y: 2.484375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.72314453, y: 0.52246094}
+    startingCenterNormalized: {x: 0.15292624, y: 0.8194175}
+    sizeNormalized: {x: 0.2529297, y: 0.31054688}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: cbdb00cf1fe08a44785e8ebc3170e80e, type: 3}
-    sizeInCells: {x: 1.421875, y: 2.140625}
+    sizeInCells: {x: 1.6171875, y: 2.109375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.49441963, y: 0.4017857}
-    startingCenterNormalized: {x: 0.87097996, y: 0.8216943}
-    sizeNormalized: {x: 0.203125, y: 0.30580357}
+    targetCenterNormalized: {x: 0.57958984, y: 0.28320312}
+    startingCenterNormalized: {x: 0.87144876, y: 0.8419175}
+    sizeNormalized: {x: 0.20214844, y: 0.26367188}
     snapDistanceNormalized: 0.055
-  - pieceId: yellow_part_02
-    sprite: {fileID: 21300000, guid: b0b2cfe0be4e6bc479d68460161f87de, type: 3}
-    sizeInCells: {x: 0.640625, y: 2.1171875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.64508927, y: 0.30078125}
-    startingCenterNormalized: {x: 0.07544857, y: 0.82330143}
-    sizeNormalized: {x: 0.09151786, y: 0.30245537}
-    snapDistanceNormalized: 0.055
-  - pieceId: orange_part_01
-    sprite: {fileID: 21300000, guid: be3eb4bb51f6f60458d2a61151109b9e, type: 3}
-    sizeInCells: {x: 1.4140625, y: 1.421875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.39453125, y: 0.65290177}
-    startingCenterNormalized: {x: 0.6238386, y: 0.12902}
-    sizeNormalized: {x: 0.20200893, y: 0.203125}
-    snapDistanceNormalized: 0.055
-  - pieceId: purple_part_01
-    sprite: {fileID: 21300000, guid: 12c0a8aa8c68b6947809891fad3a9078, type: 3}
-    sizeInCells: {x: 0.75, y: 0.75}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.5457589, y: 0.6015625}
-    startingCenterNormalized: {x: 0.22196572, y: 0.91705143}
-    sizeNormalized: {x: 0.10714286, y: 0.10714286}
-    snapDistanceNormalized: 0.055
-  - pieceId: teal_part_01
-    sprite: {fileID: 21300000, guid: 9ed4cbb80a7760a468b94adc060888b8, type: 3}
-    sizeInCells: {x: 1.421875, y: 1.421875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.69754463, y: 0.65290177}
-    startingCenterNormalized: {x: 0.12902, y: 0.12902}
-    sizeNormalized: {x: 0.203125, y: 0.203125}
-    snapDistanceNormalized: 0.055
-  - pieceId: cream_part_01
-    sprite: {fileID: 21300000, guid: c5453b6d7e5ac4f4eb471e524fb9847a, type: 3}
-    sizeInCells: {x: 1.3359375, y: 1.3359375}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.5954241, y: 0.75502235}
-    startingCenterNormalized: {x: 0.37437573, y: 0.12312715}
-    sizeNormalized: {x: 0.19084822, y: 0.19084822}
-    snapDistanceNormalized: 0.055
-  sourceJsonPath: Assets/Game/Data/Levels/Source/level_032_turtle.json
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_032_treehouse.json

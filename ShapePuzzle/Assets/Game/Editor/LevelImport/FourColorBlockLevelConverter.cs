@@ -16,7 +16,7 @@ namespace ToyPuzzle.Editor.Levels
             for (int i = 0; i < paths.Length; i++)
             {
                 LevelJsonDocument document = LevelJsonSerializer.Load(paths[i]);
-                if (document.levelNumber < 1 || document.levelNumber > PuzzleLayoutConstants.TotalPlayableLevels) continue;
+                if (!pieceIdsByLevel.ContainsKey(document.levelNumber)) continue;
                 if (!pieceIdsByLevel.TryGetValue(document.levelNumber, out string[] pieceIds) || pieceIds == null || pieceIds.Length == 0)
                     throw new InvalidOperationException("No generated separated-part IDs were supplied for level " + document.levelNumber + ".");
                 if (pieceIds.Length * 2 > document.boardWidth * document.boardHeight)
@@ -33,14 +33,14 @@ namespace ToyPuzzle.Editor.Levels
                 totalParts += pieceIds.Length;
             }
 
-            if (pending.Count != PuzzleLayoutConstants.TotalPlayableLevels)
-                throw new InvalidOperationException("Expected " + PuzzleLayoutConstants.TotalPlayableLevels + " source levels to convert, found " + pending.Count + ".");
+            if (pending.Count != pieceIdsByLevel.Count)
+                throw new InvalidOperationException("Expected " + pieceIdsByLevel.Count + " source levels to convert, found " + pending.Count + ".");
             for (int i = 0; i < pending.Count; i++) LevelJsonSerializer.SaveAtomic(pending[i].path, pending[i].document);
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
             LevelImportReport report = LevelImportPipeline.Run(true);
             if (report.RejectedCount != 0) throw new InvalidOperationException("Level rebuild rejected separated-part content. " + report.ToSummary());
 
-            string message = "Converted levels 1-" + PuzzleLayoutConstants.TotalPlayableLevels + " to " + totalParts + " separate color-part definitions and rebuilt " + report.ImportedCount + " level assets.";
+            string message = "Converted " + pending.Count + " levels to " + totalParts + " separate color-part definitions and rebuilt " + report.ImportedCount + " level assets.";
             Debug.Log(message);
             return message;
         }

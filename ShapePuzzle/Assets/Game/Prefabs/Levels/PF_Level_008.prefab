@@ -61,6 +61,7 @@ MonoBehaviour:
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -96,10 +97,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_02
+      displayName: Red Molded Part 2
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -135,10 +137,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_02
-      displayName: Blue Molded Part 2
+    - pieceId: red_part_03
+      displayName: Red Molded Part 3
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -174,10 +177,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_03
-      displayName: Blue Molded Part 3
+    - pieceId: red_part_04
+      displayName: Red Molded Part 4
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -213,10 +217,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: red_part_05
+      displayName: Red Molded Part 5
       shapeType: 1
-      colorId: green
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -252,10 +257,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_02
-      displayName: Green Molded Part 2
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
       colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -291,10 +297,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_01
-      displayName: Yellow Molded Part 1
+    - pieceId: green_part_02
+      displayName: Green Molded Part 2
       shapeType: 1
-      colorId: yellow
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -330,10 +337,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_02
-      displayName: Yellow Molded Part 2
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
       shapeType: 1
       colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -392,87 +400,89 @@ MonoBehaviour:
     - bus
     - semantic_parts
     - multi_cell
-    designerNotes: 
+    designerNotes: Explicit connected multi-cell Bus silhouette at 44% occupancy.
+      Certificate reverses a deterministic valid scramble.
+    completionAction: Bounce
   thumbnail: {fileID: 21300000, guid: 16ce278a6c3fa9746bee03f19e62469e, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 9b3615d6065308f4baf6da1831c38b56, type: 3}
-    sizeInCells: {x: 2.875, y: 0.8203125}
+    sizeInCells: {x: 0.7421875, y: 0.5625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.609375, y: 0.35481772}
-    startingCenterNormalized: {x: 0.26152, y: 0.097145}
-    sizeNormalized: {x: 0.47916666, y: 0.13671875}
+    targetCenterNormalized: {x: 0.21158855, y: 0.3658854}
+    startingCenterNormalized: {x: 0.909105, y: 0.64116}
+    sizeNormalized: {x: 0.123697914, y: 0.09375}
     snapDistanceNormalized: 0.055
-  - pieceId: blue_part_01
-    sprite: {fileID: 21300000, guid: 4de2ca78e51f13042864145a9563978d, type: 3}
-    sizeInCells: {x: 0.8828125, y: 0.7578125}
+  - pieceId: red_part_02
+    sprite: {fileID: 21300000, guid: 15c479c6cdd6e8f419e3ef1394be716e, type: 3}
+    sizeInCells: {x: 0.828125, y: 0.875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.36914062, y: 0.5423177}
-    startingCenterNormalized: {x: 0.6657729, y: 0.092144996}
-    sizeNormalized: {x: 0.14713542, y: 0.12630208}
+    targetCenterNormalized: {x: 0.3216146, y: 0.35677084}
+    startingCenterNormalized: {x: 0.73463416, y: 0.89848006}
+    sizeNormalized: {x: 0.13802083, y: 0.14583333}
     snapDistanceNormalized: 0.055
-  - pieceId: blue_part_02
-    sprite: {fileID: 21300000, guid: 23554b120455bbb4fac149a652192a63, type: 3}
-    sizeInCells: {x: 0.859375, y: 0.7578125}
+  - pieceId: red_part_03
+    sprite: {fileID: 21300000, guid: 67134f261859cb747b0eca5612ec2280, type: 3}
+    sizeInCells: {x: 1.5234375, y: 0.5703125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.54036456, y: 0.5423177}
-    startingCenterNormalized: {x: 0.10027, y: 0.39803624}
-    sizeNormalized: {x: 0.14322917, y: 0.12630208}
+    targetCenterNormalized: {x: 0.49674478, y: 0.36523438}
+    startingCenterNormalized: {x: 0.153395, y: 0.7819033}
+    sizeNormalized: {x: 0.25390625, y: 0.095052086}
     snapDistanceNormalized: 0.055
-  - pieceId: blue_part_03
-    sprite: {fileID: 21300000, guid: 8651f9617f39e1346aa53197086339ba, type: 3}
-    sizeInCells: {x: 0.8125, y: 0.765625}
+  - pieceId: red_part_04
+    sprite: {fileID: 21300000, guid: eef3d8d178cc9a24c8265c3343fba43f, type: 3}
+    sizeInCells: {x: 0.859375, y: 0.875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.73307294, y: 0.5416667}
-    startingCenterNormalized: {x: 0.09652001, y: 0.6018075}
-    sizeNormalized: {x: 0.13541667, y: 0.12760417}
+    targetCenterNormalized: {x: 0.6744792, y: 0.35546875}
+    startingCenterNormalized: {x: 0.10027, y: 0.10152}
+    sizeNormalized: {x: 0.14322917, y: 0.14583333}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_05
+    sprite: {fileID: 21300000, guid: 42c65b67c2427f94e8151a346220deae, type: 3}
+    sizeInCells: {x: 0.671875, y: 0.2734375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.79296875, y: 0.34049478}
+    startingCenterNormalized: {x: 0.085269995, y: 0.6860854}
+    sizeNormalized: {x: 0.111979164, y: 0.045572918}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: b9dbaf7d5e44e674fb5cfffc2c2fa4c5, type: 3}
-    sizeInCells: {x: 1.171875, y: 2.328125}
+    sizeInCells: {x: 0.8203125, y: 1.4453125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.24739583, y: 0.5182292}
-    startingCenterNormalized: {x: 0.87473, y: 0.21777}
-    sizeNormalized: {x: 0.1953125, y: 0.38802084}
+    targetCenterNormalized: {x: 0.21809895, y: 0.5957031}
+    startingCenterNormalized: {x: 0.902855, y: 0.852855}
+    sizeNormalized: {x: 0.13671875, y: 0.24088542}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_02
     sprite: {fileID: 21300000, guid: 3c4d5d4b50d54a64fb888640c4d11b99, type: 3}
-    sizeInCells: {x: 3.1328125, y: 0.4375}
+    sizeInCells: {x: 3.140625, y: 0.5078125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.5279948, y: 0.6770833}
-    startingCenterNormalized: {x: 0.282145, y: 0.24713667}
-    sizeNormalized: {x: 0.52213544, y: 0.072916664}
+    targetCenterNormalized: {x: 0.53125, y: 0.6751302}
+    startingCenterNormalized: {x: 0.28277, y: 0.927855}
+    sizeNormalized: {x: 0.5234375, y: 0.084635414}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 2ad40aefe2778df41b5e98d6b01e9a0f, type: 3}
-    sizeInCells: {x: 2.921875, y: 2.09375}
+    sizeInCells: {x: 4.203125, y: 1.6796875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.39322916, y: 0.4622396}
-    startingCenterNormalized: {x: 0.73473, y: 0.80098003}
-    sizeNormalized: {x: 0.48697916, y: 0.34895834}
-    snapDistanceNormalized: 0.055
-  - pieceId: yellow_part_02
-    sprite: {fileID: 21300000, guid: f665f3f2ce0948b47b7a3723724f8931, type: 3}
-    sizeInCells: {x: 1.2734375, y: 1.6640625}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.7441406, y: 0.49674478}
-    startingCenterNormalized: {x: 0.133395, y: 0.835355}
-    sizeNormalized: {x: 0.21223958, y: 0.27734375}
+    targetCenterNormalized: {x: 0.5, y: 0.50065106}
+    startingCenterNormalized: {x: 0.63223004, y: 0.16589499}
+    sizeNormalized: {x: 0.7005208, y: 0.2799479}
     snapDistanceNormalized: 0.055
   sourceJsonPath: Assets/Game/Data/Levels/Source/level_008_bus.json

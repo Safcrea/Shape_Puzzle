@@ -1,0 +1,840 @@
+{
+    "schemaVersion": 1,
+    "levelId": "level_044",
+    "levelNumber": 44,
+    "displayName": "Level 44 - Harbor Boat",
+    "targetObjectName": "Harbor Boat",
+    "boardWidth": 9,
+    "boardHeight": 8,
+    "difficultyTier": 5,
+    "scrambleSeed": 11568,
+    "paletteId": "challenge_repeat",
+    "recommendedMoves": 14,
+    "pieces": [
+        {
+            "pieceId": "red_part_01",
+            "displayName": "Red Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "red",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 0,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 8,
+                "y": 7
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 0,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "red_part_02",
+            "displayName": "Red Molded Part 2",
+            "shapeType": "Square",
+            "colorId": "red",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 1,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 7,
+                "y": 7
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 1,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "blue_part_01",
+            "displayName": "Blue Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "blue",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 2,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 6,
+                "y": 7
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 2,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "blue_part_02",
+            "displayName": "Blue Molded Part 2",
+            "shapeType": "Square",
+            "colorId": "blue",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 3,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 5,
+                "y": 7
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 3,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "blue_part_03",
+            "displayName": "Blue Molded Part 3",
+            "shapeType": "Square",
+            "colorId": "blue",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 4,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 4,
+                "y": 7
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 4,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "blue_part_04",
+            "displayName": "Blue Molded Part 4",
+            "shapeType": "Square",
+            "colorId": "blue",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 5,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 3,
+                "y": 7
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 5,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "green_part_01",
+            "displayName": "Green Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "green",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 6,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 2,
+                "y": 7
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 6,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "green_part_02",
+            "displayName": "Green Molded Part 2",
+            "shapeType": "Square",
+            "colorId": "green",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 7,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 1,
+                "y": 7
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 7,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "yellow_part_01",
+            "displayName": "Yellow Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "yellow",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 8,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 0,
+                "y": 7
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 8,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "yellow_part_02",
+            "displayName": "Yellow Molded Part 2",
+            "shapeType": "Square",
+            "colorId": "yellow",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 0,
+                "y": 1
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 8,
+                "y": 6
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 9,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "yellow_part_03",
+            "displayName": "Yellow Molded Part 3",
+            "shapeType": "Square",
+            "colorId": "yellow",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 1,
+                "y": 1
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 7,
+                "y": 6
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 10,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "yellow_part_04",
+            "displayName": "Yellow Molded Part 4",
+            "shapeType": "Square",
+            "colorId": "yellow",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 2,
+                "y": 1
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 6,
+                "y": 6
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 11,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "purple_part_01",
+            "displayName": "Purple Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "purple",
+            "interchangeableGroupId": "",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 3,
+                "y": 1
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 5,
+                "y": 6
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 12,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        }
+    ],
+    "lockCorrectPiecesByDefault": true,
+    "hintMetadata": {
+        "message": "Look at the large reference and place one connected toy part at a time.",
+        "showDirectionalIndicator": false
+    },
+    "tutorialMetadata": {
+        "tutorialId": "",
+        "message": "",
+        "requireCompletion": false
+    },
+    "completionRewardData": {
+        "stars": 3,
+        "softCurrency": 10,
+        "rewardId": ""
+    },
+    "thumbnailConfiguration": {
+        "scale": 1.0,
+        "offset": {
+            "x": 0.0,
+            "y": 0.0
+        },
+        "showBoard": false
+    },
+    "levelTags": [
+        "master-brief",
+        "toy",
+        "campaign-5"
+    ],
+    "designerNotes": "Generated from 50_Level_Game_Design_Prompt.md; preserve the named object and required part count.",
+    "completionAction": "Sway",
+    "solutionCertificate": [
+        {
+            "pieceId": "red_part_01",
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "red_part_02",
+            "position": {
+                "x": 1,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "blue_part_01",
+            "position": {
+                "x": 2,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "blue_part_02",
+            "position": {
+                "x": 3,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "blue_part_03",
+            "position": {
+                "x": 4,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "blue_part_04",
+            "position": {
+                "x": 5,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "green_part_01",
+            "position": {
+                "x": 6,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "green_part_02",
+            "position": {
+                "x": 7,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "yellow_part_01",
+            "position": {
+                "x": 8,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "yellow_part_02",
+            "position": {
+                "x": 0,
+                "y": 1
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "yellow_part_03",
+            "position": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "yellow_part_04",
+            "position": {
+                "x": 2,
+                "y": 1
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "purple_part_01",
+            "position": {
+                "x": 3,
+                "y": 1
+            },
+            "rotation": 0
+        }
+    ]
+}

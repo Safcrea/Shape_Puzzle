@@ -16,6 +16,7 @@
             "displayName": "Red Molded Part 1",
             "shapeType": "Square",
             "colorId": "red",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -64,10 +65,11 @@
             }
         },
         {
-            "pieceId": "blue_part_01",
-            "displayName": "Blue Molded Part 1",
+            "pieceId": "red_part_02",
+            "displayName": "Red Molded Part 2",
             "shapeType": "Square",
-            "colorId": "blue",
+            "colorId": "red",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -116,10 +118,11 @@
             }
         },
         {
-            "pieceId": "blue_part_02",
-            "displayName": "Blue Molded Part 2",
+            "pieceId": "red_part_03",
+            "displayName": "Red Molded Part 3",
             "shapeType": "Square",
-            "colorId": "blue",
+            "colorId": "red",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -168,10 +171,11 @@
             }
         },
         {
-            "pieceId": "blue_part_03",
-            "displayName": "Blue Molded Part 3",
+            "pieceId": "red_part_04",
+            "displayName": "Red Molded Part 4",
             "shapeType": "Square",
-            "colorId": "blue",
+            "colorId": "red",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -220,10 +224,11 @@
             }
         },
         {
-            "pieceId": "green_part_01",
-            "displayName": "Green Molded Part 1",
+            "pieceId": "red_part_05",
+            "displayName": "Red Molded Part 5",
             "shapeType": "Square",
-            "colorId": "green",
+            "colorId": "red",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -272,10 +277,11 @@
             }
         },
         {
-            "pieceId": "green_part_02",
-            "displayName": "Green Molded Part 2",
+            "pieceId": "green_part_01",
+            "displayName": "Green Molded Part 1",
             "shapeType": "Square",
             "colorId": "green",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -324,10 +330,11 @@
             }
         },
         {
-            "pieceId": "yellow_part_01",
-            "displayName": "Yellow Molded Part 1",
+            "pieceId": "green_part_02",
+            "displayName": "Green Molded Part 2",
             "shapeType": "Square",
-            "colorId": "yellow",
+            "colorId": "green",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -376,10 +383,11 @@
             }
         },
         {
-            "pieceId": "yellow_part_02",
-            "displayName": "Yellow Molded Part 2",
+            "pieceId": "yellow_part_01",
+            "displayName": "Yellow Molded Part 1",
             "shapeType": "Square",
             "colorId": "yellow",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -458,6 +466,7 @@
         "multi_cell"
     ],
     "designerNotes": "Explicit connected multi-cell Bus silhouette at 44% occupancy. Certificate reverses a deterministic valid scramble.",
+    "completionAction": "Bounce",
     "solutionCertificate": [
         {
             "pieceId": "red_part_01",
@@ -468,7 +477,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "blue_part_01",
+            "pieceId": "red_part_02",
             "position": {
                 "x": 1,
                 "y": 0
@@ -476,7 +485,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "blue_part_02",
+            "pieceId": "red_part_03",
             "position": {
                 "x": 2,
                 "y": 0
@@ -484,7 +493,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "blue_part_03",
+            "pieceId": "red_part_04",
             "position": {
                 "x": 3,
                 "y": 0
@@ -492,7 +501,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "green_part_01",
+            "pieceId": "red_part_05",
             "position": {
                 "x": 4,
                 "y": 0
@@ -500,7 +509,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "green_part_02",
+            "pieceId": "green_part_01",
             "position": {
                 "x": 5,
                 "y": 0
@@ -508,7 +517,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "yellow_part_01",
+            "pieceId": "green_part_02",
             "position": {
                 "x": 0,
                 "y": 1
@@ -516,7 +525,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "yellow_part_02",
+            "pieceId": "yellow_part_01",
             "position": {
                 "x": 1,
                 "y": 1

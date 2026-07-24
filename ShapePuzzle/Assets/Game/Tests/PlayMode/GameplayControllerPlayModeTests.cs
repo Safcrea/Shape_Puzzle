@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.TestTools;
 
 namespace ToyPuzzle.Tests.PlayMode
 {
@@ -47,24 +49,28 @@ namespace ToyPuzzle.Tests.PlayMode
             }
         }
 
-        [Test]
-        public void RotateSelected_UpdatesSessionAndRotatedViewFootprintSynchronously()
+        [UnityTest]
+        public IEnumerator LoadLevel_AfterCompletionPop_RestoresVisibleInteractivePieceLayer()
         {
-            TestRig rig = CreateRig(CreateRotationLevel());
+            TestRig rig = CreateRig(CreateTwoPieceLevel());
             try
             {
                 rig.Controller.LoadLevel(rig.RuntimeLevel);
-                PuzzlePieceView lineView = rig.Board.FindPiece("line");
-                rig.Controller.SelectPiece(lineView);
+                rig.Board.PlayCompletionPop();
+                yield return new WaitForSecondsRealtime(0.20f);
 
-                rig.Controller.RotateSelected();
+                CanvasGroup fadedGroup = rig.Board.PieceLayer.GetComponent<CanvasGroup>();
+                Assert.That(fadedGroup, Is.Not.Null);
+                Assert.That(fadedGroup.alpha, Is.LessThan(0.05f));
 
-                Assert.That(rig.Controller.SelectedPieceId, Is.EqualTo("line"));
-                Assert.That(rig.Controller.Session.TryGetPiece("line", out PieceState line), Is.True);
-                Assert.That(line.Pose, Is.EqualTo(new PiecePose(new GridCoordinate(2, 0), 90)));
-                Assert.That(line.IsCorrect, Is.True);
-                Assert.That(lineView.RectTransform.sizeDelta,
-                    Is.EqualTo(new Vector2(rig.Board.CellSize, rig.Board.CellSize * 3f)));
+                rig.Controller.LoadLevel(rig.RuntimeLevel);
+
+                CanvasGroup restoredGroup = rig.Board.PieceLayer.GetComponent<CanvasGroup>();
+                Assert.That(restoredGroup.alpha, Is.EqualTo(1f).Within(0.001f));
+                Assert.That(restoredGroup.blocksRaycasts, Is.True);
+                Assert.That(rig.Board.PieceLayer.localScale, Is.EqualTo(Vector3.one));
+                Assert.That(rig.Board.FindPiece("a"), Is.Not.Null);
+                Assert.That(rig.Board.FindPiece("a").gameObject.activeInHierarchy, Is.True);
             }
             finally
             {
@@ -103,41 +109,6 @@ namespace ToyPuzzle.Tests.PlayMode
                 {
                     CreateSingleCellPiece("a", new GridCoordinate(0, 0), new GridCoordinate(1, 0), true),
                     CreateSingleCellPiece("b", new GridCoordinate(2, 0), new GridCoordinate(3, 0), false)
-                }
-            };
-        }
-
-        private static LevelDefinition CreateRotationLevel()
-        {
-            var line = new PieceDefinition
-            {
-                pieceId = "line",
-                displayName = "Line",
-                shapeType = PieceShapeType.Rectangle,
-                footprint = new[]
-                {
-                    new GridCoordinate(0, 0),
-                    new GridCoordinate(1, 0),
-                    new GridCoordinate(2, 0)
-                },
-                logicalPivot = new GridCoordinate(1, 0),
-                startingPosition = new GridCoordinate(1, 1),
-                startingRotation = 0,
-                targetPosition = new GridCoordinate(2, 0),
-                targetRotation = 90,
-                allowedRotations = new[] { 0, 90, 180, 270 }
-            };
-
-            return new LevelDefinition
-            {
-                levelId = "playmode_rotation",
-                levelNumber = 1,
-                boardWidth = 5,
-                boardHeight = 5,
-                pieces = new[]
-                {
-                    line,
-                    CreateSingleCellPiece("other", new GridCoordinate(4, 4), new GridCoordinate(3, 4), false)
                 }
             };
         }

@@ -14,19 +14,19 @@ namespace ToyPuzzle.Tests.Editor
         private static readonly string[] ExpectedNames =
         {
             "Airplane", "Truck", "Car", "Rocket", "Boat", "Bicycle", "Train", "Bus", "Sailboat", "Scooter",
-            "Helicopter", "Submarine", "Taxi", "Fire Truck", "Tractor", "Excavator", "Hot-Air Balloon", "Spaceship", "Robot", "House",
-            "Castle", "Windmill", "Lighthouse", "Bridge", "Tree", "Flower", "Cactus", "Mushroom", "Fish", "Whale",
-            "Crab", "Turtle", "Butterfly", "Owl", "Cat", "Dog", "Duck", "Elephant", "Giraffe", "Penguin",
-            "Ice Cream", "Cupcake", "Camera", "Guitar", "Umbrella", "Crown", "Key", "Gift Box", "Clock", "Star Trophy"
+            "City Bus", "Umbrella", "Windmill", "Toy Train", "Ice-Cream Cone", "Lighthouse", "Camera", "Small Castle", "Kick Scooter", "Toy Robot",
+            "Hot-Air Balloon", "Teapot", "Pirate Ship", "Mushroom House", "Bicycle", "Treasure Chest", "Fire Truck", "Stone Bridge", "Cupcake", "Submarine",
+            "Excavator", "Treehouse", "Grand Piano", "Ferris Wheel", "Helicopter", "Castle Gate", "Dragon Head", "School Bus", "Carousel", "Space Shuttle",
+            "Medieval Castle", "Bulldozer", "Unicorn Head", "Harbor Boat", "Wizard Hat", "Toy Factory", "Monster Truck", "Amusement Park Entrance", "Clock Tower", "Grand Toy Kingdom"
         };
 
         private static readonly int[] ExpectedPieceCounts =
         {
-            4, 6, 6, 6, 6, 6, 8, 8, 5, 7,
-            7, 7, 7, 8, 8, 8, 7, 8, 8, 8,
-            9, 9, 9, 10, 9, 9, 8, 8, 10, 10,
-            10, 10, 10, 10, 10, 12, 11, 13, 13, 12,
-            12, 12, 14, 15, 14, 15, 13, 16, 16, 18
+            4, 6, 6, 6, 6, 4, 8, 8, 5, 7,
+            7, 7, 8, 8, 7, 8, 8, 9, 8, 9,
+            9, 8, 10, 9, 10, 9, 10, 10, 9, 10,
+            11, 11, 10, 12, 11, 12, 11, 12, 13, 12,
+            14, 12, 12, 13, 11, 14, 13, 14, 15, 16
         };
 
         [Test]
@@ -45,7 +45,7 @@ namespace ToyPuzzle.Tests.Editor
         }
 
         [Test]
-        public void GeneratedPrefabCatalog_HasThirtyFiveOrderedEditableLevelPrefabs()
+        public void GeneratedPrefabCatalog_HasFiftyOrderedEditableLevelPrefabs()
         {
             LevelPrefabCatalog catalog = AssetDatabase.LoadAssetAtPath<LevelPrefabCatalog>(LevelJsonSchema.PrefabCatalogPath);
             Assert.That(catalog, Is.Not.Null);
@@ -86,6 +86,9 @@ namespace ToyPuzzle.Tests.Editor
                     occupiedCells += level.pieces[pieceIndex].footprint.Length;
                     if (level.pieces[pieceIndex].footprint.Length > 1) multiCellPieces++;
                     Assert.That(level.pieces[pieceIndex].pieceId, Does.Not.StartWith("piece_"), level.levelId + " uses a generic part ID.");
+                    Assert.That(level.pieces[pieceIndex].startingRotation, Is.Zero, level.levelId + " must not require player rotation.");
+                    Assert.That(level.pieces[pieceIndex].targetRotation, Is.Zero, level.levelId + " must not require player rotation.");
+                    Assert.That(level.pieces[pieceIndex].allowedRotations, Is.EqualTo(new[] { 0 }), level.levelId + " must be translation-only.");
                 }
                 // Levels 1-35 use freeform color masks. Their one-cell definitions are
                 // bookkeeping poses only; the artwork metadata carries the true proportions.

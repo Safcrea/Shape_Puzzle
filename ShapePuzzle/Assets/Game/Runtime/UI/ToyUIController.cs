@@ -15,7 +15,6 @@ namespace ToyPuzzle
         [SerializeField] private Button resetButton;
         [SerializeField] private Button undoButton;
         [SerializeField] private Button hintButton;
-        [SerializeField] private Button rotateButton;
         [SerializeField] private Button pauseButton;
         [SerializeField] private Button nextTestButton;
         [SerializeField] private Button levelSelectBackButton;
@@ -56,7 +55,6 @@ namespace ToyPuzzle
         public event Action HomeRequested;
         public event Action UndoRequested;
         public event Action HintRequested;
-        public event Action RotateRequested;
         public event Action PauseRequested;
         public event Action ResumeRequested;
         public event Action RestartRequested;
@@ -116,11 +114,6 @@ namespace ToyPuzzle
             if (undoButton != null) undoButton.interactable = available;
         }
 
-        public void SetRotationAvailable(bool available)
-        {
-            if (rotateButton != null) rotateButton.interactable = available;
-        }
-
         public void SetSettings(bool music, bool sound, bool haptics, bool reducedMotion)
         {
             if (musicToggle != null) musicToggle.SetIsOnWithoutNotify(music);
@@ -141,7 +134,6 @@ namespace ToyPuzzle
             Bind(resetButton, HandleResetPrompt, bind);
             Bind(undoButton, HandleUndo, bind);
             Bind(hintButton, HandleHint, bind);
-            Bind(rotateButton, HandleRotate, bind);
             Bind(pauseButton, HandlePause, bind);
             Bind(nextTestButton, HandleNext, bind);
             Bind(levelSelectBackButton, HandleHome, bind);
@@ -185,7 +177,6 @@ namespace ToyPuzzle
         private void HandleProgressResetPrompt() { Click(); screenManager.Show(GameScreenId.ProgressResetConfirmation); }
         private void HandleUndo() { if (UndoRequested != null) UndoRequested(); }
         private void HandleHint() { if (HintRequested != null) HintRequested(); }
-        private void HandleRotate() { if (RotateRequested != null) RotateRequested(); }
         private void HandlePause() { Click(); if (PauseRequested != null) PauseRequested(); screenManager.Show(GameScreenId.Pause); }
         private void HandleResume() { Click(); screenManager.ClosePopup(GameScreenId.Pause); if (ResumeRequested != null) ResumeRequested(); }
         private void HandleReplay() { Click(); screenManager.ClosePopup(GameScreenId.Completion); if (ReplayRequested != null) ReplayRequested(); }

@@ -16,6 +16,7 @@
             "displayName": "Red Molded Part 1",
             "shapeType": "Square",
             "colorId": "red",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -68,6 +69,7 @@
             "displayName": "Red Molded Part 2",
             "shapeType": "Square",
             "colorId": "red",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -120,6 +122,7 @@
             "displayName": "Red Molded Part 3",
             "shapeType": "Square",
             "colorId": "red",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -168,10 +171,11 @@
             }
         },
         {
-            "pieceId": "blue_part_01",
-            "displayName": "Blue Molded Part 1",
+            "pieceId": "red_part_04",
+            "displayName": "Red Molded Part 4",
             "shapeType": "Square",
-            "colorId": "blue",
+            "colorId": "red",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -220,10 +224,11 @@
             }
         },
         {
-            "pieceId": "blue_part_02",
-            "displayName": "Blue Molded Part 2",
+            "pieceId": "blue_part_01",
+            "displayName": "Blue Molded Part 1",
             "shapeType": "Square",
             "colorId": "blue",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -276,6 +281,7 @@
             "displayName": "Green Molded Part 1",
             "shapeType": "Square",
             "colorId": "green",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -328,6 +334,7 @@
             "displayName": "Yellow Molded Part 1",
             "shapeType": "Square",
             "colorId": "yellow",
+            "interchangeableGroupId": "",
             "footprint": [
                 {
                     "x": 0,
@@ -406,6 +413,7 @@
         "multi_cell"
     ],
     "designerNotes": "Explicit connected multi-cell Scooter silhouette at 44% occupancy. Certificate reverses a deterministic valid scramble.",
+    "completionAction": "Bounce",
     "solutionCertificate": [
         {
             "pieceId": "red_part_01",
@@ -432,7 +440,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "blue_part_01",
+            "pieceId": "red_part_04",
             "position": {
                 "x": 3,
                 "y": 0
@@ -440,7 +448,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "blue_part_02",
+            "pieceId": "blue_part_01",
             "position": {
                 "x": 4,
                 "y": 0

@@ -61,6 +61,7 @@ MonoBehaviour:
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -100,6 +101,7 @@ MonoBehaviour:
       displayName: Red Molded Part 2
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -139,6 +141,7 @@ MonoBehaviour:
       displayName: Red Molded Part 3
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -178,6 +181,7 @@ MonoBehaviour:
       displayName: Blue Molded Part 1
       shapeType: 1
       colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -217,6 +221,7 @@ MonoBehaviour:
       displayName: Green Molded Part 1
       shapeType: 1
       colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -256,6 +261,7 @@ MonoBehaviour:
       displayName: Yellow Molded Part 1
       shapeType: 1
       colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -314,67 +320,69 @@ MonoBehaviour:
     - truck
     - semantic_parts
     - reference_match
-    designerNotes: 
+    designerNotes: Five-piece side-view truck based on the supplied visual reference.
+      Target occupancy is 43 percent.
+    completionAction: Bounce
   thumbnail: {fileID: 21300000, guid: ad4afcf7867f4d14c81bceda0e4cbfe6, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 672693d6526c5e04ca9c05003ed58202, type: 3}
-    sizeInCells: {x: 0.9140625, y: 0.921875}
+    sizeInCells: {x: 1.0078125, y: 0.953125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.30403647, y: 0.334375}
-    startingCenterNormalized: {x: 0.895355, y: 0.68999004}
-    sizeNormalized: {x: 0.15234375, y: 0.184375}
+    targetCenterNormalized: {x: 0.31054688, y: 0.334375}
+    startingCenterNormalized: {x: 0.112145, y: 0.87698}
+    sizeNormalized: {x: 0.16796875, y: 0.190625}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_02
     sprite: {fileID: 21300000, guid: a4d85d19f78f65b498520f779456cd0d, type: 3}
-    sizeInCells: {x: 4.203125, y: 0.796875}
+    sizeInCells: {x: 4.203125, y: 0.9140625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.5, y: 0.4046875}
-    startingCenterNormalized: {x: 0.63223004, y: 0.89198}
-    sizeNormalized: {x: 0.7005208, y: 0.159375}
+    targetCenterNormalized: {x: 0.5, y: 0.41015625}
+    startingCenterNormalized: {x: 0.63223004, y: 0.88073003}
+    sizeNormalized: {x: 0.7005208, y: 0.1828125}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_03
     sprite: {fileID: 21300000, guid: f61afb2339186ee479879b702aa680c6, type: 3}
-    sizeInCells: {x: 0.8828125, y: 0.890625}
+    sizeInCells: {x: 0.9765625, y: 0.921875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.69596356, y: 0.3265625}
-    startingCenterNormalized: {x: 0.102145, y: 0.88298005}
-    sizeNormalized: {x: 0.14713542, y: 0.178125}
+    targetCenterNormalized: {x: 0.6907552, y: 0.3265625}
+    startingCenterNormalized: {x: 0.109645, y: 0.658325}
+    sizeNormalized: {x: 0.16276042, y: 0.184375}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: 79d97f552df17c6428ba2116b1ee9b4c, type: 3}
-    sizeInCells: {x: 1.1953125, y: 1.3671875}
+    sizeInCells: {x: 1.25, y: 1.390625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.45638022, y: 0.62578124}
-    startingCenterNormalized: {x: 0.624285, y: 0.16276999}
-    sizeNormalized: {x: 0.19921875, y: 0.2734375}
+    targetCenterNormalized: {x: 0.4622396, y: 0.6265625}
+    startingCenterNormalized: {x: 0.86848, y: 0.16501999}
+    sizeNormalized: {x: 0.20833333, y: 0.278125}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: 5a9b661327eaa0d4496471cd98c9ed6e, type: 3}
-    sizeInCells: {x: 1.75, y: 1.4453125}
+    sizeInCells: {x: 1.8203125, y: 1.484375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.703125, y: 0.58984375}
-    startingCenterNormalized: {x: 0.17152, y: 0.17027}
-    sizeNormalized: {x: 0.29166666, y: 0.2890625}
+    targetCenterNormalized: {x: 0.6985677, y: 0.590625}
+    startingCenterNormalized: {x: 0.17714499, y: 0.17401999}
+    sizeNormalized: {x: 0.3033854, y: 0.296875}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 1b779fc9e9eaf804a8d8520bd3199cca, type: 3}
-    sizeInCells: {x: 1.2265625, y: 1.3671875}
+    sizeInCells: {x: 1.25, y: 1.390625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.25325522, y: 0.62421876}
-    startingCenterNormalized: {x: 0.870355, y: 0.16276999}
-    sizeNormalized: {x: 0.20442708, y: 0.2734375}
+    targetCenterNormalized: {x: 0.25520834, y: 0.625}
+    startingCenterNormalized: {x: 0.86848, y: 0.472085}
+    sizeNormalized: {x: 0.20833333, y: 0.278125}
     snapDistanceNormalized: 0.055
   sourceJsonPath: Assets/Game/Data/Levels/Source/level_002_truck.json

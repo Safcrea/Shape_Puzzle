@@ -61,6 +61,7 @@ MonoBehaviour:
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -100,6 +101,7 @@ MonoBehaviour:
       displayName: Blue Molded Part 1
       shapeType: 1
       colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -139,6 +141,7 @@ MonoBehaviour:
       displayName: Green Molded Part 1
       shapeType: 1
       colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -178,6 +181,7 @@ MonoBehaviour:
       displayName: Yellow Molded Part 1
       shapeType: 1
       colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -236,47 +240,49 @@ MonoBehaviour:
     - airplane
     - semantic_parts
     - multi_cell
-    designerNotes: 
+    designerNotes: Readable side-view airplane silhouette with a horizontal fuselage,
+      pointed nose, raised tail, and molded wing. Target occupies 40% of the board.
+    completionAction: Bounce
   thumbnail: {fileID: 21300000, guid: 4110ce79ee58dfd4681b76e5da861d39, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 6041c8f1a4ac6b848ae56fb280fb86cd, type: 3}
-    sizeInCells: {x: 0.609375, y: 0.9765625}
+    sizeInCells: {x: 0.671875, y: 1.1015625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.2109375, y: 0.47578126}
-    startingCenterNormalized: {x: 0.90998, y: 0.62491}
-    sizeNormalized: {x: 0.121875, y: 0.1953125}
+    targetCenterNormalized: {x: 0.2171875, y: 0.47578126}
+    startingCenterNormalized: {x: 0.90398, y: 0.5906825}
+    sizeNormalized: {x: 0.134375, y: 0.2203125}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: f0fa9d6356717f748b35d1de78ca8478, type: 3}
-    sizeInCells: {x: 1.9375, y: 1.4140625}
+    sizeInCells: {x: 2, y: 1.46875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.43125, y: 0.5289062}
-    startingCenterNormalized: {x: 0.78248, y: 0.16726999}
-    sizeNormalized: {x: 0.3875, y: 0.2828125}
+    targetCenterNormalized: {x: 0.4421875, y: 0.528125}
+    startingCenterNormalized: {x: 0.77648, y: 0.17251998}
+    sizeNormalized: {x: 0.4, y: 0.29375}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: de921b44461fb7141af498e8e0582a9e, type: 3}
-    sizeInCells: {x: 1.2421875, y: 1.484375}
+    sizeInCells: {x: 1.2578125, y: 1.546875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.72578126, y: 0.596875}
-    startingCenterNormalized: {x: 0.15077, y: 0.17401999}
-    sizeNormalized: {x: 0.2484375, y: 0.296875}
+    targetCenterNormalized: {x: 0.7242187, y: 0.59375}
+    startingCenterNormalized: {x: 0.15227, y: 0.18001999}
+    sizeNormalized: {x: 0.2515625, y: 0.309375}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 4d31600638d433a4088277858b312639, type: 3}
-    sizeInCells: {x: 1.546875, y: 1.09375}
+    sizeInCells: {x: 1.5859375, y: 1.125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.4765625, y: 0.3640625}
-    startingCenterNormalized: {x: 0.81998, y: 0.86348}
-    sizeNormalized: {x: 0.309375, y: 0.21875}
+    targetCenterNormalized: {x: 0.47890624, y: 0.3640625}
+    startingCenterNormalized: {x: 0.81623, y: 0.86048}
+    sizeNormalized: {x: 0.3171875, y: 0.225}
     snapDistanceNormalized: 0.055
   sourceJsonPath: Assets/Game/Data/Levels/Source/level_001_airplane.json

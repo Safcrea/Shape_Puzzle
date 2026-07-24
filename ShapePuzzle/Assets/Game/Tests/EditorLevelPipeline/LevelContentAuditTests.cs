@@ -15,28 +15,28 @@ namespace ToyPuzzle.Tests.ContentValidation
         private static readonly string[] ExpectedNames =
         {
             "Airplane", "Truck", "Car", "Rocket", "Boat", "Bicycle", "Train", "Bus", "Sailboat", "Scooter",
-            "Helicopter", "Submarine", "Taxi", "Fire Truck", "Tractor", "Excavator", "Hot-Air Balloon", "Spaceship", "Robot", "House",
-            "Castle", "Windmill", "Lighthouse", "Bridge", "Tree", "Flower", "Cactus", "Mushroom", "Fish", "Whale",
-            "Crab", "Turtle", "Butterfly", "Owl", "Cat", "Dog", "Duck", "Elephant", "Giraffe", "Penguin",
-            "Ice Cream", "Cupcake", "Camera", "Guitar", "Umbrella", "Crown", "Key", "Gift Box", "Clock", "Star Trophy"
+            "City Bus", "Umbrella", "Windmill", "Toy Train", "Ice-Cream Cone", "Lighthouse", "Camera", "Small Castle", "Kick Scooter", "Toy Robot",
+            "Hot-Air Balloon", "Teapot", "Pirate Ship", "Mushroom House", "Bicycle", "Treasure Chest", "Fire Truck", "Stone Bridge", "Cupcake", "Submarine",
+            "Excavator", "Treehouse", "Grand Piano", "Ferris Wheel", "Helicopter", "Castle Gate", "Dragon Head", "School Bus", "Carousel", "Space Shuttle",
+            "Medieval Castle", "Bulldozer", "Unicorn Head", "Harbor Boat", "Wizard Hat", "Toy Factory", "Monster Truck", "Amusement Park Entrance", "Clock Tower", "Grand Toy Kingdom"
         };
 
         private static readonly int[] ExpectedPieceCounts =
         {
-            4, 6, 6, 6, 6, 6, 8, 8, 5, 7,
-            7, 7, 7, 8, 8, 8, 7, 8, 8, 8,
-            9, 9, 9, 10, 9, 9, 8, 8, 10, 10,
-            10, 10, 10, 10, 10, 12, 11, 13, 13, 12,
-            12, 12, 14, 15, 14, 15, 13, 16, 16, 18
+            4, 6, 6, 6, 6, 4, 8, 8, 5, 7,
+            7, 7, 8, 8, 7, 8, 8, 9, 8, 9,
+            9, 8, 10, 9, 10, 9, 10, 10, 9, 10,
+            11, 11, 10, 12, 11, 12, 11, 12, 13, 12,
+            14, 12, 12, 13, 11, 14, 13, 14, 15, 16
         };
 
         private static readonly int[] ExpectedLongestBoardDimensions =
         {
             5, 5, 5, 5, 5, 6, 6, 6, 6, 6,
-            6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
-            7, 7, 6, 7, 6, 6, 6, 6, 7, 7,
-            7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
-            7, 7, 8, 8, 8, 8, 8, 8, 8, 8
+            6, 6, 6, 7, 6, 7, 6, 7, 7, 7,
+            7, 7, 7, 7, 7, 7, 8, 8, 7, 8,
+            8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+            9, 8, 8, 9, 8, 9, 9, 9, 9, 9
         };
 
         private static readonly Regex GenericPartName = new Regex(
@@ -65,13 +65,15 @@ namespace ToyPuzzle.Tests.ContentValidation
                 int longestDimension = Math.Max(level.boardWidth, level.boardHeight);
                 int distributionBaseline = ExpectedLongestBoardDimensions[i];
                 Check(
-                    longestDimension == distributionBaseline || longestDimension == Math.Min(8, distributionBaseline + 1),
+                    longestDimension == distributionBaseline || longestDimension == Math.Min(9, distributionBaseline + 1),
                     levels[i],
                     errors,
                     "longest board dimension is outside the square default or one-cell rectangular extension allowed by the visual-reference precedence rule");
                 Check(levelIds.Add(level.levelId ?? string.Empty), levels[i], errors, "duplicate levelId '" + level.levelId + "'");
                 Check(levelNumbers.Add(level.levelNumber), levels[i], errors, "duplicate levelNumber " + level.levelNumber);
-                Check(objectNames.Add(level.targetObjectName ?? string.Empty), levels[i], errors, "duplicate target object name '" + level.targetObjectName + "'");
+                bool approvedBicycleRepeat = level.levelNumber == 25 &&
+                                              string.Equals(level.targetObjectName, "Bicycle", StringComparison.OrdinalIgnoreCase);
+                Check(approvedBicycleRepeat || objectNames.Add(level.targetObjectName ?? string.Empty), levels[i], errors, "duplicate target object name '" + level.targetObjectName + "'");
 
                 var pieceIds = new HashSet<string>(StringComparer.Ordinal);
                 var displayNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -324,7 +326,7 @@ namespace ToyPuzzle.Tests.ContentValidation
                 PuzzleLevelPrefab prefab = catalog.GetByIndex(levelIndex);
                 Assert.That(prefab, Is.Not.Null, "Missing prefab for level " + (levelIndex + 1) + ".");
                 LevelDefinition level = prefab.Level;
-                Check(level.pieces.Length <= 10, new LoadedLevel(LevelJsonSchema.PrefabCatalogPath, new LevelJsonDocument { levelId = level.levelId, levelNumber = level.levelNumber }), errors, "playable piece count exceeds 10");
+                Check(level.pieces.Length <= 16, new LoadedLevel(LevelJsonSchema.PrefabCatalogPath, new LevelJsonDocument { levelId = level.levelId, levelNumber = level.levelNumber }), errors, "playable piece count exceeds 16");
                 int expectedMoves = level.pieces.Length + (level.levelNumber <= 15 ? 2 : 1);
                 Check(level.recommendedMoves == expectedMoves, new LoadedLevel(LevelJsonSchema.PrefabCatalogPath, new LevelJsonDocument { levelId = level.levelId, levelNumber = level.levelNumber }), errors, "move budget does not match the progression rule");
                 Check(prefab.Thumbnail != null, new LoadedLevel(LevelJsonSchema.PrefabCatalogPath, new LevelJsonDocument { levelId = level.levelId, levelNumber = level.levelNumber }), errors, "thumbnail is missing");

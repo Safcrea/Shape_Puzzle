@@ -48,28 +48,65 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_049
     levelNumber: 49
-    displayName: Clock
-    targetObjectName: Clock
-    boardWidth: 8
-    boardHeight: 8
+    displayName: Level 49 - Clock Tower
+    targetObjectName: Clock Tower
+    boardWidth: 9
+    boardHeight: 9
     difficultyTier: 5
-    scrambleSeed: 389031
+    scrambleSeed: 12053
     paletteId: challenge_repeat
     recommendedMoves: 16
     pieces:
-    - pieceId: lower_left_rim
-      displayName: Lower Left Rim
-      shapeType: 0
-      colorId: red
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
+      shapeType: 1
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
-      - x: 1
-        y: 0
       - x: 0
-        y: 1
-      - x: 1
-        y: 1
-      width: 2
-      height: 2
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 8
+        y: 8
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 0
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: blue_part_02
+      displayName: Blue Molded Part 2
+      shapeType: 1
+      colorId: blue
+      interchangeableGroupId: 
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
       logicalPivot:
         x: 0
         y: 0
@@ -82,84 +119,34 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 6
-        y: 6
-      startingRotation: 90
-      allowedRotations: 000000005a000000b40000000e010000
+        x: 7
+        y: 8
+      startingRotation: 0
+      allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
-      requireExactTargetRotation: 1
-      sortingPriority: 0
-      decorativeStuds:
-      - position:
-          x: 0.5
-          y: 0.5
-        radius: 0.11
-      recessedHoles: []
-      visualOverhang:
-        x: 0.05
-        y: 0.05
-      artGeneration:
-        cornerRadius: 0.18
-        bevelSize: 0.08
-        insetPanel: 0
-        styleVariant: challenge
-    - pieceId: lower_rim
-      displayName: Lower Rim
-      shapeType: 0
-      colorId: blue
-      footprint:
-      - x: 0
-        y: 0
-      - x: 0
-        y: 1
-      - x: 0
-        y: 2
-      width: 1
-      height: 3
-      logicalPivot:
-        x: 0
-        y: 0
-      visualPivot:
-        x: 0.5
-        y: 0.5
-      customPolygonPoints: []
-      targetPosition:
-        x: 3
-        y: 0
-      targetRotation: 0
-      startingPosition:
-        x: 0
-        y: 7
-      startingRotation: 90
-      allowedRotations: 000000005a000000b40000000e010000
-      startsLocked: 0
-      locksWhenCorrect: 0
+      locksWhenCorrect: 1
       requireExactTargetRotation: 1
       sortingPriority: 1
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: lower_right_rim
-      displayName: Lower Right Rim
-      shapeType: 0
-      colorId: yellow
+        styleVariant: separate_color_part
+    - pieceId: blue_part_03
+      displayName: Blue Molded Part 3
+      shapeType: 1
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
-      - x: 1
-        y: 0
-      - x: 0
-        y: 1
-      width: 2
-      height: 2
+      width: 1
+      height: 1
       logicalPivot:
         x: 0
         y: 0
@@ -168,41 +155,38 @@ MonoBehaviour:
         y: 0.5
       customPolygonPoints: []
       targetPosition:
-        x: 4
-        y: 1
+        x: 2
+        y: 0
       targetRotation: 0
       startingPosition:
-        x: 0
-        y: 0
-      startingRotation: 90
-      allowedRotations: 000000005a000000b40000000e010000
+        x: 6
+        y: 8
+      startingRotation: 0
+      allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
+      locksWhenCorrect: 1
       requireExactTargetRotation: 1
       sortingPriority: 2
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: right_lower_rim
-      displayName: Right Lower Rim
-      shapeType: 0
-      colorId: green
+        styleVariant: separate_color_part
+    - pieceId: blue_part_04
+      displayName: Blue Molded Part 4
+      shapeType: 1
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
-      - x: 1
-        y: 0
       - x: 0
-        y: 1
-      - x: 1
-        y: 1
-      width: 2
-      height: 2
+        y: 0
+      width: 1
+      height: 1
       logicalPivot:
         x: 0
         y: 0
@@ -211,88 +195,38 @@ MonoBehaviour:
         y: 0.5
       customPolygonPoints: []
       targetPosition:
-        x: 5
-        y: 1
+        x: 3
+        y: 0
       targetRotation: 0
       startingPosition:
-        x: 1
-        y: 0
-      startingRotation: 90
-      allowedRotations: 000000005a000000b40000000e010000
+        x: 5
+        y: 8
+      startingRotation: 0
+      allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
+      locksWhenCorrect: 1
       requireExactTargetRotation: 1
       sortingPriority: 3
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
-      artGeneration:
-        cornerRadius: 0.18
-        bevelSize: 0.08
-        insetPanel: 0
-        styleVariant: challenge
-    - pieceId: right_mid_rim
-      displayName: Right Mid Rim
-      shapeType: 0
-      colorId: orange
-      footprint:
-      - x: 0
-        y: 0
-      - x: 1
-        y: 0
-      - x: 1
-        y: 1
-      width: 2
-      height: 2
-      logicalPivot:
         x: 0
         y: 0
-      visualPivot:
-        x: 0.5
-        y: 0.5
-      customPolygonPoints: []
-      targetPosition:
-        x: 5
-        y: 3
-      targetRotation: 0
-      startingPosition:
-        x: 3
-        y: 0
-      startingRotation: 90
-      allowedRotations: 000000005a000000b40000000e010000
-      startsLocked: 0
-      locksWhenCorrect: 0
-      requireExactTargetRotation: 1
-      sortingPriority: 4
-      decorativeStuds:
-      - position:
-          x: 0.5
-          y: 0.5
-        radius: 0.11
-      recessedHoles: []
-      visualOverhang:
-        x: 0.05
-        y: 0.05
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: right_upper_rim
-      displayName: Right Upper Rim
-      shapeType: 0
-      colorId: purple
+        styleVariant: separate_color_part
+    - pieceId: blue_part_05
+      displayName: Blue Molded Part 5
+      shapeType: 1
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
-      - x: 1
-        y: 0
-      - x: 1
-        y: 1
-      width: 2
-      height: 2
+      width: 1
+      height: 1
       logicalPivot:
         x: 0
         y: 0
@@ -302,40 +236,77 @@ MonoBehaviour:
       customPolygonPoints: []
       targetPosition:
         x: 4
-        y: 4
+        y: 0
       targetRotation: 0
       startingPosition:
-        x: 6
-        y: 0
-      startingRotation: 90
-      allowedRotations: 000000005a000000b40000000e010000
+        x: 4
+        y: 8
+      startingRotation: 0
+      allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 4
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
+      shapeType: 1
+      colorId: green
+      interchangeableGroupId: 
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 5
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 3
+        y: 8
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
       requireExactTargetRotation: 1
       sortingPriority: 5
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: upper_right_rim
-      displayName: Upper Right Rim
-      shapeType: 0
-      colorId: teal
+        styleVariant: separate_color_part
+    - pieceId: green_part_02
+      displayName: Green Molded Part 2
+      shapeType: 1
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
-      - x: 0
-        y: 1
-      - x: 1
-        y: 1
-      width: 2
-      height: 2
+      width: 1
+      height: 1
       logicalPivot:
         x: 0
         y: 0
@@ -344,32 +315,33 @@ MonoBehaviour:
         y: 0.5
       customPolygonPoints: []
       targetPosition:
-        x: 4
-        y: 5
+        x: 6
+        y: 0
       targetRotation: 0
       startingPosition:
-        x: 6
-        y: 1
-      startingRotation: 90
-      allowedRotations: 000000005a000000b40000000e010000
+        x: 2
+        y: 8
+      startingRotation: 0
+      allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
+      locksWhenCorrect: 1
       requireExactTargetRotation: 1
       sortingPriority: 6
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: upper_rim
-      displayName: Upper Rim
-      shapeType: 0
-      colorId: cream
+        styleVariant: separate_color_part
+    - pieceId: green_part_03
+      displayName: Green Molded Part 3
+      shapeType: 1
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -383,40 +355,37 @@ MonoBehaviour:
         y: 0.5
       customPolygonPoints: []
       targetPosition:
-        x: 3
-        y: 5
+        x: 7
+        y: 0
       targetRotation: 0
       startingPosition:
-        x: 0
-        y: 2
-      startingRotation: 90
-      allowedRotations: 000000005a000000b40000000e010000
+        x: 1
+        y: 8
+      startingRotation: 0
+      allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
+      locksWhenCorrect: 1
       requireExactTargetRotation: 1
       sortingPriority: 7
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: upper_left_rim
-      displayName: Upper Left Rim
-      shapeType: 0
-      colorId: red
+        styleVariant: separate_color_part
+    - pieceId: green_part_04
+      displayName: Green Molded Part 4
+      shapeType: 1
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
-      - x: 1
-        y: 0
-      - x: 2
-        y: 0
-      width: 3
+      width: 1
       height: 1
       logicalPivot:
         x: 0
@@ -426,44 +395,37 @@ MonoBehaviour:
         y: 0.5
       customPolygonPoints: []
       targetPosition:
-        x: 0
-        y: 5
+        x: 8
+        y: 0
       targetRotation: 0
       startingPosition:
-        x: 5
-        y: 0
-      startingRotation: 90
-      allowedRotations: 000000005a000000b40000000e010000
+        x: 0
+        y: 8
+      startingRotation: 0
+      allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
+      locksWhenCorrect: 1
       requireExactTargetRotation: 1
       sortingPriority: 8
-      decorativeStuds:
-      - position:
-          x: 0.5
-          y: 0.5
-        radius: 0.11
+      decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: left_upper_rim
-      displayName: Left Upper Rim
-      shapeType: 0
-      colorId: blue
+        styleVariant: separate_color_part
+    - pieceId: green_part_05
+      displayName: Green Molded Part 5
+      shapeType: 1
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
-      - x: 1
-        y: 0
-      - x: 2
-        y: 0
-      width: 3
+      width: 1
       height: 1
       logicalPivot:
         x: 0
@@ -474,37 +436,36 @@ MonoBehaviour:
       customPolygonPoints: []
       targetPosition:
         x: 0
-        y: 4
+        y: 1
       targetRotation: 0
       startingPosition:
-        x: 7
-        y: 3
-      startingRotation: 90
-      allowedRotations: 000000005a000000b40000000e010000
+        x: 8
+        y: 7
+      startingRotation: 0
+      allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
+      locksWhenCorrect: 1
       requireExactTargetRotation: 1
       sortingPriority: 9
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: left_mid_rim
-      displayName: Left Mid Rim
-      shapeType: 0
-      colorId: yellow
+        styleVariant: separate_color_part
+    - pieceId: green_part_06
+      displayName: Green Molded Part 6
+      shapeType: 1
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
-      - x: 1
-        y: 0
-      width: 2
+      width: 1
       height: 1
       logicalPivot:
         x: 0
@@ -515,37 +476,36 @@ MonoBehaviour:
       customPolygonPoints: []
       targetPosition:
         x: 1
-        y: 3
+        y: 1
       targetRotation: 0
       startingPosition:
-        x: 5
+        x: 7
         y: 7
-      startingRotation: 180
-      allowedRotations: 000000005a000000b40000000e010000
+      startingRotation: 0
+      allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
+      locksWhenCorrect: 1
       requireExactTargetRotation: 1
       sortingPriority: 10
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: left_lower_rim
-      displayName: Left Lower Rim
-      shapeType: 0
-      colorId: green
+        styleVariant: separate_color_part
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
+      shapeType: 1
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
-      - x: 1
-        y: 0
-      width: 2
+      width: 1
       height: 1
       logicalPivot:
         x: 0
@@ -555,32 +515,33 @@ MonoBehaviour:
         y: 0.5
       customPolygonPoints: []
       targetPosition:
-        x: 1
-        y: 2
+        x: 2
+        y: 1
       targetRotation: 0
       startingPosition:
-        x: 5
-        y: 5
+        x: 6
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
-      requireExactTargetRotation: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
       sortingPriority: 11
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: clock_center
-      displayName: Clock Center
-      shapeType: 4
-      colorId: orange
+        styleVariant: separate_color_part
+    - pieceId: yellow_part_02
+      displayName: Yellow Molded Part 2
+      shapeType: 1
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -595,39 +556,32 @@ MonoBehaviour:
       customPolygonPoints: []
       targetPosition:
         x: 3
-        y: 3
+        y: 1
       targetRotation: 0
       startingPosition:
-        x: 0
-        y: 6
+        x: 5
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
-      requireExactTargetRotation: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
       sortingPriority: 12
-      decorativeStuds:
-      - position:
-          x: 0.5
-          y: 0.5
-        radius: 0.11
-      recessedHoles:
-      - position:
-          x: 0.5
-          y: 0.5
-        radius: 0.2
+      decorativeStuds: []
+      recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
-        insetPanel: 1
-        styleVariant: challenge
-    - pieceId: hour_hand
-      displayName: Hour Hand
-      shapeType: 3
-      colorId: purple
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: orange_part_01
+      displayName: Orange Molded Part 1
+      shapeType: 1
+      colorId: orange
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -641,32 +595,33 @@ MonoBehaviour:
         y: 0.5
       customPolygonPoints: []
       targetPosition:
-        x: 3
-        y: 4
+        x: 4
+        y: 1
       targetRotation: 0
       startingPosition:
         x: 4
-        y: 1
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
-      requireExactTargetRotation: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
       sortingPriority: 13
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
+        x: 0
+        y: 0
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    - pieceId: minute_hand
-      displayName: Minute Hand
-      shapeType: 3
+        styleVariant: separate_color_part
+    - pieceId: teal_part_01
+      displayName: Teal Molded Part 1
+      shapeType: 1
       colorId: teal
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -680,84 +635,41 @@ MonoBehaviour:
         y: 0.5
       customPolygonPoints: []
       targetPosition:
-        x: 4
-        y: 3
+        x: 5
+        y: 1
       targetRotation: 0
       startingPosition:
-        x: 0
-        y: 5
+        x: 3
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
-      locksWhenCorrect: 0
-      requireExactTargetRotation: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
       sortingPriority: 14
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
-        x: 0.05
-        y: 0.05
-      artGeneration:
-        cornerRadius: 0.18
-        bevelSize: 0.08
-        insetPanel: 0
-        styleVariant: challenge
-    - pieceId: top_bell
-      displayName: Top Bell
-      shapeType: 0
-      colorId: cream
-      footprint:
-      - x: 0
-        y: 0
-      - x: 1
-        y: 0
-      - x: 2
-        y: 0
-      width: 3
-      height: 1
-      logicalPivot:
         x: 0
         y: 0
-      visualPivot:
-        x: 0.5
-        y: 0.5
-      customPolygonPoints: []
-      targetPosition:
-        x: 1
-        y: 6
-      targetRotation: 0
-      startingPosition:
-        x: 4
-        y: 4
-      startingRotation: 0
-      allowedRotations: 00000000
-      startsLocked: 0
-      locksWhenCorrect: 0
-      requireExactTargetRotation: 0
-      sortingPriority: 15
-      decorativeStuds: []
-      recessedHoles: []
-      visualOverhang:
-        x: 0.05
-        y: 0.05
       artGeneration:
         cornerRadius: 0.18
         bevelSize: 0.08
         insetPanel: 0
-        styleVariant: challenge
-    lockCorrectPiecesByDefault: 0
+        styleVariant: separate_color_part
+    lockCorrectPiecesByDefault: 1
     hint:
-      message: Plan temporary space, then assemble the clock from its distinctive
-        parts.
-      showDirectionalIndicator: 1
+      message: Look at the large reference and place one connected toy part at a
+        time.
+      showDirectionalIndicator: 0
     tutorial:
       tutorialId: 
       message: 
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 35
-      rewardId: complete_049
+      softCurrency: 10
+      rewardId: 
     thumbnail:
       scale: 1
       offset:
@@ -765,12 +677,162 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_5
-    - clock
-    - semantic_parts
-    - multi_cell
-    - full_rotation
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-5
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Sway
   thumbnail: {fileID: 21300000, guid: a21fe71c0f42f6042911ce309dc9f77c, type: 3}
-  pieceArtwork: []
-  sourceJsonPath: Assets/Game/Data/Levels/Source/level_049_clock.json
+  pieceArtwork:
+  - pieceId: blue_part_01
+    sprite: {fileID: 21300000, guid: 33a9ab99185a0f840ae3baac58311409, type: 3}
+    sizeInCells: {x: 0.5078125, y: 0.609375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.3407118, y: 0.47743055}
+    startingCenterNormalized: {x: 0.6103492, y: 0.06402}
+    sizeNormalized: {x: 0.056423612, y: 0.067708336}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_02
+    sprite: {fileID: 21300000, guid: d03419b07be931a4da9ffcdd145c9d04, type: 3}
+    sizeInCells: {x: 1.1328125, y: 0.734375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.3546007, y: 0.3107639}
+    startingCenterNormalized: {x: 0.90806335, y: 0.60732836}
+    sizeNormalized: {x: 0.12586805, y: 0.081597224}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_03
+    sprite: {fileID: 21300000, guid: 8393181a9cc361a46b5f2b69f075b5fb, type: 3}
+    sizeInCells: {x: 2.1484375, y: 1.171875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.3763021, y: 0.21440972}
+    startingCenterNormalized: {x: 0.14610334, y: 0.90598005}
+    sizeNormalized: {x: 0.23871528, y: 0.13020833}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_04
+    sprite: {fileID: 21300000, guid: 2e40f8c28948b0149b8b75ecf78d699b, type: 3}
+    sizeInCells: {x: 2.8046875, y: 0.6484375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.49175346, y: 0.4327257}
+    startingCenterNormalized: {x: 0.81889665, y: 0.71694833}
+    sizeNormalized: {x: 0.31163195, y: 0.07204861}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_05
+    sprite: {fileID: 21300000, guid: d60647f0d9c9d334d8cc346fe640af08, type: 3}
+    sizeInCells: {x: 1.1484375, y: 1.03125}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.64279515, y: 0.29600695}
+    startingCenterNormalized: {x: 0.33032084, y: 0.74119663}
+    sizeNormalized: {x: 0.12760417, y: 0.114583336}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_01
+    sprite: {fileID: 21300000, guid: 2b40ddbfef0e33441955721ca9e3e801, type: 3}
+    sizeInCells: {x: 1.5078125, y: 1.5703125}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.3875868, y: 0.55078125}
+    startingCenterNormalized: {x: 0.8880633, y: 0.37175667}
+    sizeNormalized: {x: 0.16753472, y: 0.17447917}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_02
+    sprite: {fileID: 21300000, guid: c3e0e44fc74946c449544a0b5bc217ea, type: 3}
+    sizeInCells: {x: 1.90625, y: 1.53125}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.39322916, y: 0.3810764}
+    startingCenterNormalized: {x: 0.86681336, y: 0.88681334}
+    sizeNormalized: {x: 0.21180555, y: 0.1701389}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_03
+    sprite: {fileID: 21300000, guid: 272e1a83508283c41bc9a92eda87436b, type: 3}
+    sizeInCells: {x: 1.609375, y: 1.140625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.4982639, y: 0.28125}
+    startingCenterNormalized: {x: 0.5, y: 0.9076467}
+    sizeNormalized: {x: 0.17881945, y: 0.1267361}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_04
+    sprite: {fileID: 21300000, guid: 02072d7c78a9f0f478d3b86db8781cf7, type: 3}
+    sizeInCells: {x: 1.9375, y: 1.046875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.6032986, y: 0.3550347}
+    startingCenterNormalized: {x: 0.13485333, y: 0.7407105}
+    sizeNormalized: {x: 0.21527778, y: 0.11631945}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_05
+    sprite: {fileID: 21300000, guid: 6fe47e600d5288b489c6403e8175cc09, type: 3}
+    sizeInCells: {x: 1.0859375, y: 1.8046875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.63411456, y: 0.54557294}
+    startingCenterNormalized: {x: 0.089436665, y: 0.37592334}
+    sizeNormalized: {x: 0.120659724, y: 0.20052083}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_06
+    sprite: {fileID: 21300000, guid: f6ab2bbaf8f7dae44917739f09d195ea, type: 3}
+    sizeInCells: {x: 1.4375, y: 1.125}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.6631944, y: 0.2170139}
+    startingCenterNormalized: {x: 0.10818667, y: 0.56807995}
+    sizeNormalized: {x: 0.15972222, y: 0.125}
+    snapDistanceNormalized: 0.055
+  - pieceId: yellow_part_01
+    sprite: {fileID: 21300000, guid: 7229bc850727a434fa8d5e94ae654484, type: 3}
+    sizeInCells: {x: 1.7421875, y: 0.65625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.50043404, y: 0.1857639}
+    startingCenterNormalized: {x: 0.53129697, y: 0.7528633}
+    sizeNormalized: {x: 0.1935764, y: 0.072916664}
+    snapDistanceNormalized: 0.055
+  - pieceId: yellow_part_02
+    sprite: {fileID: 21300000, guid: e043bb3c8eb09e54597f837282118794, type: 3}
+    sizeInCells: {x: 0.8359375, y: 0.546875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.64800346, y: 0.43489584}
+    startingCenterNormalized: {x: 0.6766236, y: 0.93931335}
+    sizeNormalized: {x: 0.09288195, y: 0.060763888}
+    snapDistanceNormalized: 0.055
+  - pieceId: orange_part_01
+    sprite: {fileID: 21300000, guid: c08eec94aaf12924eab2e1c9fa4821ae, type: 3}
+    sizeInCells: {x: 2.7578125, y: 2.03125}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.49956596, y: 0.7378472}
+    startingCenterNormalized: {x: 0.8213967, y: 0.13985334}
+    sizeNormalized: {x: 0.3064236, y: 0.22569445}
+    snapDistanceNormalized: 0.055
+  - pieceId: teal_part_01
+    sprite: {fileID: 21300000, guid: 4fb67874bc8f3f8448025f6281a13f4f, type: 3}
+    sizeInCells: {x: 1.8359375, y: 1.8515625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.50130206, y: 0.53515625}
+    startingCenterNormalized: {x: 0.12943667, y: 0.13027}
+    sizeNormalized: {x: 0.20399305, y: 0.20572917}
+    snapDistanceNormalized: 0.055
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_049_clock_tower.json

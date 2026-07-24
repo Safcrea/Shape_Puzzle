@@ -48,12 +48,12 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_011
     levelNumber: 11
-    displayName: Helicopter
-    targetObjectName: Helicopter
+    displayName: Level 11 - City Bus
+    targetObjectName: City Bus
     boardWidth: 6
     boardHeight: 6
     difficultyTier: 2
-    scrambleSeed: 88109
+    scrambleSeed: 8367
     paletteId: primary
     recommendedMoves: 9
     pieces:
@@ -61,6 +61,7 @@ MonoBehaviour:
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -96,10 +97,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_02
+      displayName: Red Molded Part 2
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -135,10 +137,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: red_part_03
+      displayName: Red Molded Part 3
       shapeType: 1
-      colorId: green
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -174,10 +177,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: orange_part_01
-      displayName: Orange Molded Part 1
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
-      colorId: orange
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -213,10 +217,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: purple_part_01
-      displayName: Purple Molded Part 1
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: purple
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -252,10 +257,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_01
-      displayName: Teal Molded Part 1
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
       shapeType: 1
-      colorId: teal
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -291,10 +297,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: cream_part_01
-      displayName: Cream Molded Part 1
+    - pieceId: yellow_part_02
+      displayName: Yellow Molded Part 2
       shapeType: 1
-      colorId: cream
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -332,7 +339,8 @@ MonoBehaviour:
         styleVariant: separate_color_part
     lockCorrectPiecesByDefault: 1
     hint:
-      message: Place the main helicopter body before its smaller details.
+      message: Look at the large reference and place one connected toy part at a
+        time.
       showDirectionalIndicator: 1
     tutorial:
       tutorialId: 
@@ -340,8 +348,8 @@ MonoBehaviour:
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 15
-      rewardId: complete_011
+      softCurrency: 10
+      rewardId: 
     thumbnail:
       scale: 1
       offset:
@@ -349,81 +357,82 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_2
-    - helicopter
-    - semantic_parts
-    - multi_cell
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-2
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Spin
   thumbnail: {fileID: 21300000, guid: 1f2fc2d06aa5ef343b918263669661e0, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 0de88f9d5cf61654aab0446bef45a474, type: 3}
-    sizeInCells: {x: 0.78125, y: 2.375}
+    sizeInCells: {x: 1.421875, y: 0.9375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.49609375, y: 0.64713544}
-    startingCenterNormalized: {x: 0.90598005, y: 0.77848005}
-    sizeNormalized: {x: 0.13020833, y: 0.39583334}
+    targetCenterNormalized: {x: 0.26822916, y: 0.3528646}
+    startingCenterNormalized: {x: 0.85473, y: 0.76232}
+    sizeNormalized: {x: 0.23697917, y: 0.15625}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_02
+    sprite: {fileID: 21300000, guid: 799c12d7c20d49347a995812ac53de2d, type: 3}
+    sizeInCells: {x: 1.3671875, y: 0.4921875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.49153647, y: 0.35611978}
+    startingCenterNormalized: {x: 0.140895, y: 0.7503112}
+    sizeNormalized: {x: 0.22786458, y: 0.08203125}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_03
+    sprite: {fileID: 21300000, guid: 6ee4c588246ec394b928fb3c7b402361, type: 3}
+    sizeInCells: {x: 1.5078125, y: 0.9296875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.7246094, y: 0.35091147}
+    startingCenterNormalized: {x: 0.152145, y: 0.894105}
+    sizeNormalized: {x: 0.2513021, y: 0.15494792}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: d1e02ab265b7d6e4791bd0273002a4a8, type: 3}
-    sizeInCells: {x: 1.59375, y: 1.59375}
+    sizeInCells: {x: 2.890625, y: 0.7265625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.7057292, y: 0.57682294}
-    startingCenterNormalized: {x: 0.15901999, y: 0.15901999}
-    sizeNormalized: {x: 0.265625, y: 0.265625}
+    targetCenterNormalized: {x: 0.43229166, y: 0.5878906}
+    startingCenterNormalized: {x: 0.73723, y: 0.39741123}
+    sizeNormalized: {x: 0.48177084, y: 0.12109375}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: cd102e49c81e01d4d9c5f8ae8ba99ac5, type: 3}
-    sizeInCells: {x: 0.78125, y: 1.59375}
+    sizeInCells: {x: 3.6484375, y: 0.578125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.21484375, y: 0.43489584}
-    startingCenterNormalized: {x: 0.73682165, y: 0.528415}
-    sizeNormalized: {x: 0.13020833, y: 0.265625}
+    targetCenterNormalized: {x: 0.46809897, y: 0.67838544}
+    startingCenterNormalized: {x: 0.676605, y: 0.92223}
+    sizeNormalized: {x: 0.60807294, y: 0.096354164}
     snapDistanceNormalized: 0.055
-  - pieceId: orange_part_01
-    sprite: {fileID: 21300000, guid: 0fd1cadf9eb629045815042ddb5675f5, type: 3}
-    sizeInCells: {x: 0.7578125, y: 1.4921875}
+  - pieceId: yellow_part_01
+    sprite: {fileID: 21300000, guid: 728a1fe9f482b684ab5accaaef0f15a0, type: 3}
+    sizeInCells: {x: 3.09375, y: 1.5234375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.35611978, y: 0.29231772}
-    startingCenterNormalized: {x: 0.5679758, y: 0.849105}
-    sizeNormalized: {x: 0.12630208, y: 0.24869792}
+    targetCenterNormalized: {x: 0.4153646, y: 0.52278644}
+    startingCenterNormalized: {x: 0.72098, y: 0.153395}
+    sizeNormalized: {x: 0.515625, y: 0.25390625}
     snapDistanceNormalized: 0.055
-  - pieceId: purple_part_01
-    sprite: {fileID: 21300000, guid: 18e15afb237a8dd43a20b0fd338eda83, type: 3}
-    sizeInCells: {x: 0.828125, y: 1.6875}
+  - pieceId: yellow_part_02
+    sprite: {fileID: 21300000, guid: e2008b5c7724b8743bd503dd25a6a652, type: 3}
+    sizeInCells: {x: 1.0625, y: 1.515625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.49609375, y: 0.2955729}
-    startingCenterNormalized: {x: 0.73463416, y: 0.83348}
-    sizeNormalized: {x: 0.13802083, y: 0.28125}
+    targetCenterNormalized: {x: 0.7552083, y: 0.51953125}
+    startingCenterNormalized: {x: 0.11652, y: 0.15276998}
+    sizeNormalized: {x: 0.17708333, y: 0.25260416}
     snapDistanceNormalized: 0.055
-  - pieceId: teal_part_01
-    sprite: {fileID: 21300000, guid: 6788b180f65fb4546bac0603ee2cc85c, type: 3}
-    sizeInCells: {x: 1.7109375, y: 1.6875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.7076823, y: 0.2955729}
-    startingCenterNormalized: {x: 0.168395, y: 0.83348}
-    sizeNormalized: {x: 0.28515625, y: 0.28125}
-    snapDistanceNormalized: 0.055
-  - pieceId: cream_part_01
-    sprite: {fileID: 21300000, guid: 4b84fac8fbe414e4cb8438bbee8d2d2e, type: 3}
-    sizeInCells: {x: 1.59375, y: 1.59375}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.28645834, y: 0.57682294}
-    startingCenterNormalized: {x: 0.84098, y: 0.15901999}
-    sizeNormalized: {x: 0.265625, y: 0.265625}
-    snapDistanceNormalized: 0.055
-  sourceJsonPath: Assets/Game/Data/Levels/Source/level_011_helicopter.json
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_011_city_bus.json

@@ -48,19 +48,20 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_013
     levelNumber: 13
-    displayName: Taxi
-    targetObjectName: Taxi
+    displayName: Level 13 - Windmill
+    targetObjectName: Windmill
     boardWidth: 6
     boardHeight: 6
     difficultyTier: 2
-    scrambleSeed: 103947
+    scrambleSeed: 8561
     paletteId: primary
-    recommendedMoves: 9
+    recommendedMoves: 10
     pieces:
     - pieceId: red_part_01
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -96,10 +97,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_02
+      displayName: Red Molded Part 2
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -135,10 +137,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: red_part_03
+      displayName: Red Molded Part 3
       shapeType: 1
-      colorId: green
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -174,10 +177,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_01
-      displayName: Yellow Molded Part 1
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
-      colorId: yellow
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -213,10 +217,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: purple_part_01
-      displayName: Purple Molded Part 1
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: purple
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -252,10 +257,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_01
-      displayName: Teal Molded Part 1
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
       shapeType: 1
-      colorId: teal
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -291,10 +297,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: cream_part_01
-      displayName: Cream Molded Part 1
+    - pieceId: yellow_part_02
+      displayName: Yellow Molded Part 2
       shapeType: 1
-      colorId: cream
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -330,9 +337,50 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
+    - pieceId: yellow_part_03
+      displayName: Yellow Molded Part 3
+      shapeType: 1
+      colorId: yellow
+      interchangeableGroupId: 
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 4
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
     lockCorrectPiecesByDefault: 1
     hint:
-      message: Place the main taxi body before its smaller details.
+      message: Look at the large reference and place one connected toy part at a
+        time.
       showDirectionalIndicator: 1
     tutorial:
       tutorialId: 
@@ -340,8 +388,8 @@ MonoBehaviour:
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 15
-      rewardId: complete_013
+      softCurrency: 10
+      rewardId: 
     thumbnail:
       scale: 1
       offset:
@@ -349,81 +397,92 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_2
-    - taxi
-    - semantic_parts
-    - multi_cell
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-2
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Spin
   thumbnail: {fileID: 21300000, guid: 5058ca6559eeda6468370c4988d4a663, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: fe816c5cd2a0b3445983e7c2938ce9c6, type: 3}
-    sizeInCells: {x: 0.8515625, y: 2.5234375}
+    sizeInCells: {x: 1.578125, y: 1.6328125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.7792969, y: 0.63997394}
-    startingCenterNormalized: {x: 0.099644996, y: 0.233395}
-    sizeNormalized: {x: 0.14192708, y: 0.4205729}
+    targetCenterNormalized: {x: 0.34635416, y: 0.7128906}
+    startingCenterNormalized: {x: 0.84223, y: 0.16214499}
+    sizeNormalized: {x: 0.26302084, y: 0.2721354}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_02
+    sprite: {fileID: 21300000, guid: c1816125f3ad2af4190b1d5cd71c1c99, type: 3}
+    sizeInCells: {x: 0.859375, y: 0.8671875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.50130206, y: 0.5566406}
+    startingCenterNormalized: {x: 0.5999325, y: 0.100895}
+    sizeNormalized: {x: 0.14322917, y: 0.14453125}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_03
+    sprite: {fileID: 21300000, guid: ac9c4dd92a7e63147b6c3d521c73b94f, type: 3}
+    sizeInCells: {x: 1.625, y: 2.2421875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.65625, y: 0.44986978}
+    startingCenterNormalized: {x: 0.16152, y: 0.789105}
+    sizeNormalized: {x: 0.27083334, y: 0.3736979}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: 383c1ab47f7104242814efccad817d4b, type: 3}
-    sizeInCells: {x: 1.578125, y: 1.5859375}
+    sizeInCells: {x: 2.28125, y: 1.28125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.42708334, y: 0.7063802}
-    startingCenterNormalized: {x: 0.84223, y: 0.15839499}
-    sizeNormalized: {x: 0.26302084, y: 0.2643229}
+    targetCenterNormalized: {x: 0.50130206, y: 0.3815104}
+    startingCenterNormalized: {x: 0.21402, y: 0.13402}
+    sizeNormalized: {x: 0.38020834, y: 0.21354167}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: 86fdfe29d70489448ac319e0b0f7b03f, type: 3}
-    sizeInCells: {x: 0.78125, y: 1.5859375}
+    sizeInCells: {x: 3, y: 0.8515625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.77734375, y: 0.28971353}
-    startingCenterNormalized: {x: 0.26317835, y: 0.841605}
-    sizeNormalized: {x: 0.13020833, y: 0.2643229}
+    targetCenterNormalized: {x: 0.5, y: 0.22070312}
+    startingCenterNormalized: {x: 0.72848, y: 0.5}
+    sizeNormalized: {x: 0.5, y: 0.14192708}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: a2716c9be2c84da428b7cd732a57c0bc, type: 3}
-    sizeInCells: {x: 1.5859375, y: 0.8046875}
+    sizeInCells: {x: 1.6015625, y: 2.25}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.28971353, y: 0.35872397}
-    startingCenterNormalized: {x: 0.841605, y: 0.4663246}
-    sizeNormalized: {x: 0.2643229, y: 0.13411458}
+    targetCenterNormalized: {x: 0.34179688, y: 0.45052084}
+    startingCenterNormalized: {x: 0.84035504, y: 0.78848}
+    sizeNormalized: {x: 0.2669271, y: 0.375}
     snapDistanceNormalized: 0.055
-  - pieceId: purple_part_01
-    sprite: {fileID: 21300000, guid: 0cf064b5b39aa2d4497d6ece902ba62c, type: 3}
-    sizeInCells: {x: 1.6796875, y: 0.8203125}
+  - pieceId: yellow_part_02
+    sprite: {fileID: 21300000, guid: e68ed3a0a0a3275499251d275718e6b9, type: 3}
+    sizeInCells: {x: 1.59375, y: 1.2578125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.28971353, y: 0.49804688}
-    startingCenterNormalized: {x: 0.6670525, y: 0.902855}
-    sizeNormalized: {x: 0.2799479, y: 0.13671875}
+    targetCenterNormalized: {x: 0.47395834, y: 0.7298177}
+    startingCenterNormalized: {x: 0.528415, y: 0.867855}
+    sizeNormalized: {x: 0.265625, y: 0.20963542}
     snapDistanceNormalized: 0.055
-  - pieceId: teal_part_01
-    sprite: {fileID: 21300000, guid: dabc1eb53cc06cf42b1dcc9510cf58f8, type: 3}
-    sizeInCells: {x: 0.8203125, y: 2.5}
+  - pieceId: yellow_part_03
+    sprite: {fileID: 21300000, guid: 719a1976056544e4d9e2a7b48ff07032, type: 3}
+    sizeInCells: {x: 1.578125, y: 1.625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.49804688, y: 0.3580729}
-    startingCenterNormalized: {x: 0.902855, y: 0.76848}
-    sizeNormalized: {x: 0.13671875, y: 0.41666666}
+    targetCenterNormalized: {x: 0.65755206, y: 0.71484375}
+    startingCenterNormalized: {x: 0.15777, y: 0.41538}
+    sizeNormalized: {x: 0.26302084, y: 0.27083334}
     snapDistanceNormalized: 0.055
-  - pieceId: cream_part_01
-    sprite: {fileID: 21300000, guid: 6a134eff442756d419fe8fec5e282160, type: 3}
-    sizeInCells: {x: 0.8515625, y: 2.5234375}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.6373698, y: 0.49804688}
-    startingCenterNormalized: {x: 0.099644996, y: 0.766605}
-    sizeNormalized: {x: 0.14192708, y: 0.4205729}
-    snapDistanceNormalized: 0.055
-  sourceJsonPath: Assets/Game/Data/Levels/Source/level_013_taxi.json
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_013_windmill.json

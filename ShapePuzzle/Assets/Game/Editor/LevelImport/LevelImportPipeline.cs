@@ -48,7 +48,7 @@ namespace ToyPuzzle.Editor.Levels
                     Imported = valid
                 };
 
-                if (valid && buildRuntimeAssets && candidate.Document.levelNumber <= PuzzleLayoutConstants.TotalPlayableLevels)
+                if (valid && buildRuntimeAssets)
                 {
                     try
                     {

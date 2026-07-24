@@ -76,8 +76,8 @@ namespace ToyPuzzle.Editor.Levels
                 result.Add(LevelValidationSeverity.Error, "DISPLAY_NAME", "Display name is required.");
             if (string.IsNullOrWhiteSpace(level.targetObjectName))
                 result.Add(LevelValidationSeverity.Error, "TARGET_NAME", "Target object name is required.");
-            if (level.boardWidth < 5 || level.boardWidth > 8 || level.boardHeight < 5 || level.boardHeight > 8)
-                result.Add(LevelValidationSeverity.Error, "BOARD_SIZE", "Board width and height must each be between 5 and 8.");
+            if (level.boardWidth < 5 || level.boardWidth > 9 || level.boardHeight < 5 || level.boardHeight > 9)
+                result.Add(LevelValidationSeverity.Error, "BOARD_SIZE", "Board width and height must each be between 5 and 9.");
             if (level.difficultyTier < 1 || level.difficultyTier > 5)
                 result.Add(LevelValidationSeverity.Error, "DIFFICULTY", "Difficulty tier must be between 1 and 5.");
             if (string.IsNullOrWhiteSpace(level.paletteId))

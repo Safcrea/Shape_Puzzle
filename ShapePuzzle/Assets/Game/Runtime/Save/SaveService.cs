@@ -194,6 +194,7 @@ namespace ToyPuzzle
                 copied[i] = new PieceProgressData
                 {
                     pieceId = piece.pieceId,
+                    targetSlotId = piece.targetSlotId,
                     normalizedX = piece.normalizedX,
                     normalizedY = piece.normalizedY,
                     snapped = piece.snapped
@@ -311,6 +312,13 @@ namespace ToyPuzzle
                     continue;
                 }
 
+                if (data.version == 3)
+                {
+                    MigrateVersionThreeToFour(data);
+                    migrated = true;
+                    continue;
+                }
+
                 data = null;
                 return false;
             }
@@ -395,6 +403,37 @@ namespace ToyPuzzle
                 if (data.levelProgress[i] != null)
                     data.levelProgress[i].pieceProgress = data.levelProgress[i].pieceProgress ?? Array.Empty<PieceProgressData>();
             }
+        }
+
+        private static void MigrateVersionThreeToFour(PlayerSaveData data)
+        {
+            data.version = 4;
+            data.levelProgress = data.levelProgress ?? Array.Empty<LevelProgressData>();
+            var preservedProgress = new List<LevelProgressData>(data.levelProgress.Length);
+            for (int i = 0; i < data.levelProgress.Length; i++)
+            {
+                LevelProgressData progress = data.levelProgress[i];
+                if (progress == null || progress.levelNumber > 10) continue;
+                preservedProgress.Add(progress);
+                if (progress.pieceProgress == null) continue;
+                for (int pieceIndex = 0; pieceIndex < progress.pieceProgress.Length; pieceIndex++)
+                {
+                    PieceProgressData piece = progress.pieceProgress[pieceIndex];
+                    if (piece != null && string.IsNullOrEmpty(piece.targetSlotId)) piece.targetSlotId = piece.pieceId;
+                }
+            }
+
+            data.levelProgress = preservedProgress.ToArray();
+            int highestUnlocked = 1;
+            for (int levelNumber = 1; levelNumber <= 10; levelNumber++)
+            {
+                LevelProgressData progress = preservedProgress.Find(item => item.levelNumber == levelNumber);
+                if (progress == null || !progress.completed) break;
+                highestUnlocked = levelNumber + 1;
+            }
+
+            data.highestUnlockedLevel = Mathf.Clamp(highestUnlocked, 1, 11);
+            data.lastSelectedLevel = Mathf.Clamp(data.lastSelectedLevel, 1, data.highestUnlockedLevel);
         }
 
         private LevelProgressData GetOrCreateLevelProgress(int levelNumber)

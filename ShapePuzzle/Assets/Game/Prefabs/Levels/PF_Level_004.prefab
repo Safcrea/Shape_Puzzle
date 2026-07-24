@@ -61,6 +61,7 @@ MonoBehaviour:
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -100,6 +101,7 @@ MonoBehaviour:
       displayName: Red Molded Part 2
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -139,6 +141,7 @@ MonoBehaviour:
       displayName: Blue Molded Part 1
       shapeType: 1
       colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -178,6 +181,7 @@ MonoBehaviour:
       displayName: Green Molded Part 1
       shapeType: 1
       colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -217,6 +221,7 @@ MonoBehaviour:
       displayName: Green Molded Part 2
       shapeType: 1
       colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -256,6 +261,7 @@ MonoBehaviour:
       displayName: Yellow Molded Part 1
       shapeType: 1
       colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -314,67 +320,69 @@ MonoBehaviour:
     - rocket
     - semantic_parts
     - multi_cell
-    designerNotes: 
+    designerNotes: Explicit connected multi-cell Rocket silhouette at 44% occupancy.
+      Certificate reverses a deterministic valid scramble.
+    completionAction: Bounce
   thumbnail: {fileID: 21300000, guid: e555f5e4b9ba0cc46bbb1cf79dc355a1, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 0e8a22494e2330243b0a2e0c6936c400, type: 3}
-    sizeInCells: {x: 0.8984375, y: 0.53125}
+    sizeInCells: {x: 0.984375, y: 0.578125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.50078124, y: 0.203125}
-    startingCenterNormalized: {x: 0.5, y: 0.91748005}
-    sizeNormalized: {x: 0.1796875, y: 0.10625}
+    targetCenterNormalized: {x: 0.5, y: 0.2078125}
+    startingCenterNormalized: {x: 0.344175, y: 0.91298}
+    sizeNormalized: {x: 0.196875, y: 0.115625}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_02
     sprite: {fileID: 21300000, guid: c0c40e5dbcdd07d499b161dc898725fb, type: 3}
-    sizeInCells: {x: 1.3359375, y: 0.9375}
+    sizeInCells: {x: 1.4375, y: 0.96875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.50078124, y: 0.75625}
-    startingCenterNormalized: {x: 0.15977, y: 0.12152}
-    sizeNormalized: {x: 0.2671875, y: 0.1875}
+    targetCenterNormalized: {x: 0.5, y: 0.753125}
+    startingCenterNormalized: {x: 0.16951999, y: 0.12452}
+    sizeNormalized: {x: 0.2875, y: 0.19375}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: 5fae0af63ba96ca47bb16300dea6a4b0, type: 3}
-    sizeInCells: {x: 1.734375, y: 2.0234375}
+    sizeInCells: {x: 1.78125, y: 2}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.5, y: 0.46171874}
-    startingCenterNormalized: {x: 0.80198, y: 0.77423006}
-    sizeNormalized: {x: 0.346875, y: 0.4046875}
+    targetCenterNormalized: {x: 0.5, y: 0.4625}
+    startingCenterNormalized: {x: 0.79748005, y: 0.77648}
+    sizeNormalized: {x: 0.35625, y: 0.4}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: ac9723c2479a6ec498ce41becf641dce, type: 3}
-    sizeInCells: {x: 0.78125, y: 1.203125}
+    sizeInCells: {x: 0.828125, y: 1.2421875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.3296875, y: 0.275}
-    startingCenterNormalized: {x: 0.106520005, y: 0.85298}
-    sizeNormalized: {x: 0.15625, y: 0.240625}
+    targetCenterNormalized: {x: 0.33125, y: 0.27890626}
+    startingCenterNormalized: {x: 0.88898003, y: 0.15077}
+    sizeNormalized: {x: 0.165625, y: 0.2484375}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_02
     sprite: {fileID: 21300000, guid: 24609a8fdecaa3a4f82d22ed83f420ee, type: 3}
-    sizeInCells: {x: 0.78125, y: 1.203125}
+    sizeInCells: {x: 0.84375, y: 1.2578125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.66875, y: 0.275}
-    startingCenterNormalized: {x: 0.30326, y: 0.85298}
-    sizeNormalized: {x: 0.15625, y: 0.240625}
+    targetCenterNormalized: {x: 0.6671875, y: 0.27890626}
+    startingCenterNormalized: {x: 0.11252, y: 0.84773}
+    sizeNormalized: {x: 0.16875, y: 0.2515625}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 994cb2ac561e3b6468ccec5adb4c2bba, type: 3}
-    sizeInCells: {x: 0.8515625, y: 0.859375}
+    sizeInCells: {x: 0.8203125, y: 0.828125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.49921876, y: 0.509375}
-    startingCenterNormalized: {x: 0.88673, y: 0.11402}
-    sizeNormalized: {x: 0.1703125, y: 0.171875}
+    startingCenterNormalized: {x: 0.694865, y: 0.111020006}
+    sizeNormalized: {x: 0.1640625, y: 0.165625}
     snapDistanceNormalized: 0.055
   sourceJsonPath: Assets/Game/Data/Levels/Source/level_004_rocket.json

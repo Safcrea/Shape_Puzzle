@@ -22,6 +22,10 @@ namespace ToyPuzzle
         private GridCoordinate[] _dragFootprint = System.Array.Empty<GridCoordinate>();
         private PuzzleLevelPrefab _levelPrefab;
         private Vector2? _assemblyOffset;
+        private readonly Dictionary<string, string> _targetSlotByPiece = new Dictionary<string, string>(StringComparer.Ordinal);
+        private readonly HashSet<string> _occupiedTargetSlots = new HashSet<string>(StringComparer.Ordinal);
+        private bool _completionAnimating;
+        private string _completionOriginPieceId;
 
         public event Action<PuzzleSession> SessionStarted;
         public event Action<PuzzleSession> SessionChanged;
@@ -38,23 +42,12 @@ namespace ToyPuzzle
         public int MovesRemaining => _session == null ? 0 : Mathf.Max(0, MoveBudget - _session.MoveCount);
         public bool HasSnapPower => _session != null && _session.Level.levelNumber > 10;
         public Vector2 AssemblyOffset => _assemblyOffset ?? Vector2.zero;
+        public string CompletionOriginPieceId => _completionOriginPieceId;
 
         private void Update()
         {
             if (_session != null) _session.AdvanceTime(Time.unscaledDeltaTime);
         }
-
-#if UNITY_EDITOR
-        private void OnGUI()
-        {
-            Event current = Event.current;
-            if (current != null && current.type == EventType.KeyDown && current.keyCode == KeyCode.R)
-            {
-                RotateSelected();
-                current.Use();
-            }
-        }
-#endif
 
         private void OnApplicationFocus(bool hasFocus)
         {
@@ -93,6 +86,10 @@ namespace ToyPuzzle
             _session.Completed += HandleCompleted;
             _levelPrefab = levelPrefab;
             _assemblyOffset = null;
+            _targetSlotByPiece.Clear();
+            _occupiedTargetSlots.Clear();
+            _completionAnimating = false;
+            _completionOriginPieceId = null;
             if (boardView == null) boardView = GetComponentInChildren<PuzzleBoardView>(true);
             boardView.Build(_session, this, levelPrefab);
             SelectPiece(null);
@@ -101,6 +98,7 @@ namespace ToyPuzzle
 
         public void SelectPiece(PuzzlePieceView view)
         {
+            if (_completionAnimating && view != null) return;
             if (_selected == view) return;
             if (_selected != null) _selected.SetSelected(false);
             _selected = view;
@@ -114,7 +112,7 @@ namespace ToyPuzzle
 
         public void BeginDrag(PuzzlePieceView view, PointerEventData eventData)
         {
-            if (_session == null || view == null || view != _selected || view.IsLocked || boardView.PieceLayer == null) return;
+            if (_completionAnimating || _session == null || view == null || view != _selected || view.IsLocked || boardView.PieceLayer == null) return;
             if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(boardView.PieceLayer, eventData.position, eventData.pressEventCamera, out Vector2 local)) return;
             _dragOffset = local - view.RectTransform.anchoredPosition;
             _dragStart = view.RectTransform.anchoredPosition;
@@ -172,6 +170,7 @@ namespace ToyPuzzle
                     Play(ToyAudioCue.CorrectPlacement);
                     if (hapticService != null) hapticService.Play(HapticCue.Correct);
                     if (tween != null) tween.Pulse(view.RectTransform, 1.1f, 0.22f);
+                    boardView.PlayPlacementRipple(_session, view.PieceId, false);
                 }
             }
             else
@@ -197,29 +196,10 @@ namespace ToyPuzzle
             return placed;
         }
 
-        public void RotateSelected()
-        {
-            if (_session == null || _selected == null || _selected.IsLocked) return;
-            if (_selected.UsesFreeformArtwork) return;
-            PuzzleActionResult result = _session.TryRotate(_selected.PieceId);
-            if (result.Succeeded)
-            {
-                ValidAction?.Invoke(PuzzleActionType.Rotate);
-                Play(ToyAudioCue.Rotate);
-                if (tween != null) tween.Pulse(_selected.RectTransform, 1.08f, 0.16f);
-            }
-            else if (result.Failure != PuzzleActionFailure.NoChange)
-            {
-                InvalidAction?.Invoke();
-                Play(ToyAudioCue.InvalidPlacement);
-                if (hapticService != null) hapticService.Play(HapticCue.Invalid);
-                if (tween != null) tween.Shake(_selected.RectTransform);
-            }
-        }
-
         public void Undo()
         {
             if (_session == null || !_session.TryUndo(out MoveRecord record)) return;
+            ReleaseTargetSlot(record.PieceId);
             Play(ToyAudioCue.Undo);
             PuzzlePieceView view = boardView.FindPiece(record.PieceId);
             if (view != null && tween != null) tween.Pulse(view.RectTransform, 1.06f, 0.16f);
@@ -248,6 +228,8 @@ namespace ToyPuzzle
                 PuzzleActionResult result = _session.TryMove(view.PieceId, state.Definition.targetPosition);
                 if (result.Succeeded)
                 {
+                    _targetSlotByPiece[view.PieceId] = view.PieceId;
+                    _occupiedTargetSlots.Add(view.PieceId);
                     view.SnapToFreeformTarget(target);
                     ValidAction?.Invoke(PuzzleActionType.Move);
                     FreeformProgressChanged?.Invoke();
@@ -265,6 +247,8 @@ namespace ToyPuzzle
         {
             if (_session == null) return;
             _assemblyOffset = null;
+            _targetSlotByPiece.Clear();
+            _occupiedTargetSlots.Clear();
             _session.Reset();
             boardView.ClearHint();
             boardView.ApplyAll(_session);
@@ -291,7 +275,8 @@ namespace ToyPuzzle
                     pieceId = state.PieceId,
                     normalizedX = Mathf.Clamp01(position.x / size.x),
                     normalizedY = Mathf.Clamp01(position.y / size.y),
-                    snapped = state.IsCorrect
+                    snapped = state.IsCorrect,
+                    targetSlotId = _targetSlotByPiece.TryGetValue(state.PieceId, out string slotId) ? slotId : state.PieceId
                 });
             }
             return result.ToArray();
@@ -333,14 +318,25 @@ namespace ToyPuzzle
             boardView.ApplyAll(_session);
             Vector2 boardSize = boardView.PieceLayer.rect.size;
             _assemblyOffset = null;
+            _targetSlotByPiece.Clear();
+            _occupiedTargetSlots.Clear();
             foreach (KeyValuePair<string, PieceProgressData> pair in savedById)
             {
                 PuzzlePieceView view = boardView.FindPiece(pair.Key);
                 view.SetFreeformPosition(new Vector2(pair.Value.normalizedX * boardSize.x, pair.Value.normalizedY * boardSize.y));
                 if (pair.Value.snapped && !_assemblyOffset.HasValue)
                 {
-                    Vector2 baseTarget = boardView.GetFreeformTarget(pair.Key, Vector2.zero);
+                    string slotId = string.IsNullOrEmpty(pair.Value.targetSlotId) ? pair.Key : pair.Value.targetSlotId;
+                    _targetSlotByPiece[pair.Key] = slotId;
+                    _occupiedTargetSlots.Add(slotId);
+                    Vector2 baseTarget = boardView.GetFreeformTarget(slotId, Vector2.zero);
                     _assemblyOffset = boardView.ClampAssemblyOffset(view.RectTransform.anchoredPosition - baseTarget);
+                }
+                else if (pair.Value.snapped)
+                {
+                    string slotId = string.IsNullOrEmpty(pair.Value.targetSlotId) ? pair.Key : pair.Value.targetSlotId;
+                    _targetSlotByPiece[pair.Key] = slotId;
+                    _occupiedTargetSlots.Add(slotId);
                 }
             }
             if (_assemblyOffset.HasValue)
@@ -348,7 +344,8 @@ namespace ToyPuzzle
                 foreach (string correctId in correctIds)
                 {
                     PuzzlePieceView view = boardView.FindPiece(correctId);
-                    if (view != null) view.SnapToFreeformTarget(boardView.GetFreeformTarget(correctId, _assemblyOffset.Value));
+                    string slotId = _targetSlotByPiece.TryGetValue(correctId, out string assigned) ? assigned : correctId;
+                    if (view != null) view.SnapToFreeformTarget(boardView.GetFreeformTarget(slotId, _assemblyOffset.Value));
                 }
             }
             SelectPiece(null);
@@ -374,8 +371,9 @@ namespace ToyPuzzle
             if (state != null && state.IsCorrect && _assemblyOffset.HasValue)
             {
                 PuzzlePieceView view = boardView.FindPiece(state.PieceId);
+                string slotId = _targetSlotByPiece.TryGetValue(state.PieceId, out string assigned) ? assigned : state.PieceId;
                 if (view != null && view.UsesFreeformArtwork)
-                    view.SnapToFreeformTarget(boardView.GetFreeformTarget(state.PieceId, _assemblyOffset.Value));
+                    view.SnapToFreeformTarget(boardView.GetFreeformTarget(slotId, _assemblyOffset.Value));
             }
         }
 
@@ -386,10 +384,37 @@ namespace ToyPuzzle
 
         private void HandleCompleted()
         {
+            _completionAnimating = true;
+            _completionOriginPieceId = _selected == null ? null : _selected.PieceId;
             SelectPiece(null);
             Play(ToyAudioCue.LevelComplete);
             if (hapticService != null) hapticService.Play(HapticCue.Completion);
             LevelCompleted?.Invoke(_session);
+        }
+
+        public void PlayCompletionRipple()
+        {
+            if (boardView != null && _session != null)
+                boardView.PlayPlacementRipple(_session, _completionOriginPieceId, true);
+        }
+
+        public void PlayWholeObjectBounce()
+        {
+            if (boardView != null) boardView.PlayWholeObjectBounce();
+        }
+
+        public void PlayObjectAction()
+        {
+            if (boardView == null || _session == null) return;
+            string action = string.IsNullOrEmpty(_session.Level.completionAction)
+                ? _session.Level.targetObjectName
+                : _session.Level.completionAction;
+            boardView.PlayObjectAction(action);
+        }
+
+        public void PlayCompletionPop()
+        {
+            if (boardView != null) boardView.PlayCompletionPop();
         }
 
         private void UnsubscribeSession()
@@ -407,19 +432,34 @@ namespace ToyPuzzle
 
         private bool TryCommitFreeformPlacement(PuzzlePieceView view)
         {
-            Vector2 target;
-            bool establishingAnchor = !_assemblyOffset.HasValue;
-            if (establishingAnchor)
+            if (!_session.TryGetPiece(view.PieceId, out PieceState pieceState) ||
+                GridMath.NormalizeRotation(pieceState.Pose.rotation) != GridMath.NormalizeRotation(pieceState.Definition.targetRotation))
             {
-                Vector2 baseTarget = boardView.GetFreeformTarget(view.PieceId, Vector2.zero);
-                _assemblyOffset = boardView.ClampAssemblyOffset(view.RectTransform.anchoredPosition - baseTarget);
-                target = boardView.GetFreeformTarget(view.PieceId, _assemblyOffset.Value);
-            }
-            else
-            {
-                target = boardView.GetFreeformTarget(view.PieceId, _assemblyOffset.Value);
+                _session.RegisterFailedMove();
+                view.RectTransform.anchoredPosition = _dragStart;
+                InvalidAction?.Invoke();
+                Play(ToyAudioCue.InvalidPlacement);
+                if (hapticService != null) hapticService.Play(HapticCue.Invalid);
+                return false;
             }
 
+            bool establishingAnchor = !_assemblyOffset.HasValue;
+            Vector2 offset = _assemblyOffset ?? Vector2.zero;
+            if (!TryFindTargetSlot(view, offset, establishingAnchor, out string targetSlotId, out Vector2 baseTarget))
+            {
+                _session.RegisterFailedMove();
+                view.RectTransform.anchoredPosition = _dragStart;
+                InvalidAction?.Invoke();
+                Play(ToyAudioCue.InvalidPlacement);
+                return false;
+            }
+
+            if (establishingAnchor)
+            {
+                _assemblyOffset = boardView.ClampAssemblyOffset(view.RectTransform.anchoredPosition - baseTarget);
+                offset = _assemblyOffset.Value;
+            }
+            Vector2 target = boardView.GetFreeformTarget(targetSlotId, offset);
             if (!establishingAnchor && !view.IsNearFreeformTarget(target))
             {
                 _session.RegisterFailedMove();
@@ -430,11 +470,14 @@ namespace ToyPuzzle
             PuzzleActionResult result = _session.TryMove(view.PieceId, view.Definition.targetPosition);
             if (result.Succeeded)
             {
+                _targetSlotByPiece[view.PieceId] = targetSlotId;
+                _occupiedTargetSlots.Add(targetSlotId);
                 view.SnapToFreeformTarget(target);
                 ValidAction?.Invoke(PuzzleActionType.Move);
                 Play(ToyAudioCue.CorrectPlacement);
                 if (hapticService != null) hapticService.Play(HapticCue.Correct);
                 if (tween != null) tween.Pulse(view.RectTransform, 1.1f, 0.22f);
+                boardView.PlayPlacementRipple(_session, view.PieceId, false);
                 return true;
             }
 
@@ -443,6 +486,57 @@ namespace ToyPuzzle
             InvalidAction?.Invoke();
             Play(ToyAudioCue.InvalidPlacement);
             return false;
+        }
+
+        private bool TryFindTargetSlot(
+            PuzzlePieceView source,
+            Vector2 assemblyOffset,
+            bool establishingAnchor,
+            out string targetSlotId,
+            out Vector2 target)
+        {
+            targetSlotId = null;
+            target = Vector2.zero;
+            float bestDistance = float.MaxValue;
+            IReadOnlyList<PieceState> pieces = _session.Pieces;
+            for (int i = 0; i < pieces.Count; i++)
+            {
+                PieceState candidate = pieces[i];
+                if (_occupiedTargetSlots.Contains(candidate.PieceId) || !AreInterchangeable(source, candidate.PieceId)) continue;
+                Vector2 candidateTarget = boardView.GetFreeformTarget(candidate.PieceId, assemblyOffset);
+                float distance = Vector2.Distance(source.RectTransform.anchoredPosition, candidateTarget);
+                if (!establishingAnchor && !source.IsNearFreeformTarget(candidateTarget)) continue;
+                if (distance >= bestDistance) continue;
+                bestDistance = distance;
+                targetSlotId = candidate.PieceId;
+                target = candidateTarget;
+            }
+            return !string.IsNullOrEmpty(targetSlotId);
+        }
+
+        private bool AreInterchangeable(PuzzlePieceView source, string candidatePieceId)
+        {
+            if (source == null || !_session.TryGetPiece(candidatePieceId, out PieceState candidate)) return false;
+            PieceDefinition left = source.Definition;
+            PieceDefinition right = candidate.Definition;
+            if (string.Equals(left.pieceId, right.pieceId, StringComparison.Ordinal)) return true;
+            if (!string.IsNullOrEmpty(left.interchangeableGroupId) || !string.IsNullOrEmpty(right.interchangeableGroupId))
+                return !string.IsNullOrEmpty(left.interchangeableGroupId) &&
+                       string.Equals(left.interchangeableGroupId, right.interchangeableGroupId, StringComparison.Ordinal);
+            if (!string.Equals(left.colorId, right.colorId, StringComparison.Ordinal)) return false;
+            PuzzlePieceArtwork a = boardView.FindArtwork(left.pieceId);
+            PuzzlePieceArtwork b = boardView.FindArtwork(right.pieceId);
+            if (a == null || b == null) return left.width == right.width && left.height == right.height && left.shapeType == right.shapeType;
+            Vector2 delta = a.sizeNormalized - b.sizeNormalized;
+            return Mathf.Abs(delta.x) <= 0.035f && Mathf.Abs(delta.y) <= 0.035f;
+        }
+
+        private void ReleaseTargetSlot(string pieceId)
+        {
+            if (string.IsNullOrEmpty(pieceId)) return;
+            if (_targetSlotByPiece.TryGetValue(pieceId, out string targetSlotId))
+                _occupiedTargetSlots.Remove(targetSlotId);
+            _targetSlotByPiece.Remove(pieceId);
         }
 
         private void RefreshAssemblyOffsetFromCorrectPieces()

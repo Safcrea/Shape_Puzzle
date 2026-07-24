@@ -48,19 +48,20 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_015
     levelNumber: 15
-    displayName: Tractor
-    targetObjectName: Tractor
+    displayName: Level 15 - Ice-Cream Cone
+    targetObjectName: Ice-Cream Cone
     boardWidth: 6
     boardHeight: 6
     difficultyTier: 2
-    scrambleSeed: 119785
+    scrambleSeed: 8755
     paletteId: primary
-    recommendedMoves: 10
+    recommendedMoves: 9
     pieces:
     - pieceId: red_part_01
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -96,10 +97,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_02
+      displayName: Red Molded Part 2
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -135,10 +137,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
-      colorId: green
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -174,10 +177,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_01
-      displayName: Yellow Molded Part 1
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: yellow
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -213,10 +217,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: orange_part_01
-      displayName: Orange Molded Part 1
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
       shapeType: 1
-      colorId: orange
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -252,10 +257,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: purple_part_01
-      displayName: Purple Molded Part 1
+    - pieceId: yellow_part_02
+      displayName: Yellow Molded Part 2
       shapeType: 1
-      colorId: purple
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -291,10 +297,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_01
-      displayName: Teal Molded Part 1
+    - pieceId: yellow_part_03
+      displayName: Yellow Molded Part 3
       shapeType: 1
-      colorId: teal
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -330,48 +337,10 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: cream_part_01
-      displayName: Cream Molded Part 1
-      shapeType: 1
-      colorId: cream
-      footprint:
-      - x: 0
-        y: 0
-      width: 1
-      height: 1
-      logicalPivot:
-        x: 0
-        y: 0
-      visualPivot:
-        x: 0.5
-        y: 0.5
-      customPolygonPoints: []
-      targetPosition:
-        x: 1
-        y: 1
-      targetRotation: 0
-      startingPosition:
-        x: 4
-        y: 4
-      startingRotation: 0
-      allowedRotations: 00000000
-      startsLocked: 0
-      locksWhenCorrect: 1
-      requireExactTargetRotation: 1
-      sortingPriority: 7
-      decorativeStuds: []
-      recessedHoles: []
-      visualOverhang:
-        x: 0
-        y: 0
-      artGeneration:
-        cornerRadius: 0.18
-        bevelSize: 0.08
-        insetPanel: 0
-        styleVariant: separate_color_part
     lockCorrectPiecesByDefault: 1
     hint:
-      message: Place the main tractor body before its smaller details.
+      message: Look at the large reference and place one connected toy part at a
+        time.
       showDirectionalIndicator: 1
     tutorial:
       tutorialId: 
@@ -379,8 +348,8 @@ MonoBehaviour:
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 15
-      rewardId: complete_015
+      softCurrency: 25
+      rewardId: collection_milestone_15
     thumbnail:
       scale: 1
       offset:
@@ -388,91 +357,82 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_2
-    - tractor
-    - semantic_parts
-    - multi_cell
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-2
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Sway
   thumbnail: {fileID: 21300000, guid: 1165beeb73424e04d9b6deaeacab10a6, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 244404405863dd84eb81cb669495ec03, type: 3}
-    sizeInCells: {x: 0.671875, y: 2}
+    sizeInCells: {x: 0.6015625, y: 0.546875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.31770834, y: 0.6171875}
-    startingCenterNormalized: {x: 0.91473, y: 0.19152}
-    sizeNormalized: {x: 0.111979164, y: 0.33333334}
+    targetCenterNormalized: {x: 0.5045573, y: 0.8046875}
+    startingCenterNormalized: {x: 0.5, y: 0.07527}
+    sizeNormalized: {x: 0.100260414, y: 0.091145836}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_02
+    sprite: {fileID: 21300000, guid: 56bbad8b0b19b914da2ffb51ae1b853a, type: 3}
+    sizeInCells: {x: 2.515625, y: 0.84375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.51953125, y: 0.4622396}
+    startingCenterNormalized: {x: 0.23277, y: 0.90098}
+    sizeNormalized: {x: 0.41927084, y: 0.140625}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: 5a7082fec2e831e4693da3d28c614858, type: 3}
-    sizeInCells: {x: 0.7109375, y: 2.125}
+    sizeInCells: {x: 1.90625, y: 0.8828125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.43684897, y: 0.3828125}
-    startingCenterNormalized: {x: 0.91160506, y: 0.79848003}
-    sizeNormalized: {x: 0.118489586, y: 0.35416666}
+    targetCenterNormalized: {x: 0.5, y: 0.5748698}
+    startingCenterNormalized: {x: 0.81598, y: 0.102145}
+    sizeNormalized: {x: 0.31770834, y: 0.14713542}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: 87bd83fc280e00c45bc1eada4e1923dd, type: 3}
-    sizeInCells: {x: 0.7109375, y: 1.4296875}
+    sizeInCells: {x: 1.71875, y: 1.3046875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.5527344, y: 0.5592448}
-    startingCenterNormalized: {x: 0.088395, y: 0.854105}
-    sizeNormalized: {x: 0.118489586, y: 0.23828125}
+    targetCenterNormalized: {x: 0.5, y: 0.7298177}
+    startingCenterNormalized: {x: 0.16902, y: 0.135895}
+    sizeNormalized: {x: 0.28645834, y: 0.21744792}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 5daa1620a6d65f0439ada503adf2cd7d, type: 3}
-    sizeInCells: {x: 0.6328125, y: 1.265625}
+    sizeInCells: {x: 0.734375, y: 1.109375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.43684897, y: 0.6744792}
-    startingCenterNormalized: {x: 0.77857, y: 0.13277}
-    sizeNormalized: {x: 0.10546875, y: 0.2109375}
+    targetCenterNormalized: {x: 0.29296875, y: 0.54036456}
+    startingCenterNormalized: {x: 0.90973, y: 0.310135}
+    sizeNormalized: {x: 0.122395836, y: 0.18489583}
     snapDistanceNormalized: 0.055
-  - pieceId: orange_part_01
-    sprite: {fileID: 21300000, guid: f04845460f450b449a76f80ef5f1e97c, type: 3}
-    sizeInCells: {x: 1.4296875, y: 0.71875}
+  - pieceId: yellow_part_02
+    sprite: {fileID: 21300000, guid: 91bb07abf85c0814f933c5836c3c6c21, type: 3}
+    sizeInCells: {x: 2.1953125, y: 1.6171875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.7311198, y: 0.5}
-    startingCenterNormalized: {x: 0.14589499, y: 0.08902}
-    sizeNormalized: {x: 0.23828125, y: 0.119791664}
+    targetCenterNormalized: {x: 0.49934897, y: 0.28450522}
+    startingCenterNormalized: {x: 0.792855, y: 0.839105}
+    sizeNormalized: {x: 0.3658854, y: 0.26953125}
     snapDistanceNormalized: 0.055
-  - pieceId: purple_part_01
-    sprite: {fileID: 21300000, guid: f494cc41524759443a879a1a2eee71a8, type: 3}
-    sizeInCells: {x: 0.6328125, y: 1.40625}
+  - pieceId: yellow_part_03
+    sprite: {fileID: 21300000, guid: 771df0a7d767a464c87590153607b4b2, type: 3}
+    sizeInCells: {x: 0.75, y: 1.0859375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.67122394, y: 0.6770833}
-    startingCenterNormalized: {x: 0.082145, y: 0.292345}
-    sizeNormalized: {x: 0.10546875, y: 0.234375}
+    targetCenterNormalized: {x: 0.7057292, y: 0.5488281}
+    startingCenterNormalized: {x: 0.091520004, y: 0.37279835}
+    sizeNormalized: {x: 0.125, y: 0.18098958}
     snapDistanceNormalized: 0.055
-  - pieceId: teal_part_01
-    sprite: {fileID: 21300000, guid: 6e3497cfe1b89f9458d36a3270fab2f5, type: 3}
-    sizeInCells: {x: 1.3203125, y: 0.65625}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.6139323, y: 0.3828125}
-    startingCenterNormalized: {x: 0.28833458, y: 0.91598}
-    sizeNormalized: {x: 0.22005208, y: 0.109375}
-    snapDistanceNormalized: 0.055
-  - pieceId: cream_part_01
-    sprite: {fileID: 21300000, guid: 35e0fe87f3c4afa4f9c4a654dfbd236a, type: 3}
-    sizeInCells: {x: 1.328125, y: 0.65625}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.26041666, y: 0.3828125}
-    startingCenterNormalized: {x: 0.7113008, y: 0.91598}
-    sizeNormalized: {x: 0.22135417, y: 0.109375}
-    snapDistanceNormalized: 0.055
-  sourceJsonPath: Assets/Game/Data/Levels/Source/level_015_tractor.json
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_015_ice_cream_cone.json

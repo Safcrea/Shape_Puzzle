@@ -48,12 +48,12 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_033
     levelNumber: 33
-    displayName: Butterfly
-    targetObjectName: Butterfly
-    boardWidth: 7
-    boardHeight: 7
+    displayName: Level 33 - Grand Piano
+    targetObjectName: Grand Piano
+    boardWidth: 8
+    boardHeight: 8
     difficultyTier: 4
-    scrambleSeed: 262327
+    scrambleSeed: 10501
     paletteId: similar_groups
     recommendedMoves: 11
     pieces:
@@ -61,6 +61,7 @@ MonoBehaviour:
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -78,8 +79,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 6
-        y: 6
+        x: 7
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -100,6 +101,7 @@ MonoBehaviour:
       displayName: Red Molded Part 2
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -117,8 +119,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 5
-        y: 6
+        x: 6
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -139,6 +141,7 @@ MonoBehaviour:
       displayName: Blue Molded Part 1
       shapeType: 1
       colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -156,8 +159,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 4
-        y: 6
+        x: 5
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -174,10 +177,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: blue_part_02
+      displayName: Blue Molded Part 2
       shapeType: 1
-      colorId: green
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -195,8 +199,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 3
-        y: 6
+        x: 4
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -213,10 +217,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_02
-      displayName: Green Molded Part 2
+    - pieceId: blue_part_03
+      displayName: Blue Molded Part 3
       shapeType: 1
-      colorId: green
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -234,8 +239,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 2
-        y: 6
+        x: 3
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -252,10 +257,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_01
-      displayName: Yellow Molded Part 1
+    - pieceId: blue_part_04
+      displayName: Blue Molded Part 4
       shapeType: 1
-      colorId: yellow
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -273,8 +279,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 1
-        y: 6
+        x: 2
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -291,10 +297,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: orange_part_01
-      displayName: Orange Molded Part 1
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: orange
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -312,8 +319,8 @@ MonoBehaviour:
         y: 0
       targetRotation: 0
       startingPosition:
-        x: 0
-        y: 6
+        x: 1
+        y: 7
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -330,10 +337,51 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: purple_part_01
-      displayName: Purple Molded Part 1
+    - pieceId: green_part_02
+      displayName: Green Molded Part 2
       shapeType: 1
-      colorId: purple
+      colorId: green
+      interchangeableGroupId: 
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 7
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 7
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
+      shapeType: 1
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -351,14 +399,14 @@ MonoBehaviour:
         y: 1
       targetRotation: 0
       startingPosition:
-        x: 6
-        y: 5
+        x: 7
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
       locksWhenCorrect: 1
       requireExactTargetRotation: 1
-      sortingPriority: 7
+      sortingPriority: 8
       decorativeStuds: []
       recessedHoles: []
       visualOverhang:
@@ -369,10 +417,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_01
-      displayName: Teal Molded Part 1
+    - pieceId: yellow_part_02
+      displayName: Yellow Molded Part 2
       shapeType: 1
-      colorId: teal
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -390,47 +439,8 @@ MonoBehaviour:
         y: 1
       targetRotation: 0
       startingPosition:
-        x: 5
-        y: 5
-      startingRotation: 0
-      allowedRotations: 00000000
-      startsLocked: 0
-      locksWhenCorrect: 1
-      requireExactTargetRotation: 1
-      sortingPriority: 8
-      decorativeStuds: []
-      recessedHoles: []
-      visualOverhang:
-        x: 0
-        y: 0
-      artGeneration:
-        cornerRadius: 0.18
-        bevelSize: 0.08
-        insetPanel: 0
-        styleVariant: separate_color_part
-    - pieceId: cream_part_01
-      displayName: Cream Molded Part 1
-      shapeType: 1
-      colorId: cream
-      footprint:
-      - x: 0
-        y: 0
-      width: 1
-      height: 1
-      logicalPivot:
-        x: 0
-        y: 0
-      visualPivot:
-        x: 0.5
-        y: 0.5
-      customPolygonPoints: []
-      targetPosition:
-        x: 2
-        y: 1
-      targetRotation: 0
-      startingPosition:
-        x: 4
-        y: 5
+        x: 6
+        y: 6
       startingRotation: 0
       allowedRotations: 00000000
       startsLocked: 0
@@ -449,17 +459,17 @@ MonoBehaviour:
         styleVariant: separate_color_part
     lockCorrectPiecesByDefault: 1
     hint:
-      message: Use bilateral features and the outer butterfly contour to separate
-        similar parts.
-      showDirectionalIndicator: 1
+      message: Look at the large reference and place one connected toy part at a
+        time.
+      showDirectionalIndicator: 0
     tutorial:
       tutorialId: 
       message: 
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 25
-      rewardId: complete_033
+      softCurrency: 10
+      rewardId: 
     thumbnail:
       scale: 1
       offset:
@@ -467,112 +477,112 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_4
-    - butterfly
-    - semantic_parts
-    - multi_cell
-    - symmetry
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-4
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Sway
   thumbnail: {fileID: 21300000, guid: 3bb5539787dbb94478cb9b05e6e160d5, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 74ac99ef0dc6b1b45b4dac291e89a598, type: 3}
-    sizeInCells: {x: 1.3984375, y: 1.421875}
+    sizeInCells: {x: 0.875, y: 2.296875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.24944197, y: 0.5948661}
-    startingCenterNormalized: {x: 0.87258714, y: 0.12902}
-    sizeNormalized: {x: 0.19977678, y: 0.203125}
+    targetCenterNormalized: {x: 0.23339844, y: 0.45117188}
+    startingCenterNormalized: {x: 0.91598, y: 0.6102225}
+    sizeNormalized: {x: 0.109375, y: 0.28710938}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_02
     sprite: {fileID: 21300000, guid: 81076c1de440a994aaaf5d8cd02abf86, type: 3}
-    sizeInCells: {x: 1.3984375, y: 1.421875}
+    sizeInCells: {x: 3.7578125, y: 2.609375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.750558, y: 0.5948661}
-    startingCenterNormalized: {x: 0.12741286, y: 0.12902}
-    sizeNormalized: {x: 0.19977678, y: 0.203125}
+    targetCenterNormalized: {x: 0.41357422, y: 0.6503906}
+    startingCenterNormalized: {x: 0.74301124, y: 0.1880825}
+    sizeNormalized: {x: 0.46972656, y: 0.32617188}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: dfaff10b2937e304daf4344de2b05484, type: 3}
-    sizeInCells: {x: 0.6171875, y: 1.875}
+    sizeInCells: {x: 4.671875, y: 2.0390625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.5998884, y: 0.44419643}
-    startingCenterNormalized: {x: 0.07384142, y: 0.6133029}
-    sizeNormalized: {x: 0.08816964, y: 0.26785713}
+    targetCenterNormalized: {x: 0.5292969, y: 0.42138672}
+    startingCenterNormalized: {x: 0.3118325, y: 0.8461362}
+    sizeNormalized: {x: 0.5839844, y: 0.2548828}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_02
+    sprite: {fileID: 21300000, guid: baf7034267fb8224b9ff5af0cd5f7021, type: 3}
+    sizeInCells: {x: 1.8046875, y: 1.09375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.6411133, y: 0.78222656}
+    startingCenterNormalized: {x: 0.3499172, y: 0.29857248}
+    sizeNormalized: {x: 0.22558594, y: 0.13671875}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_03
+    sprite: {fileID: 21300000, guid: ac3c4e5929443464eafa03287ab68005, type: 3}
+    sizeInCells: {x: 0.75, y: 1.234375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.74609375, y: 0.29492188}
+    startingCenterNormalized: {x: 0.07652, y: 0.5986044}
+    sizeNormalized: {x: 0.09375, y: 0.15429688}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_04
+    sprite: {fileID: 21300000, guid: 36ff2d83142de2e47b3122471234d0c9, type: 3}
+    sizeInCells: {x: 0.7265625, y: 1.21875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.7758789, y: 0.50390625}
+    startingCenterNormalized: {x: 0.2167425, y: 0.59883875}
+    sizeNormalized: {x: 0.09082031, y: 0.15234375}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: 537b234ba1989d046b898d9904470214, type: 3}
-    sizeInCells: {x: 1.28125, y: 1.2578125}
+    sizeInCells: {x: 0.640625, y: 0.375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.34933037, y: 0.39341518}
-    startingCenterNormalized: {x: 0.11937714, y: 0.88223}
-    sizeNormalized: {x: 0.18303572, y: 0.1796875}
+    targetCenterNormalized: {x: 0.27148438, y: 0.2705078}
+    startingCenterNormalized: {x: 0.71502125, y: 0.94598}
+    sizeNormalized: {x: 0.080078125, y: 0.046875}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_02
     sprite: {fileID: 21300000, guid: bedf6ccaff9cded4fa4587ec6cda9da9, type: 3}
-    sizeInCells: {x: 2.109375, y: 0.640625}
+    sizeInCells: {x: 1.3515625, y: 1.609375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.3984375, y: 0.74553573}
-    startingCenterNormalized: {x: 0.82383716, y: 0.32310358}
-    sizeNormalized: {x: 0.3013393, y: 0.09151786}
+    targetCenterNormalized: {x: 0.7114258, y: 0.6347656}
+    startingCenterNormalized: {x: 0.11261375, y: 0.3450344}
+    sizeNormalized: {x: 0.16894531, y: 0.20117188}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 7f8ebf6fdab8033458bb955cb344397b, type: 3}
-    sizeInCells: {x: 0.6171875, y: 1.875}
+    sizeInCells: {x: 1.5078125, y: 1.5078125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.7014509, y: 0.34263393}
-    startingCenterNormalized: {x: 0.2869207, y: 0.8399086}
-    sizeNormalized: {x: 0.08816964, y: 0.26785713}
+    targetCenterNormalized: {x: 0.52001953, y: 0.24365234}
+    startingCenterNormalized: {x: 0.8780112, y: 0.8780112}
+    sizeNormalized: {x: 0.18847656, y: 0.18847656}
     snapDistanceNormalized: 0.055
-  - pieceId: orange_part_01
-    sprite: {fileID: 21300000, guid: d55b4a922b994c2468dcec1841fc0c23, type: 3}
-    sizeInCells: {x: 1.3515625, y: 0.7109375}
+  - pieceId: yellow_part_02
+    sprite: {fileID: 21300000, guid: 78650c0f27066c244b2591687e93157d, type: 3}
+    sizeInCells: {x: 2.5078125, y: 1.3203125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.45256695, y: 0.64564735}
-    startingCenterNormalized: {x: 0.62526715, y: 0.08027}
-    sizeNormalized: {x: 0.19308035, y: 0.1015625}
+    targetCenterNormalized: {x: 0.5522461, y: 0.5864258}
+    startingCenterNormalized: {x: 0.18198875, y: 0.110738754}
+    sizeNormalized: {x: 0.31347656, y: 0.16503906}
     snapDistanceNormalized: 0.055
-  - pieceId: purple_part_01
-    sprite: {fileID: 21300000, guid: 86c0797e87aca1c438097e279b36ad11, type: 3}
-    sizeInCells: {x: 1.3515625, y: 0.7109375}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.45256695, y: 0.54408485}
-    startingCenterNormalized: {x: 0.87580144, y: 0.6748875}
-    sizeNormalized: {x: 0.19308035, y: 0.1015625}
-    snapDistanceNormalized: 0.055
-  - pieceId: teal_part_01
-    sprite: {fileID: 21300000, guid: 843606a07a9a73d4190afa8c5901dcf5, type: 3}
-    sizeInCells: {x: 1.375, y: 1.421875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.45089287, y: 0.3950893}
-    startingCenterNormalized: {x: 0.87419426, y: 0.87097996}
-    sizeNormalized: {x: 0.19642857, y: 0.203125}
-    snapDistanceNormalized: 0.055
-  - pieceId: cream_part_01
-    sprite: {fileID: 21300000, guid: 8548cc26799be354fa7c9cc17f56aa7d, type: 3}
-    sizeInCells: {x: 1.28125, y: 1.2578125}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.65066963, y: 0.6947545}
-    startingCenterNormalized: {x: 0.37312573, y: 0.11777}
-    sizeNormalized: {x: 0.18303572, y: 0.1796875}
-    snapDistanceNormalized: 0.055
-  sourceJsonPath: Assets/Game/Data/Levels/Source/level_033_butterfly.json
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_033_grand_piano.json

@@ -61,6 +61,7 @@ MonoBehaviour:
       displayName: Red Molded Part 1
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -100,6 +101,7 @@ MonoBehaviour:
       displayName: Red Molded Part 2
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -139,6 +141,7 @@ MonoBehaviour:
       displayName: Red Molded Part 3
       shapeType: 1
       colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -174,10 +177,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_04
+      displayName: Red Molded Part 4
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -213,10 +217,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_02
-      displayName: Blue Molded Part 2
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
       colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -256,6 +261,7 @@ MonoBehaviour:
       displayName: Green Molded Part 1
       shapeType: 1
       colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -295,6 +301,7 @@ MonoBehaviour:
       displayName: Yellow Molded Part 1
       shapeType: 1
       colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -353,77 +360,79 @@ MonoBehaviour:
     - scooter
     - semantic_parts
     - multi_cell
-    designerNotes: 
+    designerNotes: Explicit connected multi-cell Scooter silhouette at 44% occupancy.
+      Certificate reverses a deterministic valid scramble.
+    completionAction: Bounce
   thumbnail: {fileID: 21300000, guid: 33ce6bbfdac5ade48a1a0b614277c663, type: 3}
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 77a85e2bfdf42564f9815a83a09b957d, type: 3}
-    sizeInCells: {x: 0.6484375, y: 0.9140625}
+    sizeInCells: {x: 0.84375, y: 0.96875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.20377605, y: 0.26757812}
-    startingCenterNormalized: {x: 0.916605, y: 0.6976775}
-    sizeNormalized: {x: 0.108072914, y: 0.15234375}
+    targetCenterNormalized: {x: 0.22005208, y: 0.27083334}
+    startingCenterNormalized: {x: 0.90098, y: 0.6629083}
+    sizeNormalized: {x: 0.140625, y: 0.16145833}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_02
     sprite: {fileID: 21300000, guid: 7bcf215791e288046986aca3de89dcdd, type: 3}
-    sizeInCells: {x: 1, y: 1.046875}
+    sizeInCells: {x: 0.5390625, y: 0.703125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.68359375, y: 0.36979166}
-    startingCenterNormalized: {x: 0.11152001, y: 0.6603041}
-    sizeNormalized: {x: 0.16666667, y: 0.17447917}
+    targetCenterNormalized: {x: 0.6373698, y: 0.3450521}
+    startingCenterNormalized: {x: 0.32276875, y: 0.91223}
+    sizeNormalized: {x: 0.08984375, y: 0.1171875}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_03
     sprite: {fileID: 21300000, guid: 369ed6d1a861cea43ad58285aaac3f37, type: 3}
-    sizeInCells: {x: 1.0625, y: 1.09375}
+    sizeInCells: {x: 0.8203125, y: 0.6640625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.76171875, y: 0.24479167}
-    startingCenterNormalized: {x: 0.11652, y: 0.88098}
-    sizeNormalized: {x: 0.17708333, y: 0.18229167}
+    targetCenterNormalized: {x: 0.7011719, y: 0.41341147}
+    startingCenterNormalized: {x: 0.097145, y: 0.6384517}
+    sizeNormalized: {x: 0.13671875, y: 0.110677086}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_04
+    sprite: {fileID: 21300000, guid: a94bde8550028364b91c7b3c3702e361, type: 3}
+    sizeInCells: {x: 1.1796875, y: 1.359375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.7519531, y: 0.2669271}
+    startingCenterNormalized: {x: 0.125895, y: 0.85973}
+    sizeNormalized: {x: 0.19661458, y: 0.2265625}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: 9f9085e298c8f0f4d821c6b1fd376ed5, type: 3}
-    sizeInCells: {x: 2.875, y: 0.9296875}
+    sizeInCells: {x: 2.9140625, y: 1.0703125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.4140625, y: 0.30533853}
-    startingCenterNormalized: {x: 0.73848003, y: 0.894105}
-    sizeNormalized: {x: 0.47916666, y: 0.15494792}
-    snapDistanceNormalized: 0.055
-  - pieceId: blue_part_02
-    sprite: {fileID: 21300000, guid: 8c8b2caf0532a6c41b0d78d80b777581, type: 3}
-    sizeInCells: {x: 0.6875, y: 0.9296875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.73828125, y: 0.29101562}
-    startingCenterNormalized: {x: 0.29326, y: 0.894105}
-    sizeNormalized: {x: 0.114583336, y: 0.15494792}
+    targetCenterNormalized: {x: 0.41601562, y: 0.30794272}
+    startingCenterNormalized: {x: 0.735355, y: 0.882855}
+    sizeNormalized: {x: 0.4856771, y: 0.17838542}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: 4d0fd43b794357343a83367b25b442f0, type: 3}
-    sizeInCells: {x: 0.6171875, y: 1.6875}
+    sizeInCells: {x: 0.71875, y: 1.671875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.68815106, y: 0.59505206}
-    startingCenterNormalized: {x: 0.080895, y: 0.33325997}
-    sizeNormalized: {x: 0.102864586, y: 0.28125}
+    targetCenterNormalized: {x: 0.6822917, y: 0.59375}
+    startingCenterNormalized: {x: 0.08902, y: 0.332635}
+    sizeNormalized: {x: 0.119791664, y: 0.27864584}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 165efa0cfa1ec8c4c8e39067011e8f30, type: 3}
-    sizeInCells: {x: 1.6796875, y: 0.6875}
+    sizeInCells: {x: 1.7578125, y: 0.7265625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.6673177, y: 0.7890625}
-    startingCenterNormalized: {x: 0.16589499, y: 0.08652}
-    sizeNormalized: {x: 0.2799479, y: 0.114583336}
+    targetCenterNormalized: {x: 0.6621094, y: 0.7858073}
+    startingCenterNormalized: {x: 0.172145, y: 0.089645}
+    sizeNormalized: {x: 0.29296875, y: 0.12109375}
     snapDistanceNormalized: 0.055
   sourceJsonPath: Assets/Game/Data/Levels/Source/level_010_scooter.json

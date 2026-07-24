@@ -48,19 +48,20 @@ MonoBehaviour:
     schemaVersion: 1
     levelId: level_017
     levelNumber: 17
-    displayName: Hot-Air Balloon
-    targetObjectName: Hot-Air Balloon
+    displayName: Level 17 - Camera
+    targetObjectName: Camera
     boardWidth: 6
     boardHeight: 6
     difficultyTier: 2
-    scrambleSeed: 135623
+    scrambleSeed: 8949
     paletteId: primary
-    recommendedMoves: 8
+    recommendedMoves: 9
     pieces:
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: red_part_01
+      displayName: Red Molded Part 1
       shapeType: 1
-      colorId: blue
+      colorId: red
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -96,10 +97,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
-      colorId: green
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -135,10 +137,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: yellow_part_01
-      displayName: Yellow Molded Part 1
+    - pieceId: blue_part_02
+      displayName: Blue Molded Part 2
       shapeType: 1
-      colorId: yellow
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -174,10 +177,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: orange_part_01
-      displayName: Orange Molded Part 1
+    - pieceId: blue_part_03
+      displayName: Blue Molded Part 3
       shapeType: 1
-      colorId: orange
+      colorId: blue
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -213,10 +217,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: purple_part_01
-      displayName: Purple Molded Part 1
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: purple
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -252,10 +257,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: teal_part_01
-      displayName: Teal Molded Part 1
+    - pieceId: green_part_02
+      displayName: Green Molded Part 2
       shapeType: 1
-      colorId: teal
+      colorId: green
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -291,10 +297,11 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: cream_part_01
-      displayName: Cream Molded Part 1
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
       shapeType: 1
-      colorId: cream
+      colorId: yellow
+      interchangeableGroupId: 
       footprint:
       - x: 0
         y: 0
@@ -330,9 +337,50 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
+    - pieceId: yellow_part_02
+      displayName: Yellow Molded Part 2
+      shapeType: 1
+      colorId: yellow
+      interchangeableGroupId: 
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 4
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
     lockCorrectPiecesByDefault: 1
     hint:
-      message: Place the main hot-air balloon body before its smaller details.
+      message: Look at the large reference and place one connected toy part at a
+        time.
       showDirectionalIndicator: 1
     tutorial:
       tutorialId: 
@@ -340,8 +388,8 @@ MonoBehaviour:
       requireCompletion: 0
     completionReward:
       stars: 3
-      softCurrency: 15
-      rewardId: complete_017
+      softCurrency: 10
+      rewardId: 
     thumbnail:
       scale: 1
       offset:
@@ -349,81 +397,92 @@ MonoBehaviour:
         y: 0
       showBoard: 0
     tags:
-    - tier_2
-    - hot_air_balloon
-    - semantic_parts
-    - multi_cell
-    designerNotes: 
+    - master-brief
+    - toy
+    - campaign-2
+    designerNotes: Generated from 50_Level_Game_Design_Prompt.md; preserve the named
+      object and required part count.
+    completionAction: Flash
   thumbnail: {fileID: 21300000, guid: 11466f45e7442d74bb9da19b5946de38, type: 3}
   pieceArtwork:
-  - pieceId: blue_part_01
-    sprite: {fileID: 21300000, guid: 777d791bc3096cc4591271bd373342e7, type: 3}
-    sizeInCells: {x: 2.5234375, y: 0.890625}
+  - pieceId: red_part_01
+    sprite: {fileID: 21300000, guid: 9f4487f227870e847bc30a6b61aa2eed, type: 3}
+    sizeInCells: {x: 1.0625, y: 2.09375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.63997394, y: 0.7760417}
-    startingCenterNormalized: {x: 0.233395, y: 0.10277}
-    sizeNormalized: {x: 0.4205729, y: 0.1484375}
+    targetCenterNormalized: {x: 0.23828125, y: 0.41666666}
+    startingCenterNormalized: {x: 0.88348, y: 0.19902}
+    sizeNormalized: {x: 0.17708333, y: 0.34895834}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_01
+    sprite: {fileID: 21300000, guid: 777d791bc3096cc4591271bd373342e7, type: 3}
+    sizeInCells: {x: 1.1953125, y: 0.8046875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.26236978, y: 0.64127606}
+    startingCenterNormalized: {x: 0.6553562, y: 0.095895}
+    sizeNormalized: {x: 0.19921875, y: 0.13411458}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_02
+    sprite: {fileID: 21300000, guid: a68ff48b9e70658488dc017be32c7b20, type: 3}
+    sizeInCells: {x: 2.1796875, y: 2.296875}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.49934897, y: 0.48046875}
+    startingCenterNormalized: {x: 0.794105, y: 0.78472996}
+    sizeNormalized: {x: 0.36328125, y: 0.3828125}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_03
+    sprite: {fileID: 21300000, guid: 69d3f7c96267c9941a37ba7c46794799, type: 3}
+    sizeInCells: {x: 1.53125, y: 2.0859375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.72265625, y: 0.46809897}
+    startingCenterNormalized: {x: 0.15402, y: 0.801605}
+    sizeNormalized: {x: 0.25520834, y: 0.34765625}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: b46afeeca0ee33243bec68eab2cd36d8, type: 3}
-    sizeInCells: {x: 0.8359375, y: 0.859375}
+    sizeInCells: {x: 1.2421875, y: 0.359375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.49934897, y: 0.6380208}
-    startingCenterNormalized: {x: 0.56693417, y: 0.10027}
-    sizeNormalized: {x: 0.13932292, y: 0.14322917}
+    targetCenterNormalized: {x: 0.42382812, y: 0.2734375}
+    startingCenterNormalized: {x: 0.46924123, y: 0.93973005}
+    sizeNormalized: {x: 0.20703125, y: 0.059895832}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_02
+    sprite: {fileID: 21300000, guid: 3a39e6fe4ed934c47a1b8e677b46d79c, type: 3}
+    sizeInCells: {x: 1.875, y: 0.3984375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.6822917, y: 0.27408853}
+    startingCenterNormalized: {x: 0.18152, y: 0.53638375}
+    sizeNormalized: {x: 0.3125, y: 0.06640625}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 2c0c9e34a4e14aa4f82413141719fef2, type: 3}
-    sizeInCells: {x: 1.7109375, y: 1.703125}
+    sizeInCells: {x: 2.0625, y: 0.8515625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.29231772, y: 0.7083333}
-    startingCenterNormalized: {x: 0.831605, y: 0.16776998}
-    sizeNormalized: {x: 0.28515625, y: 0.28385416}
+    targetCenterNormalized: {x: 0.55598956, y: 0.6842448}
+    startingCenterNormalized: {x: 0.19652, y: 0.099644996}
+    sizeNormalized: {x: 0.34375, y: 0.14192708}
     snapDistanceNormalized: 0.055
-  - pieceId: orange_part_01
-    sprite: {fileID: 21300000, guid: edcce4ee200cac240884a4296c584db1, type: 3}
-    sizeInCells: {x: 1.703125, y: 0.8515625}
+  - pieceId: yellow_part_02
+    sprite: {fileID: 21300000, guid: 6ace732009c590e44bba4468aa83d355, type: 3}
+    sizeInCells: {x: 1.0703125, y: 0.796875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.7083333, y: 0.6373698}
-    startingCenterNormalized: {x: 0.16776998, y: 0.2998225}
-    sizeNormalized: {x: 0.28385416, y: 0.14192708}
+    targetCenterNormalized: {x: 0.73502606, y: 0.6927083}
+    startingCenterNormalized: {x: 0.117145, y: 0.2639075}
+    sizeNormalized: {x: 0.17838542, y: 0.1328125}
     snapDistanceNormalized: 0.055
-  - pieceId: purple_part_01
-    sprite: {fileID: 21300000, guid: b238fa601e085204bbe458351f812105, type: 3}
-    sizeInCells: {x: 0.7578125, y: 2.5}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.35872397, y: 0.3580729}
-    startingCenterNormalized: {x: 0.90785503, y: 0.58949333}
-    sizeNormalized: {x: 0.12630208, y: 0.41666666}
-    snapDistanceNormalized: 0.055
-  - pieceId: teal_part_01
-    sprite: {fileID: 21300000, guid: 80ffde78403c19048afe2cb7cf768e56, type: 3}
-    sizeInCells: {x: 2.5234375, y: 0.7734375}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.63997394, y: 0.49804688}
-    startingCenterNormalized: {x: 0.766605, y: 0.906605}
-    sizeNormalized: {x: 0.4205729, y: 0.12890625}
-    snapDistanceNormalized: 0.055
-  - pieceId: cream_part_01
-    sprite: {fileID: 21300000, guid: 17af5f93ec83a5e4f81eb9a203663edf, type: 3}
-    sizeInCells: {x: 1.671875, y: 1.6796875}
-    offsetFromTargetPivotInCells: {x: 0, y: 0}
-    bakedTargetRotation: 0
-    freeformColorBlock: 1
-    targetCenterNormalized: {x: 0.56901044, y: 0.28971353}
-    startingCenterNormalized: {x: 0.16527, y: 0.834105}
-    sizeNormalized: {x: 0.27864584, y: 0.2799479}
-    snapDistanceNormalized: 0.055
-  sourceJsonPath: Assets/Game/Data/Levels/Source/level_017_hot_air_balloon.json
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_017_camera.json

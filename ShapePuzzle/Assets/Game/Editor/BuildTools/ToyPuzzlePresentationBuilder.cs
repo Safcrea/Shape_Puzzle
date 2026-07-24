@@ -400,10 +400,9 @@ namespace ToyPuzzle.Editor
             row.childControlWidth = false; row.childControlHeight = false; row.childForceExpandWidth = false; row.childForceExpandHeight = false;
             Button undo=CreateButton("UndoButton",controls.transform,_buttonDark,Icon("undo"),string.Empty,Color.white);
             Button hint=CreateButton("HintButton",controls.transform,_buttonBlue,Icon("hint"),"HINT",Color.white);
-            Button rotate=CreateButton("RotateButton",controls.transform,_buttonRed,Icon("rotate"),string.Empty,Color.white);
             Button pause=CreateButton("PauseButton",controls.transform,_buttonYellow,Icon("pause"),string.Empty,new Color32(32,36,29,255));
             Button next=CreateButton("NextTestButton",controls.transform,_buttonGreen,null,"NEXT",Color.white);
-            SetControlSize(undo, PuzzleLayoutConstants.ReferenceVisibleButtonSize); SetControlSize(hint, PuzzleLayoutConstants.ReferenceVisibleButtonSize); SetControlSize(rotate, PuzzleLayoutConstants.ReferenceVisibleButtonSize); SetControlSize(pause, PuzzleLayoutConstants.ReferenceVisibleButtonSize); SetControlSize(next, PuzzleLayoutConstants.ReferenceVisibleButtonSize);
+            SetControlSize(undo, PuzzleLayoutConstants.ReferenceVisibleButtonSize); SetControlSize(hint, PuzzleLayoutConstants.ReferenceVisibleButtonSize); SetControlSize(pause, PuzzleLayoutConstants.ReferenceVisibleButtonSize); SetControlSize(next, PuzzleLayoutConstants.ReferenceVisibleButtonSize);
 
             SerializedObject layoutSo=new SerializedObject(layout);
             layoutSo.FindProperty("layoutRoot").objectReferenceValue=screen.GetComponent<RectTransform>();
@@ -411,7 +410,7 @@ namespace ToyPuzzle.Editor
             layoutSo.FindProperty("board").objectReferenceValue=board.GetComponent<RectTransform>();
             layoutSo.FindProperty("bottomControls").objectReferenceValue=controls.GetComponent<RectTransform>();
             layoutSo.ApplyModifiedPropertiesWithoutUndo();
-            refs["homeButton"]=home; refs["resetButton"]=reset; refs["undoButton"]=undo; refs["hintButton"]=hint; refs["rotateButton"]=rotate; refs["pauseButton"]=pause; refs["nextTestButton"]=next; refs["gameplayStatsText"]=gameplayStats; refs["hintButtonText"]=hint.transform.Find("Label").GetComponent<Text>();
+            refs["homeButton"]=home; refs["resetButton"]=reset; refs["undoButton"]=undo; refs["hintButton"]=hint; refs["pauseButton"]=pause; refs["nextTestButton"]=next; refs["gameplayStatsText"]=gameplayStats; refs["hintButtonText"]=hint.transform.Find("Label").GetComponent<Text>();
         }
 
         private static void BuildTutorialOverlay(Transform parent, Dictionary<string, UnityEngine.Object> refs)

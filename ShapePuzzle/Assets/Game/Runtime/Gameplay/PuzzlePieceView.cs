@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -49,7 +50,7 @@ namespace ToyPuzzle
     }
 
     [DisallowMultipleComponent]
-    public sealed class PuzzlePieceView : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
+    public sealed class PuzzlePieceView : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         private readonly List<TintBinding> _tintBindings = new List<TintBinding>();
         private RectTransform _rectTransform;
@@ -63,7 +64,6 @@ namespace ToyPuzzle
         private Vector2 _boardSize;
         private bool _interactive;
         private bool _locked;
-        private float _lastClickTime = -10f;
         private int _visualRotation = int.MinValue;
 
         public string PieceId => _definition == null ? string.Empty : _definition.pieceId;
@@ -71,6 +71,7 @@ namespace ToyPuzzle
         public PieceDefinition Definition => _definition;
         public bool IsLocked => _locked;
         public bool UsesFreeformArtwork => _artwork != null && _artwork.freeformColorBlock;
+        public PuzzlePieceArtwork Artwork => _artwork;
 
         public void Initialize(
             PieceDefinition definition,
@@ -327,6 +328,7 @@ namespace ToyPuzzle
             if (_visualRotation != GridMath.NormalizeRotation(pose.rotation)) Rebuild(pose);
             if (UsesFreeformArtwork)
             {
+                _rectTransform.localEulerAngles = new Vector3(0f, 0f, -GridMath.NormalizeRotation(pose.rotation));
                 _rectTransform.anchoredPosition = TargetPoseValidator.IsCorrect(_definition, pose)
                     ? GetFreeformTargetPosition()
                     : GetFreeformStartingPosition();
@@ -405,6 +407,35 @@ namespace ToyPuzzle
         {
             _locked = locked;
             if (_canvasGroup != null) _canvasGroup.alpha = locked ? 0.9f : 1f;
+            if (_canvasGroup != null) _canvasGroup.blocksRaycasts = !locked;
+            if (_rectTransform != null)
+            {
+                if (locked) _rectTransform.SetAsFirstSibling();
+                else _rectTransform.SetAsLastSibling();
+            }
+        }
+
+        public void FlashWhite(float duration = 0.22f, float strength = 0.92f)
+        {
+            if (isActiveAndEnabled) StartCoroutine(FlashWhiteRoutine(duration, strength));
+        }
+
+        private IEnumerator FlashWhiteRoutine(float duration, float strength)
+        {
+            float elapsed = 0f;
+            while (elapsed < duration)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.Clamp01(elapsed / Mathf.Max(0.01f, duration));
+                float amount = Mathf.Sin(t * Mathf.PI) * Mathf.Clamp01(strength);
+                for (int i = 0; i < _tintBindings.Count; i++)
+                {
+                    TintBinding binding = _tintBindings[i];
+                    if (binding.Image != null) binding.Image.color = Color.Lerp(binding.Color, Color.white, amount);
+                }
+                yield return null;
+            }
+            ClearPlacementTint();
         }
 
         public void SetSelected(bool selected)
@@ -416,12 +447,9 @@ namespace ToyPuzzle
 
         public void SetPlacementTint(bool valid)
         {
-            Color tint = valid ? Color.white : new Color(1f, 0.58f, 0.52f, 1f);
-            for (int i = 0; i < _tintBindings.Count; i++)
-            {
-                TintBinding binding = _tintBindings[i];
-                if (binding.Image != null) binding.Image.color = binding.Color * tint;
-            }
+            // Keep authored sprite colors intact while dragging. Invalid placement is
+            // communicated by the return motion instead of recoloring the artwork.
+            ClearPlacementTint();
         }
 
         public void ClearPlacementTint()
@@ -451,21 +479,6 @@ namespace ToyPuzzle
         public void OnEndDrag(PointerEventData eventData)
         {
             if (_interactive && !_locked && _controller != null) _controller.EndDrag(this, eventData);
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (!_interactive || _locked || _controller == null || eventData.dragging) return;
-            float now = Time.unscaledTime;
-            if (now - _lastClickTime <= 0.32f)
-            {
-                _lastClickTime = -10f;
-                _controller.RotateSelected();
-            }
-            else
-            {
-                _lastClickTime = now;
-            }
         }
 
         private static bool UsesCellComposition(PieceShapeType shapeType)

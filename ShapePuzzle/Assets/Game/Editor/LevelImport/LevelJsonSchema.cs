@@ -35,6 +35,7 @@ namespace ToyPuzzle.Editor.Levels
         public ThumbnailJson thumbnailConfiguration = new ThumbnailJson();
         public string[] levelTags = Array.Empty<string>();
         public string designerNotes;
+        public string completionAction = "Bounce";
         public SolutionStepJson[] solutionCertificate = Array.Empty<SolutionStepJson>();
     }
 
@@ -45,6 +46,7 @@ namespace ToyPuzzle.Editor.Levels
         public string displayName;
         public string shapeType = "RoundedRectangle";
         public string colorId = "red";
+        public string interchangeableGroupId;
         public Int2Json[] footprint = Array.Empty<Int2Json>();
         public int width = 1;
         public int height = 1;

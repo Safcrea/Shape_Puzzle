@@ -6,6 +6,7 @@ namespace ToyPuzzle
     public sealed class PieceProgressData
     {
         public string pieceId;
+        public string targetSlotId;
         public float normalizedX;
         public float normalizedY;
         public bool snapped;
@@ -29,7 +30,7 @@ namespace ToyPuzzle
     [Serializable]
     public sealed class PlayerSaveData
     {
-        public const int CurrentVersion = 3;
+        public const int CurrentVersion = 4;
 
         public int version;
         public int highestUnlockedLevel;
