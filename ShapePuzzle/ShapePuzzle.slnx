@@ -1,0 +1,13 @@
+﻿<Solution>
+  <Project Path="ToyPuzzle.Editor.ArtGeneration.csproj" />
+  <Project Path="ToyPuzzle.Runtime.csproj" />
+  <Project Path="ToyPuzzle.Editor.BuildTools.csproj" />
+  <Project Path="ToyPuzzle.LevelAuthoring.Editor.csproj" />
+  <Project Path="ToyPuzzle.LevelImport.Editor.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="ToyPuzzle.ContentValidation.Tests.csproj" />
+  <Project Path="ToyPuzzle.Tests.EditMode.csproj" />
+  <Project Path="ToyPuzzle.Tests.PlayMode.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="ToyPuzzle.LevelPipeline.Tests.csproj" />
+</Solution>

@@ -1,0 +1,1285 @@
+{
+  "schemaVersion": 1,
+  "levelId": "level_050",
+  "levelNumber": 50,
+  "displayName": "Star Trophy",
+  "targetObjectName": "Star Trophy",
+  "boardWidth": 8,
+  "boardHeight": 8,
+  "difficultyTier": 5,
+  "scrambleSeed": 396950,
+  "paletteId": "challenge_repeat",
+  "recommendedMoves": 18,
+  "lockCorrectPiecesByDefault": false,
+  "pieces": [
+    {
+      "pieceId": "top_star_tip",
+      "displayName": "Top Star Tip",
+      "shapeType": "Triangle",
+      "colorId": "red",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "width": 2,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 3,
+        "y": 7
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 6,
+        "y": 0
+      },
+      "startingRotation": 90,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 0,
+      "decorativeStuds": [
+        {
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "radius": 0.11
+        }
+      ],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "upper_left_star",
+      "displayName": "Upper Left Star",
+      "shapeType": "Triangle",
+      "colorId": "blue",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "width": 2,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 1,
+        "y": 6
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 5,
+        "y": 0
+      },
+      "startingRotation": 90,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 1,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "upper_right_star",
+      "displayName": "Upper Right Star",
+      "shapeType": "Triangle",
+      "colorId": "yellow",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 4,
+        "y": 6
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 3,
+        "y": 0
+      },
+      "startingRotation": 90,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 2,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "left_star_tip",
+      "displayName": "Left Star Tip",
+      "shapeType": "Triangle",
+      "colorId": "green",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "width": 2,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 0,
+        "y": 5
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 4,
+        "y": 0
+      },
+      "startingRotation": 90,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 3,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "left_star_inner",
+      "displayName": "Left Star Inner",
+      "shapeType": "Triangle",
+      "colorId": "orange",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 2,
+        "y": 5
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 6,
+        "y": 2
+      },
+      "startingRotation": 90,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 4,
+      "decorativeStuds": [
+        {
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "radius": 0.11
+        }
+      ],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "star_core",
+      "displayName": "Star Core",
+      "shapeType": "Triangle",
+      "colorId": "purple",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 1
+        }
+      ],
+      "width": 1,
+      "height": 2,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 3,
+        "y": 5
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 0,
+        "y": 2
+      },
+      "startingRotation": 90,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 5,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "right_star_inner",
+      "displayName": "Right Star Inner",
+      "shapeType": "Triangle",
+      "colorId": "teal",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 4,
+        "y": 5
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 0,
+        "y": 3
+      },
+      "startingRotation": 90,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 6,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "right_star_tip",
+      "displayName": "Right Star Tip",
+      "shapeType": "Triangle",
+      "colorId": "cream",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 1
+        }
+      ],
+      "width": 2,
+      "height": 2,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 5,
+        "y": 5
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "startingRotation": 0,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 7,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "lower_left_star",
+      "displayName": "Lower Left Star",
+      "shapeType": "Triangle",
+      "colorId": "red",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1,
+          "y": 0
+        },
+        {
+          "x": 2,
+          "y": 0
+        }
+      ],
+      "width": 3,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 0,
+        "y": 4
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 7,
+        "y": 0
+      },
+      "startingRotation": 90,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 8,
+      "decorativeStuds": [
+        {
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "radius": 0.11
+        }
+      ],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "lower_right_star",
+      "displayName": "Lower Right Star",
+      "shapeType": "Triangle",
+      "colorId": "blue",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1,
+          "y": 0
+        },
+        {
+          "x": 2,
+          "y": 0
+        }
+      ],
+      "width": 3,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 4,
+        "y": 4
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 0,
+        "y": 7
+      },
+      "startingRotation": 180,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 9,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "trophy_neck",
+      "displayName": "Trophy Neck",
+      "shapeType": "Capsule",
+      "colorId": "yellow",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 3,
+        "y": 4
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 7,
+        "y": 6
+      },
+      "startingRotation": 90,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 10,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "left_cup",
+      "displayName": "Left Cup",
+      "shapeType": "RoundedRectangle",
+      "colorId": "green",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "width": 1,
+      "height": 3,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 2,
+        "y": 1
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 5,
+        "y": 7
+      },
+      "startingRotation": 90,
+      "allowedRotations": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": true,
+      "sortingPriority": 11,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "center_cup",
+      "displayName": "Center Cup",
+      "shapeType": "RoundedRectangle",
+      "colorId": "orange",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 3,
+        "y": 3
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 0,
+        "y": 6
+      },
+      "startingRotation": 0,
+      "allowedRotations": [
+        0
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": false,
+      "sortingPriority": 12,
+      "decorativeStuds": [
+        {
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "radius": 0.11
+        }
+      ],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": true,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "right_cup",
+      "displayName": "Right Cup",
+      "shapeType": "RoundedRectangle",
+      "colorId": "purple",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 1
+        }
+      ],
+      "width": 2,
+      "height": 2,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 4,
+        "y": 2
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 6,
+        "y": 5
+      },
+      "startingRotation": 0,
+      "allowedRotations": [
+        0
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": false,
+      "sortingPriority": 13,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "left_handle",
+      "displayName": "Left Handle",
+      "shapeType": "Capsule",
+      "colorId": "teal",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "width": 1,
+      "height": 3,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 1,
+        "y": 1
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 5,
+        "y": 4
+      },
+      "startingRotation": 0,
+      "allowedRotations": [
+        0
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": false,
+      "sortingPriority": 14,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "right_handle",
+      "displayName": "Right Handle",
+      "shapeType": "Capsule",
+      "colorId": "cream",
+      "footprint": [
+        {
+          "x": 1,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 1,
+          "y": 1
+        }
+      ],
+      "width": 2,
+      "height": 2,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 5,
+        "y": 2
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 1,
+        "y": 0
+      },
+      "startingRotation": 0,
+      "allowedRotations": [
+        0
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": false,
+      "sortingPriority": 15,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "trophy_stem",
+      "displayName": "Trophy Stem",
+      "shapeType": "Capsule",
+      "colorId": "red",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "width": 1,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 3,
+        "y": 2
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 7,
+        "y": 4
+      },
+      "startingRotation": 0,
+      "allowedRotations": [
+        0
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": false,
+      "sortingPriority": 16,
+      "decorativeStuds": [
+        {
+          "position": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "radius": 0.11
+        }
+      ],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    },
+    {
+      "pieceId": "trophy_base",
+      "displayName": "Trophy Base",
+      "shapeType": "RoundedRectangle",
+      "colorId": "blue",
+      "footprint": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1,
+          "y": 0
+        },
+        {
+          "x": 2,
+          "y": 0
+        }
+      ],
+      "width": 3,
+      "height": 1,
+      "logicalPivot": {
+        "x": 0,
+        "y": 0
+      },
+      "visualPivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "customPolygonPoints": [],
+      "targetPosition": {
+        "x": 3,
+        "y": 1
+      },
+      "targetRotation": 0,
+      "startingPosition": {
+        "x": 0,
+        "y": 4
+      },
+      "startingRotation": 0,
+      "allowedRotations": [
+        0
+      ],
+      "startsLocked": false,
+      "locksWhenCorrect": false,
+      "strictTargetRotation": false,
+      "sortingPriority": 17,
+      "decorativeStuds": [],
+      "recessedHoles": [],
+      "visualOverhang": {
+        "x": 0.05,
+        "y": 0.05
+      },
+      "artGenerationParameters": {
+        "cornerRadius": 0.18,
+        "bevelSize": 0.08,
+        "insetPanel": false,
+        "styleVariant": "challenge"
+      }
+    }
+  ],
+  "hintMetadata": {
+    "message": "Plan temporary space, then assemble the star trophy from its distinctive parts.",
+    "showDirectionalIndicator": true
+  },
+  "tutorialMetadata": {
+    "tutorialId": "",
+    "message": "",
+    "requireCompletion": false
+  },
+  "completionRewardData": {
+    "stars": 3,
+    "softCurrency": 35,
+    "rewardId": "complete_050"
+  },
+  "thumbnailConfiguration": {
+    "scale": 1,
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "showBoard": false
+  },
+  "levelTags": [
+    "tier_5",
+    "star_trophy",
+    "semantic_parts",
+    "multi_cell",
+    "full_rotation"
+  ],
+  "designerNotes": "Explicit connected multi-cell Star Trophy silhouette at 59% occupancy. Certificate reverses a deterministic valid scramble.",
+  "solutionCertificate": [
+    {
+      "pieceId": "trophy_stem",
+      "position": {
+        "x": 3,
+        "y": 2
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "center_cup",
+      "position": {
+        "x": 3,
+        "y": 3
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "trophy_neck",
+      "position": {
+        "x": 3,
+        "y": 4
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "right_star_inner",
+      "position": {
+        "x": 4,
+        "y": 5
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "left_star_inner",
+      "position": {
+        "x": 2,
+        "y": 5
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "upper_right_star",
+      "position": {
+        "x": 4,
+        "y": 6
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "star_core",
+      "position": {
+        "x": 3,
+        "y": 5
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "left_star_tip",
+      "position": {
+        "x": 0,
+        "y": 5
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "upper_left_star",
+      "position": {
+        "x": 1,
+        "y": 6
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "top_star_tip",
+      "position": {
+        "x": 3,
+        "y": 7
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "trophy_base",
+      "position": {
+        "x": 3,
+        "y": 1
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "right_handle",
+      "position": {
+        "x": 5,
+        "y": 2
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "left_handle",
+      "position": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "right_cup",
+      "position": {
+        "x": 4,
+        "y": 2
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "left_cup",
+      "position": {
+        "x": 2,
+        "y": 1
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "lower_right_star",
+      "position": {
+        "x": 4,
+        "y": 4
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "lower_left_star",
+      "position": {
+        "x": 0,
+        "y": 4
+      },
+      "rotation": 0
+    },
+    {
+      "pieceId": "right_star_tip",
+      "position": {
+        "x": 5,
+        "y": 5
+      },
+      "rotation": 0
+    }
+  ]
+}
+

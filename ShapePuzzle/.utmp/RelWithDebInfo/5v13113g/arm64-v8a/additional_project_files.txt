@@ -1,0 +1,17 @@
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\GAToUnityCallbacks.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroEnd.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroHeaderBegin.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\MacroSourceBegin.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAApplication.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAConfiguration.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGADebug.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAEvents.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAInput.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGASoftKeyboard.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGASoftKeyboardCallbacks.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGATypes.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UGAVersion.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGACallbacks.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAConfigurationCallbacks.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAKeyEventCallbacks.h
+D:\ProjectsUnity\Shape_Block_Puzzle\ShapePuzzle\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\UnityToGAMotionEventCallbacks.h

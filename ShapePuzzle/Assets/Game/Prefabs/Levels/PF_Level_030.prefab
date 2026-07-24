@@ -1,0 +1,576 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6283700088482739584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6420918977279524766}
+  - component: {fileID: 2482206086651745843}
+  m_Layer: 0
+  m_Name: PF_Level_030
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6420918977279524766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6283700088482739584}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2482206086651745843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6283700088482739584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7815db7927cbc642b823531332226e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ToyPuzzle.Runtime::ToyPuzzle.PuzzleLevelPrefab
+  level:
+    schemaVersion: 1
+    levelId: level_030
+    levelNumber: 30
+    displayName: Whale
+    targetObjectName: Whale
+    boardWidth: 7
+    boardHeight: 6
+    difficultyTier: 3
+    scrambleSeed: 238570
+    paletteId: toy_repeat
+    recommendedMoves: 11
+    pieces:
+    - pieceId: red_part_01
+      displayName: Red Molded Part 1
+      shapeType: 1
+      colorId: red
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 6
+        y: 5
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 0
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: red_part_02
+      displayName: Red Molded Part 2
+      shapeType: 1
+      colorId: red
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 5
+        y: 5
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 1
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
+      shapeType: 1
+      colorId: blue
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 5
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 2
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
+      shapeType: 1
+      colorId: green
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 3
+        y: 5
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 3
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
+      shapeType: 1
+      colorId: yellow
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 4
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 2
+        y: 5
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 4
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: orange_part_01
+      displayName: Orange Molded Part 1
+      shapeType: 1
+      colorId: orange
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 5
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 1
+        y: 5
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 5
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: purple_part_01
+      displayName: Purple Molded Part 1
+      shapeType: 1
+      colorId: purple
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 6
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 5
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 6
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: teal_part_01
+      displayName: Teal Molded Part 1
+      shapeType: 1
+      colorId: teal
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 6
+        y: 4
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: cream_part_01
+      displayName: Cream Molded Part 1
+      shapeType: 1
+      colorId: cream
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 5
+        y: 4
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 8
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    - pieceId: cream_part_02
+      displayName: Cream Molded Part 2
+      shapeType: 1
+      colorId: cream
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 4
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 1
+      requireExactTargetRotation: 1
+      sortingPriority: 9
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0
+        y: 0
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: separate_color_part
+    lockCorrectPiecesByDefault: 1
+    hint:
+      message: Read the outer whale silhouette, then place its repeated details.
+      showDirectionalIndicator: 1
+    tutorial:
+      tutorialId: 
+      message: 
+      requireCompletion: 0
+    completionReward:
+      stars: 3
+      softCurrency: 20
+      rewardId: complete_030
+    thumbnail:
+      scale: 1
+      offset:
+        x: 0
+        y: 0
+      showBoard: 0
+    tags:
+    - tier_3
+    - whale
+    - semantic_parts
+    - multi_cell
+    designerNotes: 
+  thumbnail: {fileID: 21300000, guid: dd9edca136bf2054fb6cebac85b9db70, type: 3}
+  pieceArtwork:
+  - pieceId: red_part_01
+    sprite: {fileID: 21300000, guid: 85538710967a08046b0f9bb4f4d58ad0, type: 3}
+    sizeInCells: {x: 0.7109375, y: 1.4140625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.34654018, y: 0.38606772}
+    startingCenterNormalized: {x: 0.77981997, y: 0.855355}
+    sizeNormalized: {x: 0.1015625, y: 0.23567708}
+    snapDistanceNormalized: 0.055
+  - pieceId: red_part_02
+    sprite: {fileID: 21300000, guid: cf7b87b8eaf3f9d4f917d9eb41275002, type: 3}
+    sizeInCells: {x: 0.6328125, y: 1.390625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.547433, y: 0.734375}
+    startingCenterNormalized: {x: 0.3583043, y: 0.14276999}
+    sizeNormalized: {x: 0.09040178, y: 0.23177083}
+    snapDistanceNormalized: 0.055
+  - pieceId: blue_part_01
+    sprite: {fileID: 21300000, guid: 6db00628d2a89b54aa66a44ee525a7e5, type: 3}
+    sizeInCells: {x: 0.703125, y: 2.125}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.44754463, y: 0.3268229}
+    startingCenterNormalized: {x: 0.92026573, y: 0.79848003}
+    sizeNormalized: {x: 0.100446425, y: 0.35416666}
+    snapDistanceNormalized: 0.055
+  - pieceId: green_part_01
+    sprite: {fileID: 21300000, guid: a51cd45e3d355f749ae43c4195fdf7de, type: 3}
+    sizeInCells: {x: 0.7109375, y: 1.4140625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.6467634, y: 0.38606772}
+    startingCenterNormalized: {x: 0.22018, y: 0.855355}
+    sizeNormalized: {x: 0.1015625, y: 0.23567708}
+    snapDistanceNormalized: 0.055
+  - pieceId: yellow_part_01
+    sprite: {fileID: 21300000, guid: a73d77f1de3ee5d48852b5b9787aba61, type: 3}
+    sizeInCells: {x: 0.6640625, y: 1.984375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.5452009, y: 0.3268229}
+    startingCenterNormalized: {x: 0.077055715, y: 0.80973}
+    sizeNormalized: {x: 0.094866075, y: 0.33072916}
+    snapDistanceNormalized: 0.055
+  - pieceId: orange_part_01
+    sprite: {fileID: 21300000, guid: ff3e3fe3c6864ed45bff38662981d201, type: 3}
+    sizeInCells: {x: 0.7421875, y: 1.3984375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.74609375, y: 0.5019531}
+    startingCenterNormalized: {x: 0.082412854, y: 0.143395}
+    sizeNormalized: {x: 0.10602678, y: 0.23307292}
+    snapDistanceNormalized: 0.055
+  - pieceId: purple_part_01
+    sprite: {fileID: 21300000, guid: cdbf2b96c47357243bcef15239e2cdd5, type: 3}
+    sizeInCells: {x: 1.3671875, y: 1.390625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.49497768, y: 0.6197917}
+    startingCenterNormalized: {x: 0.87473, y: 0.14276999}
+    sizeNormalized: {x: 0.1953125, y: 0.23177083}
+    snapDistanceNormalized: 0.055
+  - pieceId: teal_part_01
+    sprite: {fileID: 21300000, guid: f268f81393bc5764382a25a61e2a17ee, type: 3}
+    sizeInCells: {x: 0.640625, y: 1.25}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.24665178, y: 0.3841146}
+    startingCenterNormalized: {x: 0.9245514, y: 0.46929336}
+    sizeNormalized: {x: 0.09151786, y: 0.20833333}
+    snapDistanceNormalized: 0.055
+  - pieceId: cream_part_01
+    sprite: {fileID: 21300000, guid: 2110aab9326fba548b252673a606b914, type: 3}
+    sizeInCells: {x: 1.2265625, y: 0.640625}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.29631695, y: 0.56119794}
+    startingCenterNormalized: {x: 0.66015536, y: 0.08277}
+    sizeNormalized: {x: 0.17522322, y: 0.106770836}
+    snapDistanceNormalized: 0.055
+  - pieceId: cream_part_02
+    sprite: {fileID: 21300000, guid: a5abbffee41afd44ab6504e52b700b07, type: 3}
+    sizeInCells: {x: 0.7109375, y: 1.3984375}
+    offsetFromTargetPivotInCells: {x: 0, y: 0}
+    bakedTargetRotation: 0
+    freeformColorBlock: 1
+    targetCenterNormalized: {x: 0.6467634, y: 0.6191406}
+    startingCenterNormalized: {x: 0.22018, y: 0.143395}
+    sizeNormalized: {x: 0.1015625, y: 0.23307292}
+    snapDistanceNormalized: 0.055
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_030_whale.json

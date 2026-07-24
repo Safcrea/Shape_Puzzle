@@ -1,0 +1,721 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4799467785101620352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2725215524953141502}
+  - component: {fileID: 6819203924893585207}
+  m_Layer: 0
+  m_Name: PF_Level_044
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2725215524953141502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4799467785101620352}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6819203924893585207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4799467785101620352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7815db7927cbc642b823531332226e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ToyPuzzle.Runtime::ToyPuzzle.PuzzleLevelPrefab
+  level:
+    schemaVersion: 1
+    levelId: level_044
+    levelNumber: 44
+    displayName: Guitar
+    targetObjectName: Guitar
+    boardWidth: 6
+    boardHeight: 8
+    difficultyTier: 5
+    scrambleSeed: 349436
+    paletteId: challenge_repeat
+    recommendedMoves: 15
+    pieces:
+    - pieceId: lower_left_body
+      displayName: Lower Left Body
+      shapeType: 0
+      colorId: teal
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 5
+        y: 5
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 0
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: lower_center_body
+      displayName: Lower Center Body
+      shapeType: 0
+      colorId: cream
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 0
+        y: 1
+      width: 2
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 6
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 1
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 1
+        styleVariant: challenge
+    - pieceId: lower_right_body
+      displayName: Lower Right Body
+      shapeType: 0
+      colorId: red
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 2
+        y: 0
+      width: 3
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 4
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 2
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: mid_left_body
+      displayName: Mid Left Body
+      shapeType: 0
+      colorId: blue
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 5
+        y: 0
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 3
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: sound_hole
+      displayName: Sound Hole
+      shapeType: 4
+      colorId: yellow
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 7
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 4
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.2
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 1
+        styleVariant: challenge
+    - pieceId: mid_right_body
+      displayName: Mid Right Body
+      shapeType: 0
+      colorId: green
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 0
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 5
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: upper_left_body
+      displayName: Upper Left Body
+      shapeType: 0
+      colorId: orange
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      width: 1
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 0
+      startingRotation: 180
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 6
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: upper_center_body
+      displayName: Upper Center Body
+      shapeType: 0
+      colorId: purple
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 1
+        y: 7
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 1
+        styleVariant: challenge
+    - pieceId: upper_right_body
+      displayName: Upper Right Body
+      shapeType: 0
+      colorId: teal
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 1
+        y: 0
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 8
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: waist
+      displayName: Waist
+      shapeType: 0
+      colorId: cream
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 4
+      targetRotation: 0
+      startingPosition:
+        x: 3
+        y: 0
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 9
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: lower_neck
+      displayName: Lower Neck
+      shapeType: 3
+      colorId: red
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 5
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 2
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 10
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: upper_neck
+      displayName: Upper Neck
+      shapeType: 3
+      colorId: blue
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 6
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 2
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 11
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: headstock
+      displayName: Headstock
+      shapeType: 0
+      colorId: yellow
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 7
+      targetRotation: 0
+      startingPosition:
+        x: 3
+        y: 2
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 12
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: left_tuner
+      displayName: Left Tuner
+      shapeType: 6
+      colorId: green
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 7
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 3
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 13
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: right_tuner
+      displayName: Right Tuner
+      shapeType: 6
+      colorId: orange
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      width: 1
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 6
+      targetRotation: 0
+      startingPosition:
+        x: 2
+        y: 0
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 14
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    lockCorrectPiecesByDefault: 0
+    hint:
+      message: Plan temporary space, then assemble the guitar from its distinctive
+        parts.
+      showDirectionalIndicator: 1
+    tutorial:
+      tutorialId: 
+      message: 
+      requireCompletion: 0
+    completionReward:
+      stars: 3
+      softCurrency: 35
+      rewardId: complete_044
+    thumbnail:
+      scale: 1
+      offset:
+        x: 0
+        y: 0
+      showBoard: 0
+    tags:
+    - tier_5
+    - guitar
+    - semantic_parts
+    - multi_cell
+    - full_rotation
+    designerNotes: 
+  thumbnail: {fileID: 21300000, guid: 8064a343eac546343bd075da3a794bc2, type: 3}
+  pieceArtwork: []
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_044_guitar.json

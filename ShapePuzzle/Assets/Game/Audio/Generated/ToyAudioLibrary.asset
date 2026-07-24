@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1f7f8f8db0a5546bde7dddc1be59a9, type: 3}
+  m_Name: ToyAudioLibrary
+  m_EditorClassIdentifier: ToyPuzzle.Runtime::ToyPuzzle.ToyAudioLibrary
+  entries:
+  - cue: 0
+    clip: {fileID: 8300000, guid: edf7f6ceeba94874094d0822fa06a394, type: 3}
+    volume: 0.62
+    pitch: 1
+  - cue: 1
+    clip: {fileID: 8300000, guid: e9b20d0e307b3da40979b074388f26c0, type: 3}
+    volume: 0.62
+    pitch: 1
+  - cue: 2
+    clip: {fileID: 8300000, guid: c207a87d89f7adc4ebb0bd990abbfcea, type: 3}
+    volume: 0.62
+    pitch: 1
+  - cue: 3
+    clip: {fileID: 8300000, guid: f37b61ee93ddce6489f45b3ff2cdcf00, type: 3}
+    volume: 0.62
+    pitch: 1
+  - cue: 4
+    clip: {fileID: 8300000, guid: 578fa2fe451c5ed418f0fbe10dad3416, type: 3}
+    volume: 0.62
+    pitch: 1
+  - cue: 5
+    clip: {fileID: 8300000, guid: 9ffb0ccfeb2746c44bf47c7aedf5c9d6, type: 3}
+    volume: 0.62
+    pitch: 1
+  - cue: 6
+    clip: {fileID: 8300000, guid: 6598dc39b671a814c91a52081b32341e, type: 3}
+    volume: 0.62
+    pitch: 1
+  - cue: 7
+    clip: {fileID: 8300000, guid: b1c40ee402be1364c84953705f0a2c02, type: 3}
+    volume: 0.62
+    pitch: 1
+  - cue: 8
+    clip: {fileID: 8300000, guid: 18c45addc7b5cd3429d7c55b7fe5eff6, type: 3}
+    volume: 0.72
+    pitch: 1
+  musicLoop: {fileID: 0}
+  musicVolume: 0.25

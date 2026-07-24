@@ -1,0 +1,12 @@
+{
+  "name": "ToyPuzzle.Editor.ArtGeneration",
+  "rootNamespace": "ToyPuzzle.Editor",
+  "references": [
+    "ToyPuzzle.Runtime",
+    "ToyPuzzle.LevelImport.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true
+}

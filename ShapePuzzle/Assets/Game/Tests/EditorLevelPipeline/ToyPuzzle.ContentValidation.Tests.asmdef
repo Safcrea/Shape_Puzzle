@@ -1,0 +1,14 @@
+{
+  "name": "ToyPuzzle.ContentValidation.Tests",
+  "rootNamespace": "ToyPuzzle.Tests.ContentValidation",
+  "references": [
+    "ToyPuzzle.Runtime",
+    "ToyPuzzle.LevelImport.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

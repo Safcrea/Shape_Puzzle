@@ -1,0 +1,602 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4986895318334149852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7466138177700076399}
+  - component: {fileID: 7495497185855789138}
+  m_Layer: 0
+  m_Name: PF_Level_042
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7466138177700076399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4986895318334149852}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7495497185855789138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4986895318334149852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7815db7927cbc642b823531332226e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ToyPuzzle.Runtime::ToyPuzzle.PuzzleLevelPrefab
+  level:
+    schemaVersion: 1
+    levelId: level_042
+    levelNumber: 42
+    displayName: Cupcake
+    targetObjectName: Cupcake
+    boardWidth: 7
+    boardHeight: 7
+    difficultyTier: 5
+    scrambleSeed: 333598
+    paletteId: challenge_repeat
+    recommendedMoves: 12
+    pieces:
+    - pieceId: wrapper_left_base
+      displayName: Wrapper Left Base
+      shapeType: 0
+      colorId: teal
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 2
+        y: 0
+      width: 3
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 6
+      startingRotation: 180
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 0
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: wrapper_center_base
+      displayName: Wrapper Center Base
+      shapeType: 0
+      colorId: cream
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 0
+        y: 1
+      width: 2
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 4
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 1
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 1
+        styleVariant: challenge
+    - pieceId: wrapper_right_base
+      displayName: Wrapper Right Base
+      shapeType: 0
+      colorId: red
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 2
+        y: 0
+      width: 3
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 4
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 0
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 2
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: wrapper_left_top
+      displayName: Wrapper Left Top
+      shapeType: 0
+      colorId: blue
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 5
+        y: 6
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 3
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: wrapper_center_top
+      displayName: Wrapper Center Top
+      shapeType: 0
+      colorId: yellow
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 5
+        y: 5
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 4
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 1
+        styleVariant: challenge
+    - pieceId: wrapper_right_top
+      displayName: Wrapper Right Top
+      shapeType: 0
+      colorId: green
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 4
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 3
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 5
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: left_frosting
+      displayName: Left Frosting
+      shapeType: 0
+      colorId: orange
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      - x: 0
+        y: 2
+      - x: 0
+        y: 3
+      width: 1
+      height: 4
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 6
+        y: 3
+      startingRotation: 180
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 6
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: midleft_frosting
+      displayName: Midleft Frosting
+      shapeType: 0
+      colorId: purple
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      - x: 0
+        y: 2
+      width: 1
+      height: 3
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 6
+        y: 0
+      startingRotation: 180
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: center_frosting
+      displayName: Center Frosting
+      shapeType: 0
+      colorId: teal
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 2
+        y: 0
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 8
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 1
+        styleVariant: challenge
+    - pieceId: midright_frosting
+      displayName: Midright Frosting
+      shapeType: 0
+      colorId: cream
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      - x: 0
+        y: 2
+      width: 1
+      height: 3
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 4
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 1
+        y: 0
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 9
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: right_frosting
+      displayName: Right Frosting
+      shapeType: 0
+      colorId: red
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      - x: 0
+        y: 2
+      width: 1
+      height: 3
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 5
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 2
+        y: 3
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 10
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: cherry
+      displayName: Cherry
+      shapeType: 4
+      colorId: blue
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      - x: 0
+        y: 2
+      width: 1
+      height: 3
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 4
+      targetRotation: 0
+      startingPosition:
+        x: 5
+        y: 0
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 11
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    lockCorrectPiecesByDefault: 0
+    hint:
+      message: Plan temporary space, then assemble the cupcake from its distinctive
+        parts.
+      showDirectionalIndicator: 1
+    tutorial:
+      tutorialId: 
+      message: 
+      requireCompletion: 0
+    completionReward:
+      stars: 3
+      softCurrency: 35
+      rewardId: complete_042
+    thumbnail:
+      scale: 1
+      offset:
+        x: 0
+        y: 0
+      showBoard: 0
+    tags:
+    - tier_5
+    - cupcake
+    - semantic_parts
+    - multi_cell
+    - full_rotation
+    designerNotes: 
+  thumbnail: {fileID: 21300000, guid: 407e81c9fda859542a43dc5001a90c69, type: 3}
+  pieceArtwork: []
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_042_cupcake.json

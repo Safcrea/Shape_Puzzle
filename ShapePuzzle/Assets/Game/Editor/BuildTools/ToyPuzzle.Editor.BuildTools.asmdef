@@ -1,0 +1,13 @@
+{
+  "name": "ToyPuzzle.Editor.BuildTools",
+  "rootNamespace": "ToyPuzzle.Editor",
+  "references": [
+    "ToyPuzzle.Runtime",
+    "ToyPuzzle.Editor.ArtGeneration",
+    "Unity.ugui"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "autoReferenced": true
+}

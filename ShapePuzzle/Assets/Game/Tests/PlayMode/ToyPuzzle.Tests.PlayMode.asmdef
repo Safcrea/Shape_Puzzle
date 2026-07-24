@@ -1,0 +1,11 @@
+{
+  "name": "ToyPuzzle.Tests.PlayMode",
+  "rootNamespace": "ToyPuzzle.Tests.PlayMode",
+  "references": [
+    "ToyPuzzle.Runtime",
+    "Unity.ugui"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

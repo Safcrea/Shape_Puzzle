@@ -1,0 +1,569 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d41d8d8f1e89d3428898ab9dadc66ba, type: 3}
+  m_Name: Level_036
+  m_EditorClassIdentifier: ToyPuzzle.Runtime::ToyPuzzle.RuntimeLevelData
+  level:
+    schemaVersion: 1
+    levelId: level_036
+    levelNumber: 36
+    displayName: Dog
+    targetObjectName: Dog
+    boardWidth: 7
+    boardHeight: 7
+    difficultyTier: 4
+    scrambleSeed: 286084
+    paletteId: similar_groups
+    recommendedMoves: 12
+    pieces:
+    - pieceId: left_ear
+      displayName: Left Ear
+      shapeType: 6
+      colorId: yellow
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 2
+        y: 0
+      width: 3
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 5
+      targetRotation: 0
+      startingPosition:
+        x: 6
+        y: 0
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 0
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: right_ear
+      displayName: Right Ear
+      shapeType: 6
+      colorId: green
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 0
+        y: 1
+      width: 2
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 4
+        y: 5
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 0
+      startingRotation: 0
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 1
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: head
+      displayName: Head
+      shapeType: 4
+      colorId: orange
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 4
+      targetRotation: 0
+      startingPosition:
+        x: 5
+        y: 0
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 2
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: muzzle
+      displayName: Muzzle
+      shapeType: 4
+      colorId: purple
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      - x: 0
+        y: 2
+      width: 1
+      height: 3
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 5
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 6
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 3
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: front_body
+      displayName: Front Body
+      shapeType: 0
+      colorId: teal
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 2
+        y: 0
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 4
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: rear_body
+      displayName: Rear Body
+      shapeType: 6
+      colorId: cream
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      width: 1
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 0
+      startingRotation: 180
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 5
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: front_chest
+      displayName: Front Chest
+      shapeType: 0
+      colorId: red
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 4
+      startingRotation: 180
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 6
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: rear_chest
+      displayName: Rear Chest
+      shapeType: 6
+      colorId: blue
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 2
+        y: 0
+      width: 3
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 6
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: tail
+      displayName: Tail
+      shapeType: 6
+      colorId: yellow
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 1
+        y: 1
+      width: 2
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 5
+        y: 4
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 8
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: front_leg
+      displayName: Front Leg
+      shapeType: 3
+      colorId: green
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 2
+        y: 0
+      width: 3
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 5
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 9
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: rear_leg
+      displayName: Rear Leg
+      shapeType: 6
+      colorId: orange
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 1
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 5
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 10
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    - pieceId: collar
+      displayName: Collar
+      shapeType: 0
+      colorId: purple
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 4
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 1
+        y: 1
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 11
+      decorativeStuds: []
+      recessedHoles:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.2
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: soft
+    lockCorrectPiecesByDefault: 0
+    hint:
+      message: Use bilateral features and the outer dog contour to separate similar
+        parts.
+      showDirectionalIndicator: 1
+    tutorial:
+      tutorialId: 
+      message: 
+      requireCompletion: 0
+    completionReward:
+      stars: 3
+      softCurrency: 25
+      rewardId: complete_036
+    thumbnail:
+      scale: 1
+      offset:
+        x: 0
+        y: 0
+      showBoard: 0
+    tags:
+    - tier_4
+    - dog
+    - semantic_parts
+    - multi_cell
+    - symmetry
+    designerNotes: 

@@ -1,0 +1,7 @@
+{
+  "name": "ToyPuzzle.Runtime",
+  "rootNamespace": "ToyPuzzle",
+  "references": [
+    "Unity.ugui"
+  ]
+}

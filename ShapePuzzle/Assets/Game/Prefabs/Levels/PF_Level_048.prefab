@@ -1,0 +1,772 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1857473927484082124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8395890398542042183}
+  - component: {fileID: 3154161524100412642}
+  m_Layer: 0
+  m_Name: PF_Level_048
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8395890398542042183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857473927484082124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3154161524100412642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857473927484082124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7815db7927cbc642b823531332226e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ToyPuzzle.Runtime::ToyPuzzle.PuzzleLevelPrefab
+  level:
+    schemaVersion: 1
+    levelId: level_048
+    levelNumber: 48
+    displayName: Gift Box
+    targetObjectName: Gift Box
+    boardWidth: 8
+    boardHeight: 8
+    difficultyTier: 5
+    scrambleSeed: 381112
+    paletteId: challenge_repeat
+    recommendedMoves: 16
+    pieces:
+    - pieceId: lower_left_box
+      displayName: Lower Left Box
+      shapeType: 0
+      colorId: red
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      - x: 1
+        y: 1
+      width: 2
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 6
+        y: 6
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 0
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: lower_midleft_box
+      displayName: Lower Midleft Box
+      shapeType: 0
+      colorId: blue
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 1
+        y: 1
+      width: 2
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 6
+        y: 5
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 1
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: lower_center_box
+      displayName: Lower Center Box
+      shapeType: 0
+      colorId: yellow
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      width: 1
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 5
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 2
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 1
+        styleVariant: challenge
+    - pieceId: lower_midright_box
+      displayName: Lower Midright Box
+      shapeType: 0
+      colorId: green
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      width: 1
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 4
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 1
+        y: 6
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 3
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: lower_right_box
+      displayName: Lower Right Box
+      shapeType: 0
+      colorId: orange
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      width: 1
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 5
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 2
+        y: 7
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 4
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: lower_ribbon
+      displayName: Lower Ribbon
+      shapeType: 0
+      colorId: purple
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 0
+        y: 1
+      width: 2
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 6
+        y: 0
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 6
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 5
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 1
+        styleVariant: challenge
+    - pieceId: upper_left_box
+      displayName: Upper Left Box
+      shapeType: 0
+      colorId: teal
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 1
+        y: 1
+      width: 2
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 0
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 6
+        y: 0
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 6
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: upper_midleft_box
+      displayName: Upper Midleft Box
+      shapeType: 0
+      colorId: cream
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      width: 1
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 2
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 5
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 7
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: upper_center_box
+      displayName: Upper Center Box
+      shapeType: 0
+      colorId: red
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 5
+        y: 7
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 8
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 1
+        styleVariant: challenge
+    - pieceId: upper_midright_box
+      displayName: Upper Midright Box
+      shapeType: 0
+      colorId: blue
+      footprint:
+      - x: 0
+        y: 0
+      width: 1
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 4
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 3
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 9
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: upper_right_box
+      displayName: Upper Right Box
+      shapeType: 0
+      colorId: yellow
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      width: 1
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 5
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 4
+      startingRotation: 90
+      allowedRotations: 000000005a000000b40000000e010000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 1
+      sortingPriority: 10
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: upper_ribbon
+      displayName: Upper Ribbon
+      shapeType: 0
+      colorId: green
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 0
+        y: 1
+      width: 2
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 6
+        y: 2
+      targetRotation: 0
+      startingPosition:
+        x: 0
+        y: 0
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 11
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 1
+        styleVariant: challenge
+    - pieceId: left_lid
+      displayName: Left Lid
+      shapeType: 0
+      colorId: orange
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      - x: 0
+        y: 2
+      width: 1
+      height: 3
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 3
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 7
+        y: 1
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 12
+      decorativeStuds:
+      - position:
+          x: 0.5
+          y: 0.5
+        radius: 0.11
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: right_lid
+      displayName: Right Lid
+      shapeType: 0
+      colorId: purple
+      footprint:
+      - x: 0
+        y: 0
+      - x: 0
+        y: 1
+      - x: 0
+        y: 2
+      width: 1
+      height: 3
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 4
+        y: 3
+      targetRotation: 0
+      startingPosition:
+        x: 1
+        y: 1
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 13
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: left_bow
+      displayName: Left Bow
+      shapeType: 0
+      colorId: teal
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      - x: 0
+        y: 1
+      width: 2
+      height: 2
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 1
+        y: 4
+      targetRotation: 0
+      startingPosition:
+        x: 4
+        y: 6
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 14
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    - pieceId: right_bow
+      displayName: Right Bow
+      shapeType: 0
+      colorId: cream
+      footprint:
+      - x: 0
+        y: 0
+      - x: 1
+        y: 0
+      width: 2
+      height: 1
+      logicalPivot:
+        x: 0
+        y: 0
+      visualPivot:
+        x: 0.5
+        y: 0.5
+      customPolygonPoints: []
+      targetPosition:
+        x: 5
+        y: 4
+      targetRotation: 0
+      startingPosition:
+        x: 2
+        y: 0
+      startingRotation: 0
+      allowedRotations: 00000000
+      startsLocked: 0
+      locksWhenCorrect: 0
+      requireExactTargetRotation: 0
+      sortingPriority: 15
+      decorativeStuds: []
+      recessedHoles: []
+      visualOverhang:
+        x: 0.05
+        y: 0.05
+      artGeneration:
+        cornerRadius: 0.18
+        bevelSize: 0.08
+        insetPanel: 0
+        styleVariant: challenge
+    lockCorrectPiecesByDefault: 0
+    hint:
+      message: Plan temporary space, then assemble the gift box from its distinctive
+        parts.
+      showDirectionalIndicator: 1
+    tutorial:
+      tutorialId: 
+      message: 
+      requireCompletion: 0
+    completionReward:
+      stars: 3
+      softCurrency: 35
+      rewardId: complete_048
+    thumbnail:
+      scale: 1
+      offset:
+        x: 0
+        y: 0
+      showBoard: 0
+    tags:
+    - tier_5
+    - gift_box
+    - semantic_parts
+    - multi_cell
+    - full_rotation
+    designerNotes: 
+  thumbnail: {fileID: 21300000, guid: ee2ed35e23586514d9ce4b34dc4bd43b, type: 3}
+  pieceArtwork: []
+  sourceJsonPath: Assets/Game/Data/Levels/Source/level_048_gift_box.json

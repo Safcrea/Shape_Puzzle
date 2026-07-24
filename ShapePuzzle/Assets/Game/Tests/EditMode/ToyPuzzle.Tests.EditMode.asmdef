@@ -1,0 +1,13 @@
+{
+  "name": "ToyPuzzle.Tests.EditMode",
+  "rootNamespace": "ToyPuzzle.Tests",
+  "references": [
+    "ToyPuzzle.Runtime"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

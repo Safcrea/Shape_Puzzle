@@ -1,0 +1,14 @@
+{
+  "name": "ToyPuzzle.LevelPipeline.Tests",
+  "rootNamespace": "ToyPuzzle.Tests.Editor",
+  "references": [
+    "ToyPuzzle.Runtime",
+    "ToyPuzzle.LevelImport.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

@@ -1,0 +1,467 @@
+{
+    "schemaVersion": 1,
+    "levelId": "level_017",
+    "levelNumber": 17,
+    "displayName": "Hot-Air Balloon",
+    "targetObjectName": "Hot-Air Balloon",
+    "boardWidth": 6,
+    "boardHeight": 6,
+    "difficultyTier": 2,
+    "scrambleSeed": 135623,
+    "paletteId": "primary",
+    "recommendedMoves": 8,
+    "pieces": [
+        {
+            "pieceId": "blue_part_01",
+            "displayName": "Blue Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "blue",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 0,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 5,
+                "y": 5
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 0,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "green_part_01",
+            "displayName": "Green Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "green",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 1,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 4,
+                "y": 5
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 1,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "yellow_part_01",
+            "displayName": "Yellow Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "yellow",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 2,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 3,
+                "y": 5
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 2,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "orange_part_01",
+            "displayName": "Orange Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "orange",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 3,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 2,
+                "y": 5
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 3,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "purple_part_01",
+            "displayName": "Purple Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "purple",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 4,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 1,
+                "y": 5
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 4,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "teal_part_01",
+            "displayName": "Teal Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "teal",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 5,
+                "y": 0
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 0,
+                "y": 5
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 5,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        },
+        {
+            "pieceId": "cream_part_01",
+            "displayName": "Cream Molded Part 1",
+            "shapeType": "Square",
+            "colorId": "cream",
+            "footprint": [
+                {
+                    "x": 0,
+                    "y": 0
+                }
+            ],
+            "width": 1,
+            "height": 1,
+            "logicalPivot": {
+                "x": 0,
+                "y": 0
+            },
+            "visualPivot": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "customPolygonPoints": [],
+            "targetPosition": {
+                "x": 0,
+                "y": 1
+            },
+            "targetRotation": 0,
+            "startingPosition": {
+                "x": 5,
+                "y": 4
+            },
+            "startingRotation": 0,
+            "allowedRotations": [
+                0
+            ],
+            "startsLocked": false,
+            "locksWhenCorrect": true,
+            "strictTargetRotation": true,
+            "sortingPriority": 6,
+            "decorativeStuds": [],
+            "recessedHoles": [],
+            "visualOverhang": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "artGenerationParameters": {
+                "cornerRadius": 0.18000000715255738,
+                "bevelSize": 0.07999999821186066,
+                "insetPanel": false,
+                "styleVariant": "separate_color_part"
+            }
+        }
+    ],
+    "lockCorrectPiecesByDefault": true,
+    "hintMetadata": {
+        "message": "Place the main hot-air balloon body before its smaller details.",
+        "showDirectionalIndicator": true
+    },
+    "tutorialMetadata": {
+        "tutorialId": "",
+        "message": "",
+        "requireCompletion": false
+    },
+    "completionRewardData": {
+        "stars": 3,
+        "softCurrency": 15,
+        "rewardId": "complete_017"
+    },
+    "thumbnailConfiguration": {
+        "scale": 1.0,
+        "offset": {
+            "x": 0.0,
+            "y": 0.0
+        },
+        "showBoard": false
+    },
+    "levelTags": [
+        "tier_2",
+        "hot_air_balloon",
+        "semantic_parts",
+        "multi_cell"
+    ],
+    "designerNotes": "Explicit connected multi-cell Hot-Air Balloon silhouette at 50% occupancy. Certificate reverses a deterministic valid scramble.",
+    "solutionCertificate": [
+        {
+            "pieceId": "blue_part_01",
+            "position": {
+                "x": 0,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "green_part_01",
+            "position": {
+                "x": 1,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "yellow_part_01",
+            "position": {
+                "x": 2,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "orange_part_01",
+            "position": {
+                "x": 3,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "purple_part_01",
+            "position": {
+                "x": 4,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "teal_part_01",
+            "position": {
+                "x": 5,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "cream_part_01",
+            "position": {
+                "x": 0,
+                "y": 1
+            },
+            "rotation": 0
+        }
+    ]
+}

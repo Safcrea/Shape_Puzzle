@@ -1,0 +1,11 @@
+{
+  "name": "ToyPuzzle.LevelAuthoring.Editor",
+  "rootNamespace": "ToyPuzzle.Editor.Levels",
+  "references": [
+    "ToyPuzzle.Runtime",
+    "ToyPuzzle.LevelImport.Editor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
+}
