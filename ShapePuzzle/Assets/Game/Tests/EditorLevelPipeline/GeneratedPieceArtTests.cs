@@ -56,6 +56,18 @@ namespace ToyPuzzle.Tests.ContentValidation
                 if (prefab.PieceArtwork == null || prefab.PieceArtwork.Length != expectedPieces)
                     errors.Add(prefix + "has " + (prefab.PieceArtwork == null ? 0 : prefab.PieceArtwork.Length) +
                                " artwork entries; expected " + expectedPieces + ".");
+                string anchorId = prefab.ReferenceAnchorPieceId;
+                PuzzlePieceArtwork anchorArtwork = prefab.FindPieceArtwork(anchorId);
+                if (string.IsNullOrEmpty(anchorId) || anchorArtwork == null)
+                {
+                    errors.Add(prefix + "reference anchor metadata is missing or invalid.");
+                }
+                else
+                {
+                    string resolved = prefab.ResolveReferenceAnchorPieceId();
+                    if (!string.Equals(anchorId, resolved, StringComparison.Ordinal))
+                        errors.Add(prefix + "stored reference anchor does not match the closest central artwork piece.");
+                }
 
                 ValidateMaskConnectivity(maskPixels, mask.width, mask.height, countsByColor, prefix, errors);
 
@@ -72,6 +84,12 @@ namespace ToyPuzzle.Tests.ContentValidation
                         }
 
                         Color32[] piecePixels = artwork.sprite.texture.GetPixels32();
+                        ValidateTransparentPadding(
+                            piecePixels,
+                            artwork.sprite.texture.width,
+                            artwork.sprite.texture.height,
+                            prefix + artwork.pieceId,
+                            errors);
                         for (int pixelIndex = 0; pixelIndex < piecePixels.Length; pixelIndex++)
                         {
                             Color32 pixel = piecePixels[pixelIndex];
@@ -92,6 +110,31 @@ namespace ToyPuzzle.Tests.ContentValidation
             }
 
             Assert.That(errors, Is.Empty, string.Join(Environment.NewLine, errors));
+        }
+
+        private static void ValidateTransparentPadding(
+            Color32[] pixels,
+            int width,
+            int height,
+            string context,
+            List<string> errors)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                if (pixels[x].a != 0 || pixels[(height - 1) * width + x].a != 0)
+                {
+                    errors.Add(context + " is missing transparent vertical edge padding.");
+                    return;
+                }
+            }
+            for (int y = 0; y < height; y++)
+            {
+                if (pixels[y * width].a != 0 || pixels[y * width + width - 1].a != 0)
+                {
+                    errors.Add(context + " is missing transparent horizontal edge padding.");
+                    return;
+                }
+            }
         }
 
         private static void ValidateMaskConnectivity(

@@ -64,14 +64,32 @@ namespace ToyPuzzle
         private Vector2 _boardSize;
         private bool _interactive;
         private bool _locked;
+        private bool _referenceAnchor;
+        private bool _dragPresentationActive;
+        private Coroutine _presentationRoutine;
+        private Quaternion _restRotation = Quaternion.identity;
         private int _visualRotation = int.MinValue;
+        private GridCoordinate[] _visualCoverageCells = Array.Empty<GridCoordinate>();
+        private Color32[] _artworkPixels = Array.Empty<Color32>();
+        private Rect _artworkTextureRect;
+        private int _artworkTextureWidth;
+        private int _artworkTextureHeight;
 
         public string PieceId => _definition == null ? string.Empty : _definition.pieceId;
         public RectTransform RectTransform => _rectTransform;
         public PieceDefinition Definition => _definition;
         public bool IsLocked => _locked;
+        public bool IsReferenceAnchor => _referenceAnchor;
         public bool UsesFreeformArtwork => _artwork != null && _artwork.freeformColorBlock;
         public PuzzlePieceArtwork Artwork => _artwork;
+        public float LargestVisualDimension => _rectTransform == null
+            ? 0f
+            : Mathf.Max(_rectTransform.sizeDelta.x, _rectTransform.sizeDelta.y);
+        public Vector2 VisualCenterPosition => _rectTransform == null
+            ? Vector2.zero
+            : (UsesFreeformArtwork
+                ? _rectTransform.anchoredPosition
+                : _rectTransform.anchoredPosition + _rectTransform.sizeDelta * 0.5f);
 
         public void Initialize(
             PieceDefinition definition,
@@ -90,6 +108,7 @@ namespace ToyPuzzle
             _sprites = sprites ?? new PuzzlePieceSpriteSet();
             _baseColor = color;
             _artwork = artwork != null && artwork.IsValid ? artwork : null;
+            CacheArtworkAlpha();
             _interactive = interactive;
             _controller = controller;
             _rectTransform = GetComponent<RectTransform>();
@@ -100,6 +119,7 @@ namespace ToyPuzzle
             _rectTransform.anchorMax = Vector2.zero;
             _rectTransform.pivot = Vector2.zero;
             SetPose(pose);
+            _restRotation = _rectTransform.localRotation;
         }
 
         public void Rebuild(PiecePose pose)
@@ -114,6 +134,7 @@ namespace ToyPuzzle
             }
 
             RotatedFootprint rotated = GridMath.GetRotatedFootprint(_definition, pose.rotation);
+            _visualCoverageCells = rotated.Cells ?? Array.Empty<GridCoordinate>();
             _visualRotation = GridMath.NormalizeRotation(pose.rotation);
             _rectTransform.sizeDelta = new Vector2(rotated.Width * _cellSize, rotated.Height * _cellSize);
             float gap = Mathf.Max(1f, _cellSize * 0.035f);
@@ -332,18 +353,71 @@ namespace ToyPuzzle
                 _rectTransform.anchoredPosition = TargetPoseValidator.IsCorrect(_definition, pose)
                     ? GetFreeformTargetPosition()
                     : GetFreeformStartingPosition();
+                if (!_dragPresentationActive) _restRotation = _rectTransform.localRotation;
                 return;
             }
             _rectTransform.anchoredPosition = new Vector2(pose.position.x * _cellSize, pose.position.y * _cellSize);
+            if (!_dragPresentationActive) _restRotation = _rectTransform.localRotation;
         }
 
         public void SetFreeformPosition(Vector2 position)
         {
             if (!UsesFreeformArtwork || _rectTransform == null) return;
+            _rectTransform.anchoredPosition = ClampFreeformPosition(position);
+        }
+
+        public Vector2 ClampFreeformPosition(Vector2 position)
+        {
+            if (!UsesFreeformArtwork || _rectTransform == null) return position;
             Vector2 half = _rectTransform.sizeDelta * 0.5f;
-            _rectTransform.anchoredPosition = new Vector2(
+            return new Vector2(
                 Mathf.Clamp(position.x, half.x, Mathf.Max(half.x, _boardSize.x - half.x)),
                 Mathf.Clamp(position.y, half.y, Mathf.Max(half.y, _boardSize.y - half.y)));
+        }
+
+        public bool ContainsVisualWorldPoint(Vector3 worldPoint, float alphaThreshold = 0.08f)
+        {
+            if (_rectTransform == null) return false;
+            Vector2 local = _rectTransform.InverseTransformPoint(worldPoint);
+            Rect bounds = _rectTransform.rect;
+            if (!bounds.Contains(local)) return false;
+
+            if (UsesFreeformArtwork)
+            {
+                if (_artworkPixels.Length == 0 ||
+                    _artworkTextureWidth <= 0 ||
+                    _artworkTextureHeight <= 0)
+                    return true;
+
+                float u = Mathf.InverseLerp(bounds.xMin, bounds.xMax, local.x);
+                float v = Mathf.InverseLerp(bounds.yMin, bounds.yMax, local.y);
+                int textureRectMinX = Mathf.FloorToInt(_artworkTextureRect.xMin);
+                int textureRectMinY = Mathf.FloorToInt(_artworkTextureRect.yMin);
+                int textureRectMaxX = Mathf.CeilToInt(_artworkTextureRect.xMax) - 1;
+                int textureRectMaxY = Mathf.CeilToInt(_artworkTextureRect.yMax) - 1;
+                int x = Mathf.Clamp(
+                    Mathf.FloorToInt(_artworkTextureRect.xMin + u * _artworkTextureRect.width),
+                    Mathf.Max(0, textureRectMinX),
+                    Mathf.Min(_artworkTextureWidth - 1, textureRectMaxX));
+                int y = Mathf.Clamp(
+                    Mathf.FloorToInt(_artworkTextureRect.yMin + v * _artworkTextureRect.height),
+                    Mathf.Max(0, textureRectMinY),
+                    Mathf.Min(_artworkTextureHeight - 1, textureRectMaxY));
+                int pixelIndex = y * _artworkTextureWidth + x;
+                if (pixelIndex < 0 || pixelIndex >= _artworkPixels.Length) return false;
+                return _artworkPixels[pixelIndex].a >=
+                       Mathf.CeilToInt(Mathf.Clamp01(alphaThreshold) * 255f);
+            }
+
+            if (_cellSize <= 0f || _visualCoverageCells.Length == 0) return true;
+            int cellX = Mathf.FloorToInt(local.x / _cellSize);
+            int cellY = Mathf.FloorToInt(local.y / _cellSize);
+            for (int i = 0; i < _visualCoverageCells.Length; i++)
+            {
+                GridCoordinate cell = _visualCoverageCells[i];
+                if (cell.x == cellX && cell.y == cellY) return true;
+            }
+            return false;
         }
 
         public bool IsNearFreeformTarget()
@@ -403,10 +477,27 @@ namespace ToyPuzzle
             return new Vector2(_artwork.startingCenterNormalized.x * _boardSize.x, _artwork.startingCenterNormalized.y * _boardSize.y);
         }
 
-        public void SetLocked(bool locked)
+        private void CacheArtworkAlpha()
+        {
+            _artworkPixels = Array.Empty<Color32>();
+            _artworkTextureRect = default;
+            _artworkTextureWidth = 0;
+            _artworkTextureHeight = 0;
+            if (_artwork == null || _artwork.sprite == null || _artwork.sprite.texture == null) return;
+
+            Texture2D texture = _artwork.sprite.texture;
+            if (!texture.isReadable) return;
+            _artworkPixels = texture.GetPixels32();
+            _artworkTextureRect = _artwork.sprite.textureRect;
+            _artworkTextureWidth = texture.width;
+            _artworkTextureHeight = texture.height;
+        }
+
+        public void SetLocked(bool locked, bool referenceAnchor = false)
         {
             _locked = locked;
-            if (_canvasGroup != null) _canvasGroup.alpha = locked ? 0.9f : 1f;
+            _referenceAnchor = referenceAnchor;
+            if (_canvasGroup != null) _canvasGroup.alpha = locked && !referenceAnchor ? 0.9f : 1f;
             if (_canvasGroup != null) _canvasGroup.blocksRaycasts = !locked;
             if (_rectTransform != null)
             {
@@ -441,8 +532,101 @@ namespace ToyPuzzle
         public void SetSelected(bool selected)
         {
             if (_rectTransform == null) return;
-            _rectTransform.localScale = selected ? new Vector3(1.055f, 1.055f, 1f) : Vector3.one;
             if (selected) _rectTransform.SetAsLastSibling();
+        }
+
+        public void BeginDragPresentation(float pickupScale, float duration = 0.09f)
+        {
+            if (_rectTransform == null) return;
+            if (_presentationRoutine != null) StopCoroutine(_presentationRoutine);
+            _presentationRoutine = null;
+            _dragPresentationActive = true;
+            _restRotation = _rectTransform.localRotation;
+            _rectTransform.SetAsLastSibling();
+            _presentationRoutine = StartCoroutine(
+                AnimatePresentationRoutine(
+                    Vector3.one * Mathf.Max(1f, pickupScale),
+                    _restRotation,
+                    Mathf.Max(0.01f, duration),
+                    false));
+        }
+
+        public void UpdateDragPresentation(Vector2 frameMotion, float pickupScale, float maximumTilt)
+        {
+            if (!_dragPresentationActive || _rectTransform == null) return;
+            if (_presentationRoutine != null)
+            {
+                StopCoroutine(_presentationRoutine);
+                _presentationRoutine = null;
+            }
+            float normalizedVelocity = Mathf.Clamp(
+                frameMotion.x / Mathf.Max(1f, LargestVisualDimension * 0.35f),
+                -1f,
+                1f);
+            Quaternion targetRotation =
+                _restRotation * Quaternion.Euler(0f, 0f, -normalizedVelocity * Mathf.Max(0f, maximumTilt));
+            float blend = 1f - Mathf.Exp(-14f * Mathf.Max(0.001f, Time.unscaledDeltaTime));
+            _rectTransform.localScale = Vector3.Lerp(
+                _rectTransform.localScale,
+                Vector3.one * Mathf.Max(1f, pickupScale),
+                blend);
+            _rectTransform.localRotation = Quaternion.Slerp(
+                _rectTransform.localRotation,
+                targetRotation,
+                blend);
+        }
+
+        public void EndDragPresentation(float duration = 0.12f, bool immediate = false)
+        {
+            if (_rectTransform == null) return;
+            _dragPresentationActive = false;
+            if (_presentationRoutine != null) StopCoroutine(_presentationRoutine);
+            _presentationRoutine = null;
+            if (immediate)
+            {
+                _rectTransform.localScale = Vector3.one;
+                _rectTransform.localRotation = _restRotation;
+                return;
+            }
+            _presentationRoutine = StartCoroutine(
+                AnimatePresentationRoutine(Vector3.one, _restRotation, Mathf.Max(0.01f, duration), true));
+        }
+
+        private IEnumerator AnimatePresentationRoutine(
+            Vector3 targetScale,
+            Quaternion targetRotation,
+            float duration,
+            bool clearHandle)
+        {
+            Vector3 startScale = _rectTransform.localScale;
+            Quaternion startRotation = _rectTransform.localRotation;
+            float elapsed = 0f;
+            while (elapsed < duration)
+            {
+                if (_rectTransform == null) yield break;
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.Clamp01(elapsed / duration);
+                t = 1f - (1f - t) * (1f - t);
+                _rectTransform.localScale = Vector3.LerpUnclamped(startScale, targetScale, t);
+                _rectTransform.localRotation = Quaternion.Slerp(startRotation, targetRotation, t);
+                yield return null;
+            }
+            if (_rectTransform != null)
+            {
+                _rectTransform.localScale = targetScale;
+                _rectTransform.localRotation = targetRotation;
+            }
+            if (clearHandle) _presentationRoutine = null;
+        }
+
+        private void OnDisable()
+        {
+            if (_presentationRoutine != null) StopCoroutine(_presentationRoutine);
+            _presentationRoutine = null;
+            _dragPresentationActive = false;
+            if (_rectTransform == null) return;
+            _rectTransform.localScale = Vector3.one;
+            _rectTransform.localRotation = _restRotation;
         }
 
         public void SetPlacementTint(bool valid)

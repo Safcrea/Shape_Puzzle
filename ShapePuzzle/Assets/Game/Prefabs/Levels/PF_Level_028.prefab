@@ -487,102 +487,103 @@ MonoBehaviour:
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 6bec537989a88da40bf47f9713551aa3, type: 3}
-    sizeInCells: {x: 3.390625, y: 1.53125}
+    sizeInCells: {x: 3.421875, y: 1.5625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.37597656, y: 0.6015625}
-    startingCenterNormalized: {x: 0.7650425, y: 0.13652}
-    sizeNormalized: {x: 0.42382812, y: 0.21875}
+    startingCenterNormalized: {x: 0.7631675, y: 0.13866286}
+    sizeNormalized: {x: 0.42773438, y: 0.22321428}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_02
     sprite: {fileID: 21300000, guid: 5ffa42b2cf837e44eafde7bd5d7fb9f1, type: 3}
-    sizeInCells: {x: 1.46875, y: 1.0234375}
+    sizeInCells: {x: 1.5, y: 1.0546875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.5908203, y: 0.56529015}
-    startingCenterNormalized: {x: 0.119645, y: 0.10169857}
-    sizeNormalized: {x: 0.18359375, y: 0.14620535}
+    startingCenterNormalized: {x: 0.12152, y: 0.8961586}
+    sizeNormalized: {x: 0.1875, y: 0.15066965}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_03
     sprite: {fileID: 21300000, guid: 7cabdd07273b6774691f3a9e5d707b82, type: 3}
-    sizeInCells: {x: 1.2421875, y: 0.9921875}
+    sizeInCells: {x: 1.2734375, y: 1.0234375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.7573242, y: 0.5686384}
-    startingCenterNormalized: {x: 0.10605125, y: 0.29977784}
-    sizeNormalized: {x: 0.15527344, y: 0.14174107}
+    startingCenterNormalized: {x: 0.89207375, y: 0.7655343}
+    sizeNormalized: {x: 0.15917969, y: 0.14620535}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: cc90967682301ae469d4ba107d960d63, type: 3}
-    sizeInCells: {x: 0.875, y: 1.265625}
+    sizeInCells: {x: 0.90625, y: 1.296875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.41796875, y: 0.45200893}
-    startingCenterNormalized: {x: 0.91598, y: 0.6272314}
-    sizeNormalized: {x: 0.109375, y: 0.18080357}
+    startingCenterNormalized: {x: 0.5, y: 0.5}
+    sizeNormalized: {x: 0.11328125, y: 0.18526785}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_02
     sprite: {fileID: 21300000, guid: 0d763121ce953ed46bb704a6bced347b, type: 3}
-    sizeInCells: {x: 0.8515625, y: 0.9765625}
+    sizeInCells: {x: 0.8828125, y: 1.0078125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.59033203, y: 0.43136162}
-    startingCenterNormalized: {x: 0.08261375, y: 0.7676771}
-    sizeNormalized: {x: 0.10644531, y: 0.13950893}
+    startingCenterNormalized: {x: 0.08448875, y: 0.69968647}
+    sizeNormalized: {x: 0.11035156, y: 0.14397322}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_03
     sprite: {fileID: 21300000, guid: 5caecd9abc168144bb41facaf5a460a9, type: 3}
-    sizeInCells: {x: 1.46875, y: 0.5546875}
+    sizeInCells: {x: 1.5, y: 0.5859375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.6738281, y: 0.671317}
-    startingCenterNormalized: {x: 0.34151876, y: 0.069555715}
-    sizeNormalized: {x: 0.18359375, y: 0.079241075}
+    startingCenterNormalized: {x: 0.3423, y: 0.92830145}
+    sizeNormalized: {x: 0.1875, y: 0.08370536}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_04
     sprite: {fileID: 21300000, guid: 37c64b9894904eb45a276d94092bdb2c, type: 3}
-    sizeInCells: {x: 0.7578125, y: 0.953125}
+    sizeInCells: {x: 0.7890625, y: 0.984375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.7885742, y: 0.43080357}
-    startingCenterNormalized: {x: 0.07698875, y: 0.6007807}
-    sizeNormalized: {x: 0.09472656, y: 0.13616072}
+    startingCenterNormalized: {x: 0.92113626, y: 0.36633998}
+    sizeNormalized: {x: 0.09863281, y: 0.140625}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: a3c07429a27f5ea44b52cfd9cff76137, type: 3}
-    sizeInCells: {x: 1.5078125, y: 1.46875}
+    sizeInCells: {x: 1.5390625, y: 1.5}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.24365234, y: 0.3939732}
-    startingCenterNormalized: {x: 0.8780112, y: 0.8677657}
-    sizeNormalized: {x: 0.18847656, y: 0.20982143}
+    startingCenterNormalized: {x: 0.12386375, y: 0.13437715}
+    sizeNormalized: {x: 0.19238281, y: 0.21428572}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_02
     sprite: {fileID: 21300000, guid: c83846c1bab8c9749ac4d6d3b48b2743, type: 3}
-    sizeInCells: {x: 1.3828125, y: 0.640625}
+    sizeInCells: {x: 1.4140625, y: 0.671875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.41357422, y: 0.33482143}
-    startingCenterNormalized: {x: 0.6606297, y: 0.9245514}
-    sizeNormalized: {x: 0.17285156, y: 0.09151786}
+    startingCenterNormalized: {x: 0.34015158, y: 0.07759143}
+    sizeNormalized: {x: 0.17675781, y: 0.09598214}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_03
     sprite: {fileID: 21300000, guid: 30b71ca467b27cc42b23097dc4318e7e, type: 3}
-    sizeInCells: {x: 2.8203125, y: 0.640625}
+    sizeInCells: {x: 2.8515625, y: 0.671875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.6743164, y: 0.33482143}
-    startingCenterNormalized: {x: 0.20073874, y: 0.9245514}
-    sizeNormalized: {x: 0.35253906, y: 0.09151786}
+    startingCenterNormalized: {x: 0.7973862, y: 0.9224086}
+    sizeNormalized: {x: 0.3564453, y: 0.09598214}
     snapDistanceNormalized: 0.055
+  referenceAnchorPieceId: blue_part_01
   sourceJsonPath: Assets/Game/Data/Levels/Source/level_028_stone_bridge.json

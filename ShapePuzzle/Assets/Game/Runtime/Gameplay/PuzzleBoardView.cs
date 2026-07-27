@@ -27,15 +27,32 @@ namespace ToyPuzzle
         [SerializeField] private Sprite recessedHoleSprite;
         [SerializeField] private Sprite insetPanelSprite;
         [SerializeField] private float innerPadding = PuzzleLayoutConstants.ReferenceFrameThickness;
+        [SerializeField, Range(1, 4)] private int visualGridSubdivision = 3;
 
         private readonly Dictionary<string, PuzzlePieceView> _pieceViews = new Dictionary<string, PuzzlePieceView>(StringComparer.Ordinal);
         private readonly List<GameObject> _hintCells = new List<GameObject>();
+        private readonly Dictionary<GridCoordinate, CellGlowBinding> _cellVisuals =
+            new Dictionary<GridCoordinate, CellGlowBinding>();
+        private readonly Dictionary<GridCoordinate, Coroutine> _cellGlowRoutines =
+            new Dictionary<GridCoordinate, Coroutine>();
+        private readonly HashSet<GridCoordinate> _hoveredCells = new HashSet<GridCoordinate>();
+        private readonly HashSet<GridCoordinate> _coverageBuffer = new HashSet<GridCoordinate>();
+        private readonly HashSet<GridCoordinate> _sweepBuffer = new HashSet<GridCoordinate>();
+        private readonly List<GridCoordinate> _releaseBuffer = new List<GridCoordinate>();
+        private readonly Vector3[] _pieceWorldCorners = new Vector3[4];
+        private bool _hasLastHoverCenter;
+        private Vector2 _lastHoverCenter;
         private float _cellSize;
+        private float _visualCellSize;
+        private int _visualColumns;
+        private int _visualRows;
         private Vector2 _gridSize;
         private PuzzleLevelPrefab _levelPrefab;
 
         public RectTransform PieceLayer => pieceLayer;
         public float CellSize => _cellSize;
+        public int VisualGridSubdivision => Mathf.Clamp(visualGridSubdivision, 1, 4);
+        public float VisualCellSize => _visualCellSize;
         public Vector2 GridSize => _gridSize;
 
         public void Build(PuzzleSession session, PuzzleGameController controller)
@@ -43,9 +60,15 @@ namespace ToyPuzzle
             Build(session, controller, null);
         }
 
+        private void OnDisable()
+        {
+            ClearHoverTrail();
+        }
+
         public void Build(PuzzleSession session, PuzzleGameController controller, PuzzleLevelPrefab levelPrefab)
         {
             if (session == null) throw new ArgumentNullException(nameof(session));
+            ClearHoverTrail();
             StopAllCoroutines();
             EnsureLayers();
             ResetPieceLayerVisualState();
@@ -54,6 +77,13 @@ namespace ToyPuzzle
             ClearLayer(referenceLayer);
             _pieceViews.Clear();
             _hintCells.Clear();
+            _cellVisuals.Clear();
+            _cellGlowRoutines.Clear();
+            _hoveredCells.Clear();
+            _coverageBuffer.Clear();
+            _sweepBuffer.Clear();
+            _releaseBuffer.Clear();
+            _hasLastHoverCenter = false;
             _levelPrefab = levelPrefab;
 
             LevelDefinition level = session.Level;
@@ -64,9 +94,12 @@ namespace ToyPuzzle
             _cellSize = Mathf.Floor(Mathf.Min(available.x / level.boardWidth, available.y / level.boardHeight));
             _cellSize = Mathf.Max(24f, _cellSize);
             _gridSize = new Vector2(level.boardWidth * _cellSize, level.boardHeight * _cellSize);
+            _visualCellSize = _cellSize / VisualGridSubdivision;
+            _visualColumns = level.boardWidth * VisualGridSubdivision;
+            _visualRows = level.boardHeight * VisualGridSubdivision;
             ConfigureGridLayer(cellLayer, _gridSize);
             ConfigureGridLayer(pieceLayer, _gridSize);
-            BuildCells(level);
+            BuildCells();
 
             IReadOnlyList<PieceState> pieces = session.Pieces;
             for (int i = 0; i < pieces.Count; i++)
@@ -75,7 +108,7 @@ namespace ToyPuzzle
                 PuzzlePieceArtwork artwork = levelPrefab == null ? null : levelPrefab.FindPieceArtwork(state.PieceId);
                 PuzzlePieceView view = CreatePiece(pieceLayer, state.Definition, state.Pose, _cellSize, true, controller, artwork);
                 view.SetPose(state.Pose);
-                view.SetLocked(state.IsLocked);
+                view.SetLocked(state.IsLocked, state.IsReferenceAnchor);
                 _pieceViews.Add(state.PieceId, view);
             }
 
@@ -100,6 +133,13 @@ namespace ToyPuzzle
             return new Vector2(
                 artwork.targetCenterNormalized.x * _gridSize.x,
                 artwork.targetCenterNormalized.y * _gridSize.y) + assemblyOffset;
+        }
+
+        public Vector2 GetCenteredAssemblyOffset(string anchorPieceId)
+        {
+            if (string.IsNullOrEmpty(anchorPieceId)) return Vector2.zero;
+            Vector2 target = GetFreeformTarget(anchorPieceId, Vector2.zero);
+            return ClampAssemblyOffset(_gridSize * 0.5f - target);
         }
 
         public Vector2 ClampAssemblyOffset(Vector2 requestedOffset)
@@ -136,13 +176,202 @@ namespace ToyPuzzle
         {
             if (state == null || !_pieceViews.TryGetValue(state.PieceId, out PuzzlePieceView view)) return;
             view.SetPose(state.Pose);
-            view.SetLocked(state.IsLocked);
+            view.SetLocked(state.IsLocked, state.IsReferenceAnchor);
         }
 
         public void ApplyAll(PuzzleSession session)
         {
             IReadOnlyList<PieceState> pieces = session.Pieces;
             for (int i = 0; i < pieces.Count; i++) ApplyState(pieces[i]);
+        }
+
+        public void UpdateHoverTrail(PuzzlePieceView view, float duration, float strength)
+        {
+            if (view == null ||
+                view.RectTransform == null ||
+                cellLayer == null ||
+                _visualCellSize <= 0f ||
+                _cellVisuals.Count == 0)
+                return;
+
+            Vector2 currentCenter = cellLayer.InverseTransformPoint(
+                view.RectTransform.TransformPoint(view.RectTransform.rect.center));
+            _coverageBuffer.Clear();
+            CollectCoveredCells(view, Vector2.zero, _coverageBuffer);
+
+            _sweepBuffer.Clear();
+            if (_hasLastHoverCenter)
+            {
+                float distance = Vector2.Distance(_lastHoverCenter, currentCenter);
+                int steps = Mathf.CeilToInt(distance / Mathf.Max(1f, _visualCellSize * 0.5f));
+                for (int step = 1; step < steps; step++)
+                {
+                    float t = step / (float)steps;
+                    Vector2 sampleCenter = Vector2.Lerp(_lastHoverCenter, currentCenter, t);
+                    CollectCoveredCells(view, sampleCenter - currentCenter, _sweepBuffer);
+                }
+            }
+
+            _releaseBuffer.Clear();
+            foreach (GridCoordinate coordinate in _hoveredCells)
+            {
+                if (!_coverageBuffer.Contains(coordinate)) _releaseBuffer.Add(coordinate);
+            }
+            for (int i = 0; i < _releaseBuffer.Count; i++) _hoveredCells.Remove(_releaseBuffer[i]);
+
+            foreach (GridCoordinate coordinate in _coverageBuffer)
+            {
+                if (_hoveredCells.Add(coordinate)) TriggerCellGlow(coordinate, duration, strength);
+            }
+            foreach (GridCoordinate coordinate in _sweepBuffer)
+            {
+                if (_coverageBuffer.Contains(coordinate) || _cellGlowRoutines.ContainsKey(coordinate)) continue;
+                TriggerCellGlow(coordinate, duration, strength);
+            }
+
+            _lastHoverCenter = currentCenter;
+            _hasLastHoverCenter = true;
+        }
+
+        public void ReleaseHoverTrail()
+        {
+            _hoveredCells.Clear();
+            _coverageBuffer.Clear();
+            _sweepBuffer.Clear();
+            _releaseBuffer.Clear();
+            _hasLastHoverCenter = false;
+        }
+
+        public void ClearHoverTrail()
+        {
+            foreach (KeyValuePair<GridCoordinate, Coroutine> pair in _cellGlowRoutines)
+            {
+                if (pair.Value != null) StopCoroutine(pair.Value);
+            }
+            _cellGlowRoutines.Clear();
+            _hoveredCells.Clear();
+            _coverageBuffer.Clear();
+            _sweepBuffer.Clear();
+            _releaseBuffer.Clear();
+            foreach (KeyValuePair<GridCoordinate, CellGlowBinding> pair in _cellVisuals)
+            {
+                if (pair.Value.Image != null) pair.Value.Image.color = pair.Value.BaseColor;
+            }
+            _hasLastHoverCenter = false;
+        }
+
+        private void CollectCoveredCells(
+            PuzzlePieceView view,
+            Vector2 simulatedBoardOffset,
+            HashSet<GridCoordinate> destination)
+        {
+            view.RectTransform.GetWorldCorners(_pieceWorldCorners);
+            float minX = float.MaxValue;
+            float minY = float.MaxValue;
+            float maxX = float.MinValue;
+            float maxY = float.MinValue;
+            for (int i = 0; i < _pieceWorldCorners.Length; i++)
+            {
+                Vector2 boardCorner = (Vector2)cellLayer.InverseTransformPoint(_pieceWorldCorners[i]) +
+                                      simulatedBoardOffset;
+                minX = Mathf.Min(minX, boardCorner.x);
+                minY = Mathf.Min(minY, boardCorner.y);
+                maxX = Mathf.Max(maxX, boardCorner.x);
+                maxY = Mathf.Max(maxY, boardCorner.y);
+            }
+
+            int firstX = Mathf.Clamp(Mathf.FloorToInt(minX / _visualCellSize), 0, _visualColumns - 1);
+            int firstY = Mathf.Clamp(Mathf.FloorToInt(minY / _visualCellSize), 0, _visualRows - 1);
+            int lastX = Mathf.Clamp(Mathf.FloorToInt(maxX / _visualCellSize), 0, _visualColumns - 1);
+            int lastY = Mathf.Clamp(Mathf.FloorToInt(maxY / _visualCellSize), 0, _visualRows - 1);
+            if (firstX > lastX || firstY > lastY) return;
+
+            for (int y = firstY; y <= lastY; y++)
+            {
+                for (int x = firstX; x <= lastX; x++)
+                {
+                    if (!IsVisualCellCovered(view, x, y, simulatedBoardOffset)) continue;
+                    destination.Add(new GridCoordinate(x, y));
+                }
+            }
+        }
+
+        private bool IsVisualCellCovered(
+            PuzzlePieceView view,
+            int x,
+            int y,
+            Vector2 simulatedBoardOffset)
+        {
+            Vector2 cellOrigin = new Vector2(x * _visualCellSize, y * _visualCellSize);
+            if (IsPieceVisibleAtSample(view, cellOrigin, new Vector2(0.5f, 0.5f), simulatedBoardOffset)) return true;
+            if (IsPieceVisibleAtSample(view, cellOrigin, new Vector2(0.25f, 0.25f), simulatedBoardOffset)) return true;
+            if (IsPieceVisibleAtSample(view, cellOrigin, new Vector2(0.75f, 0.25f), simulatedBoardOffset)) return true;
+            if (IsPieceVisibleAtSample(view, cellOrigin, new Vector2(0.25f, 0.75f), simulatedBoardOffset)) return true;
+            return IsPieceVisibleAtSample(view, cellOrigin, new Vector2(0.75f, 0.75f), simulatedBoardOffset);
+        }
+
+        private bool IsPieceVisibleAtSample(
+            PuzzlePieceView view,
+            Vector2 cellOrigin,
+            Vector2 normalizedSample,
+            Vector2 simulatedBoardOffset)
+        {
+            Vector2 boardPoint = cellOrigin + normalizedSample * _visualCellSize - simulatedBoardOffset;
+            return view.ContainsVisualWorldPoint(cellLayer.TransformPoint(boardPoint));
+        }
+
+        private void TriggerCellGlow(GridCoordinate coordinate, float duration, float strength)
+        {
+            if (!_cellVisuals.TryGetValue(coordinate, out CellGlowBinding binding) ||
+                binding.Image == null)
+                return;
+            if (_cellGlowRoutines.TryGetValue(coordinate, out Coroutine running) && running != null)
+                StopCoroutine(running);
+            _cellGlowRoutines[coordinate] = StartCoroutine(
+                CellGlowRoutine(coordinate, binding, Mathf.Max(0.08f, duration), Mathf.Clamp01(strength)));
+        }
+
+        private IEnumerator CellGlowRoutine(
+            GridCoordinate coordinate,
+            CellGlowBinding binding,
+            float duration,
+            float strength)
+        {
+            Color accent = palette == null ? new Color(0.45f, 0.9f, 1f, 1f) : palette.highlight;
+            accent.a = 1f;
+            Color peak = Color.Lerp(binding.BaseColor, accent, strength);
+            Color start = binding.Image == null ? binding.BaseColor : binding.Image.color;
+            float riseDuration = Mathf.Max(0.04f, duration * 0.35f);
+            float elapsed = 0f;
+            while (elapsed < riseDuration)
+            {
+                if (binding.Image == null) yield break;
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / riseDuration));
+                binding.Image.color = Color.Lerp(start, peak, t);
+                yield return null;
+            }
+
+            while (_hoveredCells.Contains(coordinate))
+            {
+                if (binding.Image == null) yield break;
+                binding.Image.color = peak;
+                yield return null;
+            }
+
+            Color fadeStart = binding.Image == null ? peak : binding.Image.color;
+            float fadeDuration = Mathf.Max(0.05f, duration * 0.65f);
+            elapsed = 0f;
+            while (elapsed < fadeDuration)
+            {
+                if (binding.Image == null) yield break;
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(elapsed / fadeDuration));
+                binding.Image.color = Color.Lerp(fadeStart, binding.BaseColor, t);
+                yield return null;
+            }
+            if (binding.Image != null) binding.Image.color = binding.BaseColor;
+            _cellGlowRoutines.Remove(coordinate);
         }
 
         public void PlayPlacementRipple(PuzzleSession session, string originPieceId, bool completion)
@@ -324,27 +553,31 @@ namespace ToyPuzzle
             _hintCells.Clear();
         }
 
-        private void BuildCells(LevelDefinition level)
+        private void BuildCells()
         {
             Color first = palette == null ? new Color32(32, 36, 31, 255) : palette.boardCell;
             Color second = palette == null ? new Color32(37, 41, 36, 255) : palette.boardCellAlternate;
-            float gap = Mathf.Max(2f, _cellSize * 0.035f);
-            for (int y = 0; y < level.boardHeight; y++)
+            float gap = Mathf.Max(1f, _visualCellSize * 0.035f);
+            for (int y = 0; y < _visualRows; y++)
             {
-                for (int x = 0; x < level.boardWidth; x++)
+                for (int x = 0; x < _visualColumns; x++)
                 {
                     GameObject cell = CreateImageObject("Cell_" + x + "_" + y, cellLayer, roundedSprite, ((x + y) & 1) == 0 ? first : second);
                     RectTransform rect = cell.GetComponent<RectTransform>();
                     rect.anchorMin = Vector2.zero;
                     rect.anchorMax = Vector2.zero;
                     rect.pivot = Vector2.zero;
-                    rect.anchoredPosition = new Vector2(x * _cellSize + gap * 0.5f, y * _cellSize + gap * 0.5f);
-                    rect.sizeDelta = Vector2.one * (_cellSize - gap);
+                    rect.anchoredPosition = new Vector2(
+                        x * _visualCellSize + gap * 0.5f,
+                        y * _visualCellSize + gap * 0.5f);
+                    rect.sizeDelta = Vector2.one * (_visualCellSize - gap);
                     Image cellImage = cell.GetComponent<Image>();
                     cellImage.raycastTarget = false;
+                    _cellVisuals[new GridCoordinate(x, y)] =
+                        new CellGlowBinding(cellImage, cellImage.color);
                     Shadow shadow = cell.AddComponent<Shadow>();
                     shadow.effectColor = new Color(0f, 0f, 0f, 0.36f);
-                    shadow.effectDistance = new Vector2(0f, -Mathf.Max(2f, _cellSize * 0.025f));
+                    shadow.effectDistance = new Vector2(0f, -Mathf.Max(1f, _visualCellSize * 0.025f));
                     shadow.useGraphicAlpha = true;
                 }
             }
@@ -492,6 +725,18 @@ namespace ToyPuzzle
                 oldChild.SetActive(false);
                 Destroy(oldChild);
             }
+        }
+
+        private readonly struct CellGlowBinding
+        {
+            public CellGlowBinding(Image image, Color baseColor)
+            {
+                Image = image;
+                BaseColor = baseColor;
+            }
+
+            public Image Image { get; }
+            public Color BaseColor { get; }
         }
     }
 }

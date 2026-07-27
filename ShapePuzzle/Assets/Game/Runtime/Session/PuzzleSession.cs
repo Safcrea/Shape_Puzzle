@@ -38,8 +38,17 @@ namespace ToyPuzzle
         private readonly List<PieceState> orderedPieces;
         private readonly OccupancyMap occupancy;
         private readonly MoveHistory history;
+        private readonly string referenceAnchorPieceId;
 
         public PuzzleSession(LevelDefinition level, int historyCapacity = MoveHistory.DefaultCapacity)
+            : this(level, null, historyCapacity)
+        {
+        }
+
+        public PuzzleSession(
+            LevelDefinition level,
+            string referenceAnchorPieceId,
+            int historyCapacity = MoveHistory.DefaultCapacity)
         {
             LevelValidationResult validation = LevelDefinitionValidator.Validate(level);
             if (!validation.IsValid)
@@ -52,6 +61,8 @@ namespace ToyPuzzle
             orderedPieces = new List<PieceState>(level.pieces.Length);
             occupancy = new OccupancyMap(level.boardWidth, level.boardHeight);
             history = new MoveHistory(historyCapacity);
+            this.referenceAnchorPieceId =
+                level.FindPiece(referenceAnchorPieceId) == null ? string.Empty : referenceAnchorPieceId;
             Reset();
         }
 
@@ -68,6 +79,7 @@ namespace ToyPuzzle
         public bool IsComplete { get; private set; }
         public bool IsPaused { get; private set; }
         public bool CanUndo => !IsComplete && !IsPaused && history.Count > 0;
+        public string ReferenceAnchorPieceId => referenceAnchorPieceId;
 
         public bool TryGetPiece(string pieceId, out PieceState state)
         {
@@ -191,21 +203,37 @@ namespace ToyPuzzle
             ElapsedSeconds = 0f;
             IsPaused = false;
 
+            PieceState referenceAnchor = null;
             for (int i = 0; i < Level.pieces.Length; i++)
             {
                 PieceDefinition definition = Level.pieces[i];
-                PiecePose pose = definition.StartingPose;
+                bool isReferenceAnchor =
+                    !string.IsNullOrEmpty(referenceAnchorPieceId) &&
+                    string.Equals(definition.pieceId, referenceAnchorPieceId, StringComparison.Ordinal);
+                PiecePose pose = isReferenceAnchor ? definition.TargetPose : definition.StartingPose;
                 var state = new PieceState(
                     definition,
                     pose,
-                    TargetPoseValidator.IsCorrect(definition, pose),
-                    definition.startsLocked);
+                    isReferenceAnchor || TargetPoseValidator.IsCorrect(definition, pose),
+                    isReferenceAnchor || definition.startsLocked,
+                    isReferenceAnchor);
                 piecesById.Add(state.PieceId, state);
                 orderedPieces.Add(state);
-                if (!occupancy.TryReserve(state.PieceId, GridMath.GetOccupiedCells(definition, pose)))
-                {
+                if (isReferenceAnchor) referenceAnchor = state;
+            }
+
+            if (referenceAnchor != null && !TryReserveInitialPose(referenceAnchor, false))
+            {
+                throw new InvalidOperationException(
+                    $"Reference anchor occupancy for '{referenceAnchor.PieceId}' is invalid.");
+            }
+
+            for (int i = 0; i < orderedPieces.Count; i++)
+            {
+                PieceState state = orderedPieces[i];
+                if (state.IsReferenceAnchor) continue;
+                if (!TryReserveInitialPose(state, referenceAnchor != null))
                     throw new InvalidOperationException($"Starting occupancy for '{state.PieceId}' is invalid.");
-                }
             }
 
             IsComplete = AreAllPiecesCorrect();
@@ -222,19 +250,33 @@ namespace ToyPuzzle
 
             occupancy.Clear();
             history.Clear();
+            PieceState referenceAnchor = null;
             for (int i = 0; i < orderedPieces.Count; i++)
             {
                 PieceState state = orderedPieces[i];
-                bool correct = correctPieceIds.Contains(state.PieceId);
+                bool correct = state.IsReferenceAnchor || correctPieceIds.Contains(state.PieceId);
                 state.Pose = correct ? state.Definition.TargetPose : state.Definition.StartingPose;
                 state.IsCorrect = correct && TargetPoseValidator.IsCorrect(state.Definition, state.Pose);
-                state.IsLocked = state.IsCorrect &&
-                                 (state.Definition.locksWhenCorrect || Level.lockCorrectPiecesByDefault);
-                if (!occupancy.TryReserve(state.PieceId, GridMath.GetOccupiedCells(state.Definition, state.Pose)))
-                {
-                    Reset();
-                    return false;
-                }
+                state.IsLocked = state.IsReferenceAnchor ||
+                                 (state.IsCorrect &&
+                                  (state.Definition.locksWhenCorrect || Level.lockCorrectPiecesByDefault));
+                if (state.IsReferenceAnchor) referenceAnchor = state;
+            }
+
+            if (referenceAnchor != null && !TryReserveInitialPose(referenceAnchor, false))
+            {
+                Reset();
+                return false;
+            }
+
+            for (int i = 0; i < orderedPieces.Count; i++)
+            {
+                PieceState state = orderedPieces[i];
+                if (state.IsReferenceAnchor) continue;
+                bool canRelocate = referenceAnchor != null && !state.IsCorrect;
+                if (TryReserveInitialPose(state, canRelocate)) continue;
+                Reset();
+                return false;
             }
 
             MoveCount = moveCount;
@@ -365,6 +407,37 @@ namespace ToyPuzzle
             }
 
             return orderedPieces.Count > 0;
+        }
+
+        private bool TryReserveInitialPose(PieceState state, bool allowRelocation)
+        {
+            GridCoordinate[] cells = GridMath.GetOccupiedCells(state.Definition, state.Pose);
+            if (occupancy.TryReserve(state.PieceId, cells)) return true;
+            if (!allowRelocation) return false;
+
+            GridCoordinate preferred = state.Pose.position;
+            int maximumDistance = Level.boardWidth + Level.boardHeight;
+            for (int distance = 0; distance <= maximumDistance; distance++)
+            {
+                for (int y = 0; y < Level.boardHeight; y++)
+                {
+                    for (int x = 0; x < Level.boardWidth; x++)
+                    {
+                        if (Math.Abs(x - preferred.x) + Math.Abs(y - preferred.y) != distance) continue;
+                        var candidate = new PiecePose(new GridCoordinate(x, y), state.Pose.rotation);
+                        GridCoordinate[] candidateCells =
+                            GridMath.GetOccupiedCells(state.Definition, candidate);
+                        if (!occupancy.TryReserve(state.PieceId, candidateCells)) continue;
+                        state.Pose = candidate;
+                        state.IsCorrect = TargetPoseValidator.IsCorrect(state.Definition, candidate);
+                        state.IsLocked = state.IsCorrect &&
+                                         (state.Definition.locksWhenCorrect ||
+                                          Level.lockCorrectPiecesByDefault);
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         private static string BuildValidationMessage(LevelValidationResult validation)

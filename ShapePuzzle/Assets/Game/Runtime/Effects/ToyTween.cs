@@ -36,6 +36,16 @@ namespace ToyPuzzle
             return StartCoroutine(ShakeRoutine(target, reducedMotion ? distance * 0.35f : distance, reducedMotion ? duration * 0.4f : duration));
         }
 
+        public Coroutine WobbleRotation(RectTransform target, float degrees = 7f, float duration = 0.24f)
+        {
+            if (target == null) return null;
+            return StartCoroutine(
+                WobbleRotationRoutine(
+                    target,
+                    reducedMotion ? degrees * 0.35f : degrees,
+                    reducedMotion ? duration * 0.45f : duration));
+        }
+
         private static IEnumerator PulseRoutine(RectTransform target, float scale, float duration)
         {
             Vector3 original = target.localScale;
@@ -98,6 +108,22 @@ namespace ToyPuzzle
                 yield return null;
             }
             if (target != null) target.anchoredPosition = start;
+        }
+
+        private static IEnumerator WobbleRotationRoutine(RectTransform target, float degrees, float duration)
+        {
+            Quaternion start = target.localRotation;
+            float elapsed = 0f;
+            while (elapsed < duration)
+            {
+                if (target == null) yield break;
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.Clamp01(elapsed / Mathf.Max(0.01f, duration));
+                float angle = Mathf.Sin(t * Mathf.PI * 5f) * degrees * (1f - t);
+                target.localRotation = start * Quaternion.Euler(0f, 0f, angle);
+                yield return null;
+            }
+            if (target != null) target.localRotation = start;
         }
     }
 }

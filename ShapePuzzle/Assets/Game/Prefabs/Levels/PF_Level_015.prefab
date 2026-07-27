@@ -367,72 +367,73 @@ MonoBehaviour:
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: 244404405863dd84eb81cb669495ec03, type: 3}
-    sizeInCells: {x: 0.6015625, y: 0.546875}
+    sizeInCells: {x: 0.6328125, y: 0.578125}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.5045573, y: 0.8046875}
-    startingCenterNormalized: {x: 0.5, y: 0.07527}
-    sizeNormalized: {x: 0.100260414, y: 0.091145836}
+    startingCenterNormalized: {x: 0.25625125, y: 0.92223}
+    sizeNormalized: {x: 0.10546875, y: 0.096354164}
     snapDistanceNormalized: 0.055
   - pieceId: red_part_02
     sprite: {fileID: 21300000, guid: 56bbad8b0b19b914da2ffb51ae1b853a, type: 3}
-    sizeInCells: {x: 2.515625, y: 0.84375}
+    sizeInCells: {x: 2.546875, y: 0.875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.51953125, y: 0.4622396}
-    startingCenterNormalized: {x: 0.23277, y: 0.90098}
-    sizeNormalized: {x: 0.41927084, y: 0.140625}
+    startingCenterNormalized: {x: 0.5, y: 0.5}
+    sizeNormalized: {x: 0.42447916, y: 0.14583333}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: 5a7082fec2e831e4693da3d28c614858, type: 3}
-    sizeInCells: {x: 1.90625, y: 0.8828125}
+    sizeInCells: {x: 1.9375, y: 0.9140625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.5, y: 0.5748698}
-    startingCenterNormalized: {x: 0.81598, y: 0.102145}
-    sizeNormalized: {x: 0.31770834, y: 0.14713542}
+    startingCenterNormalized: {x: 0.81348, y: 0.895355}
+    sizeNormalized: {x: 0.32291666, y: 0.15234375}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: 87bd83fc280e00c45bc1eada4e1923dd, type: 3}
-    sizeInCells: {x: 1.71875, y: 1.3046875}
+    sizeInCells: {x: 1.75, y: 1.3359375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.5, y: 0.7298177}
-    startingCenterNormalized: {x: 0.16902, y: 0.135895}
-    sizeNormalized: {x: 0.28645834, y: 0.21744792}
+    startingCenterNormalized: {x: 0.17152, y: 0.138395}
+    sizeNormalized: {x: 0.29166666, y: 0.22265625}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: 5daa1620a6d65f0439ada503adf2cd7d, type: 3}
-    sizeInCells: {x: 0.734375, y: 1.109375}
+    sizeInCells: {x: 0.765625, y: 1.140625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.29296875, y: 0.54036456}
-    startingCenterNormalized: {x: 0.90973, y: 0.310135}
-    sizeNormalized: {x: 0.122395836, y: 0.18489583}
+    startingCenterNormalized: {x: 0.09277, y: 0.87723}
+    sizeNormalized: {x: 0.12760417, y: 0.19010417}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_02
     sprite: {fileID: 21300000, guid: 91bb07abf85c0814f933c5836c3c6c21, type: 3}
-    sizeInCells: {x: 2.1953125, y: 1.6171875}
+    sizeInCells: {x: 2.2265625, y: 1.6484375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.49934897, y: 0.28450522}
-    startingCenterNormalized: {x: 0.792855, y: 0.839105}
-    sizeNormalized: {x: 0.3658854, y: 0.26953125}
+    startingCenterNormalized: {x: 0.79035497, y: 0.163395}
+    sizeNormalized: {x: 0.37109375, y: 0.2747396}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_03
     sprite: {fileID: 21300000, guid: 771df0a7d767a464c87590153607b4b2, type: 3}
-    sizeInCells: {x: 0.75, y: 1.0859375}
+    sizeInCells: {x: 0.78125, y: 1.1171875}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.7057292, y: 0.5488281}
-    startingCenterNormalized: {x: 0.091520004, y: 0.37279835}
-    sizeNormalized: {x: 0.125, y: 0.18098958}
+    startingCenterNormalized: {x: 0.90598005, y: 0.6895525}
+    sizeNormalized: {x: 0.13020833, y: 0.18619792}
     snapDistanceNormalized: 0.055
+  referenceAnchorPieceId: red_part_02
   sourceJsonPath: Assets/Game/Data/Levels/Source/level_015_ice_cream_cone.json

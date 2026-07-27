@@ -65,10 +65,10 @@
             }
         },
         {
-            "pieceId": "blue_part_01",
-            "displayName": "Blue Molded Part 1",
+            "pieceId": "red_part_02",
+            "displayName": "Red Molded Part 2",
             "shapeType": "Square",
-            "colorId": "blue",
+            "colorId": "red",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -118,8 +118,8 @@
             }
         },
         {
-            "pieceId": "blue_part_02",
-            "displayName": "Blue Molded Part 2",
+            "pieceId": "blue_part_01",
+            "displayName": "Blue Molded Part 1",
             "shapeType": "Square",
             "colorId": "blue",
             "interchangeableGroupId": "",
@@ -171,10 +171,10 @@
             }
         },
         {
-            "pieceId": "green_part_01",
-            "displayName": "Green Molded Part 1",
+            "pieceId": "blue_part_02",
+            "displayName": "Blue Molded Part 2",
             "shapeType": "Square",
-            "colorId": "green",
+            "colorId": "blue",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -224,8 +224,8 @@
             }
         },
         {
-            "pieceId": "green_part_02",
-            "displayName": "Green Molded Part 2",
+            "pieceId": "green_part_01",
+            "displayName": "Green Molded Part 1",
             "shapeType": "Square",
             "colorId": "green",
             "interchangeableGroupId": "",
@@ -277,10 +277,10 @@
             }
         },
         {
-            "pieceId": "orange_part_01",
-            "displayName": "Orange Molded Part 1",
+            "pieceId": "green_part_02",
+            "displayName": "Green Molded Part 2",
             "shapeType": "Square",
-            "colorId": "orange",
+            "colorId": "green",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -330,10 +330,10 @@
             }
         },
         {
-            "pieceId": "purple_part_01",
-            "displayName": "Purple Molded Part 1",
+            "pieceId": "yellow_part_01",
+            "displayName": "Yellow Molded Part 1",
             "shapeType": "Square",
-            "colorId": "purple",
+            "colorId": "yellow",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -383,10 +383,10 @@
             }
         },
         {
-            "pieceId": "purple_part_02",
-            "displayName": "Purple Molded Part 2",
+            "pieceId": "orange_part_01",
+            "displayName": "Orange Molded Part 1",
             "shapeType": "Square",
-            "colorId": "purple",
+            "colorId": "orange",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -436,8 +436,8 @@
             }
         },
         {
-            "pieceId": "purple_part_03",
-            "displayName": "Purple Molded Part 3",
+            "pieceId": "purple_part_01",
+            "displayName": "Purple Molded Part 1",
             "shapeType": "Square",
             "colorId": "purple",
             "interchangeableGroupId": "",
@@ -489,8 +489,8 @@
             }
         },
         {
-            "pieceId": "purple_part_04",
-            "displayName": "Purple Molded Part 4",
+            "pieceId": "purple_part_02",
+            "displayName": "Purple Molded Part 2",
             "shapeType": "Square",
             "colorId": "purple",
             "interchangeableGroupId": "",
@@ -542,8 +542,8 @@
             }
         },
         {
-            "pieceId": "purple_part_05",
-            "displayName": "Purple Molded Part 5",
+            "pieceId": "purple_part_03",
+            "displayName": "Purple Molded Part 3",
             "shapeType": "Square",
             "colorId": "purple",
             "interchangeableGroupId": "",
@@ -595,8 +595,8 @@
             }
         },
         {
-            "pieceId": "purple_part_06",
-            "displayName": "Purple Molded Part 6",
+            "pieceId": "purple_part_04",
+            "displayName": "Purple Molded Part 4",
             "shapeType": "Square",
             "colorId": "purple",
             "interchangeableGroupId": "",
@@ -688,9 +688,17 @@
             "rotation": 0
         },
         {
-            "pieceId": "blue_part_01",
+            "pieceId": "red_part_02",
             "position": {
                 "x": 1,
+                "y": 0
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "blue_part_01",
+            "position": {
+                "x": 2,
                 "y": 0
             },
             "rotation": 0
@@ -698,7 +706,7 @@
         {
             "pieceId": "blue_part_02",
             "position": {
-                "x": 2,
+                "x": 3,
                 "y": 0
             },
             "rotation": 0
@@ -706,7 +714,7 @@
         {
             "pieceId": "green_part_01",
             "position": {
-                "x": 3,
+                "x": 4,
                 "y": 0
             },
             "rotation": 0
@@ -714,21 +722,13 @@
         {
             "pieceId": "green_part_02",
             "position": {
-                "x": 4,
-                "y": 0
-            },
-            "rotation": 0
-        },
-        {
-            "pieceId": "orange_part_01",
-            "position": {
                 "x": 5,
                 "y": 0
             },
             "rotation": 0
         },
         {
-            "pieceId": "purple_part_01",
+            "pieceId": "yellow_part_01",
             "position": {
                 "x": 6,
                 "y": 0
@@ -736,7 +736,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "purple_part_02",
+            "pieceId": "orange_part_01",
             "position": {
                 "x": 7,
                 "y": 0
@@ -744,7 +744,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "purple_part_03",
+            "pieceId": "purple_part_01",
             "position": {
                 "x": 0,
                 "y": 1
@@ -752,7 +752,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "purple_part_04",
+            "pieceId": "purple_part_02",
             "position": {
                 "x": 1,
                 "y": 1
@@ -760,7 +760,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "purple_part_05",
+            "pieceId": "purple_part_03",
             "position": {
                 "x": 2,
                 "y": 1
@@ -768,7 +768,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "purple_part_06",
+            "pieceId": "purple_part_04",
             "position": {
                 "x": 3,
                 "y": 1

@@ -129,5 +129,34 @@ namespace ToyPuzzle.Tests
             Assert.That(result.Failure, Is.EqualTo(PuzzleActionFailure.NoChange));
             Assert.That(session.MoveCount, Is.Zero);
         }
+
+        [Test]
+        public void ReferenceAnchor_StartsSolvedLockedAndIsExcludedFromProgressActions()
+        {
+            LevelDefinition level = TestLevelFactory.CreateTwoPieceLevel();
+            var session = new PuzzleSession(level, "a");
+
+            Assert.That(session.ReferenceAnchorPieceId, Is.EqualTo("a"));
+            Assert.That(session.TryGetPiece("a", out PieceState anchor), Is.True);
+            Assert.That(anchor.IsReferenceAnchor, Is.True);
+            Assert.That(anchor.Pose, Is.EqualTo(anchor.Definition.TargetPose));
+            Assert.That(anchor.IsCorrect, Is.True);
+            Assert.That(anchor.IsLocked, Is.True);
+            Assert.That(session.MoveCount, Is.Zero);
+            Assert.That(session.RequestHint().PieceId, Is.EqualTo("b"));
+            Assert.That(session.TryUndo(out _), Is.False);
+
+            Assert.That(
+                session.RestoreProgress(
+                    new System.Collections.Generic.HashSet<string>(),
+                    3,
+                    2f,
+                    1),
+                Is.True);
+            Assert.That(anchor.IsCorrect, Is.True);
+            Assert.That(anchor.IsLocked, Is.True);
+            Assert.That(anchor.Pose, Is.EqualTo(anchor.Definition.TargetPose));
+            Assert.That(session.MoveCount, Is.EqualTo(3));
+        }
     }
 }

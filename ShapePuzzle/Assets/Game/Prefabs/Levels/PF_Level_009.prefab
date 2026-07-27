@@ -287,52 +287,53 @@ MonoBehaviour:
   pieceArtwork:
   - pieceId: red_part_01
     sprite: {fileID: 21300000, guid: bc19eb932a1ff3044a7025a12662d96e, type: 3}
-    sizeInCells: {x: 4.203125, y: 1.5703125}
+    sizeInCells: {x: 4.234375, y: 1.6015625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.5, y: 0.31305805}
-    startingCenterNormalized: {x: 0.63223004, y: 0.86080146}
-    sizeNormalized: {x: 0.7005208, y: 0.22433035}
+    startingCenterNormalized: {x: 0.62973, y: 0.8586586}
+    sizeNormalized: {x: 0.7057292, y: 0.22879465}
     snapDistanceNormalized: 0.055
   - pieceId: blue_part_01
     sprite: {fileID: 21300000, guid: cc4f2581f4f4b6043baa0734b01eb0f4, type: 3}
-    sizeInCells: {x: 1.3515625, y: 1.875}
+    sizeInCells: {x: 1.3828125, y: 1.90625}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.67252606, y: 0.54352677}
-    startingCenterNormalized: {x: 0.13964501, y: 0.16009142}
-    sizeNormalized: {x: 0.22526042, y: 0.26785713}
+    startingCenterNormalized: {x: 0.142145, y: 0.16223428}
+    sizeNormalized: {x: 0.23046875, y: 0.27232143}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_01
     sprite: {fileID: 21300000, guid: f09079ceab851394d8115698e0991288, type: 3}
-    sizeInCells: {x: 1.546875, y: 0.5546875}
+    sizeInCells: {x: 1.578125, y: 0.5859375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.3216146, y: 0.39341518}
-    startingCenterNormalized: {x: 0.84472996, y: 0.67935175}
-    sizeNormalized: {x: 0.2578125, y: 0.079241075}
+    startingCenterNormalized: {x: 0.4144425, y: 0.07169857}
+    sizeNormalized: {x: 0.26302084, y: 0.08370536}
     snapDistanceNormalized: 0.055
   - pieceId: green_part_02
     sprite: {fileID: 21300000, guid: 0bab764b6a751c444b5776ad8fb88885, type: 3}
-    sizeInCells: {x: 0.5546875, y: 3.1171875}
+    sizeInCells: {x: 0.5859375, y: 3.1484375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.5279948, y: 0.5764509}
-    startingCenterNormalized: {x: 0.075895, y: 0.75473}
-    sizeNormalized: {x: 0.092447914, y: 0.4453125}
+    startingCenterNormalized: {x: 0.5, y: 0.5}
+    sizeNormalized: {x: 0.09765625, y: 0.4497768}
     snapDistanceNormalized: 0.055
   - pieceId: yellow_part_01
     sprite: {fileID: 21300000, guid: b1dd7a7a4db78424898a0aca45799de8, type: 3}
-    sizeInCells: {x: 1.6484375, y: 2.34375}
+    sizeInCells: {x: 1.6796875, y: 2.375}
     offsetFromTargetPivotInCells: {x: 0, y: 0}
     bakedTargetRotation: 0
     freeformColorBlock: 1
     targetCenterNormalized: {x: 0.36393228, y: 0.58370537}
-    startingCenterNormalized: {x: 0.836605, y: 0.19223428}
-    sizeNormalized: {x: 0.2747396, y: 0.33482143}
+    startingCenterNormalized: {x: 0.834105, y: 0.19437712}
+    sizeNormalized: {x: 0.2799479, y: 0.3392857}
     snapDistanceNormalized: 0.055
+  referenceAnchorPieceId: green_part_02
   sourceJsonPath: Assets/Game/Data/Levels/Source/level_009_sailboat.json

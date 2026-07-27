@@ -17,6 +17,7 @@ namespace ToyPuzzle.Editor
         private const float ArtworkFill = 0.70f;
         private const float StartMargin = 0.012f;
         private const int CandidateGridSize = 25;
+        private const int FragmentPaddingPixels = 2;
 
         private static readonly string[] ColorNames = { "red", "blue", "green", "yellow", "orange", "purple", "teal", "cream" };
         private static readonly Color[] VibrantPalette =
@@ -75,6 +76,7 @@ namespace ToyPuzzle.Editor
 
             var artworkByLevel = new Dictionary<int, PuzzlePieceArtwork[]>();
             var pieceIdsByLevel = new Dictionary<int, string[]>();
+            var anchorIdsByLevel = new Dictionary<int, string>();
             int pieceCount = 0;
             for (int levelNumber = FirstGeneratedLevel; levelNumber <= lastGeneratedLevel; levelNumber++)
             {
@@ -97,6 +99,7 @@ namespace ToyPuzzle.Editor
                         exception);
                 }
                 artworkByLevel.Add(levelNumber, artwork);
+                anchorIdsByLevel.Add(levelNumber, SelectReferenceAnchorPieceId(artwork));
                 var ids = new string[artwork.Length];
                 for (int i = 0; i < artwork.Length; i++) ids[i] = artwork[i].pieceId;
                 pieceIdsByLevel.Add(levelNumber, ids);
@@ -118,6 +121,7 @@ namespace ToyPuzzle.Editor
                     PuzzleLevelPrefab editable = root.GetComponent<PuzzleLevelPrefab>();
                     if (editable == null) throw new InvalidOperationException("Prefab is missing PuzzleLevelPrefab: " + prefabPath);
                     editable.SetPieceArtwork(artworkByLevel[levelNumber]);
+                    editable.SetReferenceAnchorPieceId(anchorIdsByLevel[levelNumber]);
                     EditorUtility.SetDirty(editable);
                     PrefabUtility.SaveAsPrefabAsset(root, prefabPath);
                 }
@@ -240,9 +244,14 @@ namespace ToyPuzzle.Editor
                 for (int regionIndex = 0; regionIndex < regions.Count; regionIndex++)
                 {
                     PartRegion region = regions[regionIndex];
-                    region.Bounds = FindLabelBounds(labels, canvasWidth, canvasHeight, regionIndex);
-                    if (region.Bounds.width <= 0 || region.Bounds.height <= 0)
+                    RectInt contentBounds = FindLabelBounds(labels, canvasWidth, canvasHeight, regionIndex);
+                    if (contentBounds.width <= 0 || contentBounds.height <= 0)
                         throw new InvalidOperationException("Generated region " + region.PieceId + " has no pixels.");
+                    region.Bounds = ExpandBounds(
+                        contentBounds,
+                        FragmentPaddingPixels,
+                        canvasWidth,
+                        canvasHeight);
                     Color32[] pixels = BuildFragmentPixels(composite, labels, canvasWidth, region.Bounds, regionIndex);
                     string spritePath = levelFolder + "/level_" + level.levelNumber.ToString("D3") + "_" + region.PieceId + ".png";
                     expectedSpritePaths.Add(spritePath);
@@ -256,7 +265,8 @@ namespace ToyPuzzle.Editor
                     region.Size = new Vector2((float)region.Bounds.width / canvasWidth, (float)region.Bounds.height / canvasHeight);
                 }
 
-                PlaceStartingCenters(regions, level.levelNumber);
+                PartRegion referenceAnchor = SelectReferenceAnchor(regions);
+                PlaceStartingCenters(regions, referenceAnchor, level.levelNumber);
                 var result = new PuzzlePieceArtwork[regions.Count];
                 for (int i = 0; i < regions.Count; i++)
                 {
@@ -281,6 +291,32 @@ namespace ToyPuzzle.Editor
             {
                 UnityEngine.Object.DestroyImmediate(source);
             }
+        }
+
+        private static string SelectReferenceAnchorPieceId(PuzzlePieceArtwork[] artwork)
+        {
+            if (artwork == null || artwork.Length == 0) return string.Empty;
+            string bestId = string.Empty;
+            float bestDistance = float.MaxValue;
+            float bestArea = float.MinValue;
+            for (int i = 0; i < artwork.Length; i++)
+            {
+                PuzzlePieceArtwork candidate = artwork[i];
+                if (candidate == null || !candidate.IsValid || !candidate.freeformColorBlock) continue;
+                float distance = (candidate.targetCenterNormalized - new Vector2(0.5f, 0.5f)).sqrMagnitude;
+                float area = candidate.sizeNormalized.x * candidate.sizeNormalized.y;
+                if (distance > bestDistance + 0.000001f) continue;
+                if (Mathf.Abs(distance - bestDistance) <= 0.000001f && area < bestArea - 0.000001f) continue;
+                if (Mathf.Abs(distance - bestDistance) <= 0.000001f &&
+                    Mathf.Abs(area - bestArea) <= 0.000001f &&
+                    !string.IsNullOrEmpty(bestId) &&
+                    string.CompareOrdinal(candidate.pieceId, bestId) >= 0)
+                    continue;
+                bestId = candidate.pieceId;
+                bestDistance = distance;
+                bestArea = area;
+            }
+            return bestId;
         }
 
         private static List<PartRegion> FindSeedRegions(int[] seedOwners, int width, int height, int foregroundPixels)
@@ -1085,10 +1121,40 @@ namespace ToyPuzzle.Editor
             return 10;
         }
 
-        private static void PlaceStartingCenters(List<PartRegion> regions, int levelNumber)
+        private static PartRegion SelectReferenceAnchor(List<PartRegion> regions)
+        {
+            PartRegion best = null;
+            float bestDistance = float.MaxValue;
+            float bestArea = float.MinValue;
+            for (int i = 0; i < regions.Count; i++)
+            {
+                PartRegion candidate = regions[i];
+                float distance = (candidate.TargetCenter - new Vector2(0.5f, 0.5f)).sqrMagnitude;
+                float area = candidate.Size.x * candidate.Size.y;
+                bool closer = distance < bestDistance - 0.000001f;
+                bool sameDistance = Mathf.Abs(distance - bestDistance) <= 0.000001f;
+                bool larger = area > bestArea + 0.000001f;
+                bool stableTie = sameDistance && Mathf.Abs(area - bestArea) <= 0.000001f &&
+                                 (best == null ||
+                                  string.CompareOrdinal(candidate.PieceId, best.PieceId) < 0);
+                if (!closer && !(sameDistance && larger) && !stableTie) continue;
+                best = candidate;
+                bestDistance = distance;
+                bestArea = area;
+            }
+            return best;
+        }
+
+        private static void PlaceStartingCenters(
+            List<PartRegion> regions,
+            PartRegion referenceAnchor,
+            int levelNumber)
         {
             var order = new List<int>(regions.Count);
-            for (int i = 0; i < regions.Count; i++) order.Add(i);
+            for (int i = 0; i < regions.Count; i++)
+            {
+                if (regions[i] != referenceAnchor) order.Add(i);
+            }
             order.Sort((left, right) =>
             {
                 float leftArea = regions[left].Size.x * regions[left].Size.y;
@@ -1098,6 +1164,14 @@ namespace ToyPuzzle.Editor
             });
 
             var placed = new List<Rect>();
+            if (referenceAnchor != null)
+            {
+                referenceAnchor.StartingCenter = new Vector2(0.5f, 0.5f);
+                placed.Add(RectFromCenter(
+                    referenceAnchor.StartingCenter,
+                    referenceAnchor.Size,
+                    StartMargin * 1.5f));
+            }
             for (int orderIndex = 0; orderIndex < order.Count; orderIndex++)
             {
                 PartRegion region = regions[order[orderIndex]];
@@ -1126,9 +1200,12 @@ namespace ToyPuzzle.Editor
                             overlap += OverlapArea(candidateRect, placed[placedIndex]);
                             nearest = Mathf.Min(nearest, Vector2.Distance(candidate, placed[placedIndex].center));
                         }
-                        float targetDistance = Vector2.Distance(candidate, region.TargetCenter);
+                        float centerDistance = Vector2.Distance(candidate, new Vector2(0.5f, 0.5f));
+                        float edgeDistance = Mathf.Min(
+                            Mathf.Min(candidate.x - minX, maxX - candidate.x),
+                            Mathf.Min(candidate.y - minY, maxY - candidate.y));
                         float wobble = Mathf.Repeat((gridX + 1) * 0.173f + (gridY + 1) * 0.317f + levelNumber * 0.071f + orderIndex * 0.113f, 1f) * 0.001f;
-                        float score = targetDistance * 3f + nearest * 0.35f + wobble;
+                        float score = centerDistance * 4f - edgeDistance * 2f + nearest * 0.45f + wobble;
                         if (overlap < bestOverlap - 0.000001f || (Mathf.Abs(overlap - bestOverlap) <= 0.000001f && score > bestScore))
                         {
                             best = candidate;
@@ -1311,6 +1388,15 @@ namespace ToyPuzzle.Editor
             return maxX < minX || maxY < minY ? new RectInt() : new RectInt(minX, minY, maxX - minX + 1, maxY - minY + 1);
         }
 
+        private static RectInt ExpandBounds(RectInt bounds, int padding, int width, int height)
+        {
+            int xMin = Mathf.Max(0, bounds.xMin - Mathf.Max(0, padding));
+            int yMin = Mathf.Max(0, bounds.yMin - Mathf.Max(0, padding));
+            int xMax = Mathf.Min(width, bounds.xMax + Mathf.Max(0, padding));
+            int yMax = Mathf.Min(height, bounds.yMax + Mathf.Max(0, padding));
+            return new RectInt(xMin, yMin, xMax - xMin, yMax - yMin);
+        }
+
         private static Color32[] BuildFragmentPixels(Color32[] composite, int[] labels, int canvasWidth, RectInt bounds, int label)
         {
             var pixels = new Color32[bounds.width * bounds.height];
@@ -1324,7 +1410,44 @@ namespace ToyPuzzle.Editor
                     if (labels[sourceIndex] == label) pixels[y * bounds.width + x] = composite[sourceIndex];
                 }
             }
+            BleedTransparentRgb(pixels, bounds.width, bounds.height, FragmentPaddingPixels + 1);
             return pixels;
+        }
+
+        private static void BleedTransparentRgb(Color32[] pixels, int width, int height, int radius)
+        {
+            Color32[] source = new Color32[pixels.Length];
+            Array.Copy(pixels, source, pixels.Length);
+            int searchRadius = Mathf.Max(1, radius);
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int index = y * width + x;
+                    if (source[index].a > 0) continue;
+                    int bestDistance = int.MaxValue;
+                    Color32 nearest = default;
+                    for (int dy = -searchRadius; dy <= searchRadius; dy++)
+                    {
+                        int sampleY = y + dy;
+                        if (sampleY < 0 || sampleY >= height) continue;
+                        for (int dx = -searchRadius; dx <= searchRadius; dx++)
+                        {
+                            int sampleX = x + dx;
+                            if (sampleX < 0 || sampleX >= width) continue;
+                            int distance = dx * dx + dy * dy;
+                            if (distance >= bestDistance) continue;
+                            Color32 sample = source[sampleY * width + sampleX];
+                            if (sample.a == 0) continue;
+                            bestDistance = distance;
+                            nearest = sample;
+                        }
+                    }
+                    if (bestDistance == int.MaxValue) continue;
+                    nearest.a = 0;
+                    pixels[index] = nearest;
+                }
+            }
         }
 
         private static void DeleteObsoleteLevelSprites(string levelFolder, HashSet<string> expectedPaths)

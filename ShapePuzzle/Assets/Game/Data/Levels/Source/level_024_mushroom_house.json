@@ -118,10 +118,10 @@
             }
         },
         {
-            "pieceId": "red_part_03",
-            "displayName": "Red Molded Part 3",
+            "pieceId": "blue_part_01",
+            "displayName": "Blue Molded Part 1",
             "shapeType": "Square",
-            "colorId": "red",
+            "colorId": "blue",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -171,10 +171,10 @@
             }
         },
         {
-            "pieceId": "blue_part_01",
-            "displayName": "Blue Molded Part 1",
+            "pieceId": "green_part_01",
+            "displayName": "Green Molded Part 1",
             "shapeType": "Square",
-            "colorId": "blue",
+            "colorId": "green",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -224,10 +224,10 @@
             }
         },
         {
-            "pieceId": "blue_part_02",
-            "displayName": "Blue Molded Part 2",
+            "pieceId": "green_part_02",
+            "displayName": "Green Molded Part 2",
             "shapeType": "Square",
-            "colorId": "blue",
+            "colorId": "green",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -277,8 +277,8 @@
             }
         },
         {
-            "pieceId": "green_part_01",
-            "displayName": "Green Molded Part 1",
+            "pieceId": "green_part_03",
+            "displayName": "Green Molded Part 3",
             "shapeType": "Square",
             "colorId": "green",
             "interchangeableGroupId": "",
@@ -330,10 +330,10 @@
             }
         },
         {
-            "pieceId": "green_part_02",
-            "displayName": "Green Molded Part 2",
+            "pieceId": "yellow_part_01",
+            "displayName": "Yellow Molded Part 1",
             "shapeType": "Square",
-            "colorId": "green",
+            "colorId": "yellow",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -383,8 +383,8 @@
             }
         },
         {
-            "pieceId": "yellow_part_01",
-            "displayName": "Yellow Molded Part 1",
+            "pieceId": "yellow_part_02",
+            "displayName": "Yellow Molded Part 2",
             "shapeType": "Square",
             "colorId": "yellow",
             "interchangeableGroupId": "",
@@ -436,10 +436,10 @@
             }
         },
         {
-            "pieceId": "yellow_part_02",
-            "displayName": "Yellow Molded Part 2",
+            "pieceId": "orange_part_01",
+            "displayName": "Orange Molded Part 1",
             "shapeType": "Square",
-            "colorId": "yellow",
+            "colorId": "orange",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -537,7 +537,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "red_part_03",
+            "pieceId": "blue_part_01",
             "position": {
                 "x": 2,
                 "y": 0
@@ -545,7 +545,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "blue_part_01",
+            "pieceId": "green_part_01",
             "position": {
                 "x": 3,
                 "y": 0
@@ -553,7 +553,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "blue_part_02",
+            "pieceId": "green_part_02",
             "position": {
                 "x": 4,
                 "y": 0
@@ -561,7 +561,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "green_part_01",
+            "pieceId": "green_part_03",
             "position": {
                 "x": 5,
                 "y": 0
@@ -569,7 +569,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "green_part_02",
+            "pieceId": "yellow_part_01",
             "position": {
                 "x": 6,
                 "y": 0
@@ -577,7 +577,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "yellow_part_01",
+            "pieceId": "yellow_part_02",
             "position": {
                 "x": 0,
                 "y": 1
@@ -585,7 +585,7 @@
             "rotation": 0
         },
         {
-            "pieceId": "yellow_part_02",
+            "pieceId": "orange_part_01",
             "position": {
                 "x": 1,
                 "y": 1

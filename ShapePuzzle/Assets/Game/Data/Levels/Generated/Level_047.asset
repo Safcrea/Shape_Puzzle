@@ -105,10 +105,10 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: red_part_03
-      displayName: Red Molded Part 3
+    - pieceId: blue_part_01
+      displayName: Blue Molded Part 1
       shapeType: 1
-      colorId: red
+      colorId: blue
       interchangeableGroupId: 
       footprint:
       - x: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_01
-      displayName: Blue Molded Part 1
+    - pieceId: blue_part_02
+      displayName: Blue Molded Part 2
       shapeType: 1
       colorId: blue
       interchangeableGroupId: 
@@ -185,8 +185,8 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_02
-      displayName: Blue Molded Part 2
+    - pieceId: blue_part_03
+      displayName: Blue Molded Part 3
       shapeType: 1
       colorId: blue
       interchangeableGroupId: 
@@ -225,8 +225,8 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_03
-      displayName: Blue Molded Part 3
+    - pieceId: blue_part_04
+      displayName: Blue Molded Part 4
       shapeType: 1
       colorId: blue
       interchangeableGroupId: 
@@ -265,10 +265,10 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: blue_part_04
-      displayName: Blue Molded Part 4
+    - pieceId: green_part_01
+      displayName: Green Molded Part 1
       shapeType: 1
-      colorId: blue
+      colorId: green
       interchangeableGroupId: 
       footprint:
       - x: 0
@@ -305,8 +305,8 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_01
-      displayName: Green Molded Part 1
+    - pieceId: green_part_02
+      displayName: Green Molded Part 2
       shapeType: 1
       colorId: green
       interchangeableGroupId: 
@@ -345,8 +345,8 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_02
-      displayName: Green Molded Part 2
+    - pieceId: green_part_03
+      displayName: Green Molded Part 3
       shapeType: 1
       colorId: green
       interchangeableGroupId: 
@@ -385,8 +385,8 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_03
-      displayName: Green Molded Part 3
+    - pieceId: green_part_04
+      displayName: Green Molded Part 4
       shapeType: 1
       colorId: green
       interchangeableGroupId: 
@@ -425,8 +425,8 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_04
-      displayName: Green Molded Part 4
+    - pieceId: green_part_05
+      displayName: Green Molded Part 5
       shapeType: 1
       colorId: green
       interchangeableGroupId: 
@@ -465,8 +465,8 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_05
-      displayName: Green Molded Part 5
+    - pieceId: green_part_06
+      displayName: Green Molded Part 6
       shapeType: 1
       colorId: green
       interchangeableGroupId: 
@@ -505,10 +505,10 @@ MonoBehaviour:
         bevelSize: 0.08
         insetPanel: 0
         styleVariant: separate_color_part
-    - pieceId: green_part_06
-      displayName: Green Molded Part 6
+    - pieceId: yellow_part_01
+      displayName: Yellow Molded Part 1
       shapeType: 1
-      colorId: green
+      colorId: yellow
       interchangeableGroupId: 
       footprint:
       - x: 0

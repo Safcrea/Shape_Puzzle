@@ -118,10 +118,10 @@
             }
         },
         {
-            "pieceId": "red_part_03",
-            "displayName": "Red Molded Part 3",
+            "pieceId": "blue_part_01",
+            "displayName": "Blue Molded Part 1",
             "shapeType": "Square",
-            "colorId": "red",
+            "colorId": "blue",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -171,8 +171,8 @@
             }
         },
         {
-            "pieceId": "blue_part_01",
-            "displayName": "Blue Molded Part 1",
+            "pieceId": "blue_part_02",
+            "displayName": "Blue Molded Part 2",
             "shapeType": "Square",
             "colorId": "blue",
             "interchangeableGroupId": "",
@@ -224,8 +224,8 @@
             }
         },
         {
-            "pieceId": "blue_part_02",
-            "displayName": "Blue Molded Part 2",
+            "pieceId": "blue_part_03",
+            "displayName": "Blue Molded Part 3",
             "shapeType": "Square",
             "colorId": "blue",
             "interchangeableGroupId": "",
@@ -277,8 +277,8 @@
             }
         },
         {
-            "pieceId": "blue_part_03",
-            "displayName": "Blue Molded Part 3",
+            "pieceId": "blue_part_04",
+            "displayName": "Blue Molded Part 4",
             "shapeType": "Square",
             "colorId": "blue",
             "interchangeableGroupId": "",
@@ -330,10 +330,10 @@
             }
         },
         {
-            "pieceId": "blue_part_04",
-            "displayName": "Blue Molded Part 4",
+            "pieceId": "green_part_01",
+            "displayName": "Green Molded Part 1",
             "shapeType": "Square",
-            "colorId": "blue",
+            "colorId": "green",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -383,8 +383,8 @@
             }
         },
         {
-            "pieceId": "green_part_01",
-            "displayName": "Green Molded Part 1",
+            "pieceId": "green_part_02",
+            "displayName": "Green Molded Part 2",
             "shapeType": "Square",
             "colorId": "green",
             "interchangeableGroupId": "",
@@ -436,8 +436,8 @@
             }
         },
         {
-            "pieceId": "green_part_02",
-            "displayName": "Green Molded Part 2",
+            "pieceId": "green_part_03",
+            "displayName": "Green Molded Part 3",
             "shapeType": "Square",
             "colorId": "green",
             "interchangeableGroupId": "",
@@ -489,8 +489,8 @@
             }
         },
         {
-            "pieceId": "green_part_03",
-            "displayName": "Green Molded Part 3",
+            "pieceId": "green_part_04",
+            "displayName": "Green Molded Part 4",
             "shapeType": "Square",
             "colorId": "green",
             "interchangeableGroupId": "",
@@ -542,8 +542,8 @@
             }
         },
         {
-            "pieceId": "green_part_04",
-            "displayName": "Green Molded Part 4",
+            "pieceId": "green_part_05",
+            "displayName": "Green Molded Part 5",
             "shapeType": "Square",
             "colorId": "green",
             "interchangeableGroupId": "",
@@ -595,8 +595,8 @@
             }
         },
         {
-            "pieceId": "green_part_05",
-            "displayName": "Green Molded Part 5",
+            "pieceId": "green_part_06",
+            "displayName": "Green Molded Part 6",
             "shapeType": "Square",
             "colorId": "green",
             "interchangeableGroupId": "",
@@ -648,10 +648,10 @@
             }
         },
         {
-            "pieceId": "green_part_06",
-            "displayName": "Green Molded Part 6",
+            "pieceId": "yellow_part_01",
+            "displayName": "Yellow Molded Part 1",
             "shapeType": "Square",
-            "colorId": "green",
+            "colorId": "yellow",
             "interchangeableGroupId": "",
             "footprint": [
                 {
@@ -749,17 +749,9 @@
             "rotation": 0
         },
         {
-            "pieceId": "red_part_03",
-            "position": {
-                "x": 2,
-                "y": 0
-            },
-            "rotation": 0
-        },
-        {
             "pieceId": "blue_part_01",
             "position": {
-                "x": 3,
+                "x": 2,
                 "y": 0
             },
             "rotation": 0
@@ -767,7 +759,7 @@
         {
             "pieceId": "blue_part_02",
             "position": {
-                "x": 4,
+                "x": 3,
                 "y": 0
             },
             "rotation": 0
@@ -775,7 +767,7 @@
         {
             "pieceId": "blue_part_03",
             "position": {
-                "x": 5,
+                "x": 4,
                 "y": 0
             },
             "rotation": 0
@@ -783,7 +775,7 @@
         {
             "pieceId": "blue_part_04",
             "position": {
-                "x": 6,
+                "x": 5,
                 "y": 0
             },
             "rotation": 0
@@ -791,7 +783,7 @@
         {
             "pieceId": "green_part_01",
             "position": {
-                "x": 7,
+                "x": 6,
                 "y": 0
             },
             "rotation": 0
@@ -799,7 +791,7 @@
         {
             "pieceId": "green_part_02",
             "position": {
-                "x": 8,
+                "x": 7,
                 "y": 0
             },
             "rotation": 0
@@ -807,15 +799,15 @@
         {
             "pieceId": "green_part_03",
             "position": {
-                "x": 0,
-                "y": 1
+                "x": 8,
+                "y": 0
             },
             "rotation": 0
         },
         {
             "pieceId": "green_part_04",
             "position": {
-                "x": 1,
+                "x": 0,
                 "y": 1
             },
             "rotation": 0
@@ -823,13 +815,21 @@
         {
             "pieceId": "green_part_05",
             "position": {
-                "x": 2,
+                "x": 1,
                 "y": 1
             },
             "rotation": 0
         },
         {
             "pieceId": "green_part_06",
+            "position": {
+                "x": 2,
+                "y": 1
+            },
+            "rotation": 0
+        },
+        {
+            "pieceId": "yellow_part_01",
             "position": {
                 "x": 3,
                 "y": 1
