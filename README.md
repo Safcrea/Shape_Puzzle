@@ -4,7 +4,9 @@ A colorful **2D shape-assembly puzzle game** where players drag and rotate indiv
 
 The game is designed for mobile devices with simple controls, short levels, clear visual feedback, and gradually increasing difficulty.
 
-<img width="493" height="884" alt="ShapeToyPuzzle_01" src="https://github.com/user-attachments/assets/f1cc2b91-cd4c-4888-bfb9-2c35d92b17d1" />
+
+<img width="493" height="884" alt="ShapeToyPuzzle_01" src="https://github.com/user-attachments/assets/9507d41a-45d2-4b2d-b65e-fee62c94eecb" />
+
 
 
 ## Game Overview
